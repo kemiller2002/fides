@@ -16,14 +16,25 @@ jobs:
       - name: Check out Fides
         uses: actions/checkout@v4
 
-      - name: Install pinned Conditor and Dokimos CLIs
+      - name: Set up .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Build pinned Conditor and install pinned Dokimos CLI
         shell: bash
         run: |
           set -euo pipefail
 
-          curl -fL             -o /tmp/conditor             https://github.com/kemiller2002/conditor/releases/download/v0.4.0/conditor-linux-x64
-          echo "0cedab855c52d8161269e554b2793b6474a8355dd033afc70abd4cfe2444daae  /tmp/conditor" | sha256sum -c -
-          chmod +x /tmp/conditor
+          CONDITOR_COMMIT="2211e8c0e6849fe16e38d9c16ee5629a05d647d6"
+
+          git clone --filter=blob:none --no-checkout https://github.com/kemiller2002/conditor.git /tmp/conditor-src
+          git -C /tmp/conditor-src fetch --depth=1 origin "$CONDITOR_COMMIT"
+          git -C /tmp/conditor-src checkout --detach FETCH_HEAD
+          test "$(git -C /tmp/conditor-src rev-parse HEAD)" = "$CONDITOR_COMMIT"
+
+          dotnet publish /tmp/conditor-src/src/Conditor.Cli/Conditor.Cli.fsproj             --configuration Release             --runtime linux-x64             --self-contained true             -p:PublishSingleFile=true             --output /tmp/conditor-publish
+          test -x /tmp/conditor-publish/conditor
 
           mkdir -p /tmp/dokimos-bin
           curl -fL             -o /tmp/dokimos-linux-x64.tar.gz             https://github.com/kemiller2002/dokimos/releases/download/dokimos-v0.2.0/dokimos-linux-x64.tar.gz
@@ -71,11 +82,12 @@ jobs:
         run: |
           set -euo pipefail
           export PATH="/tmp/dokimos-bin:$PATH"
+          CONDITOR="/tmp/conditor-publish/conditor"
 
-          /tmp/conditor plan --manifest ./conditor.json --target .
-          /tmp/conditor init --manifest ./conditor.json --target .
-          /tmp/conditor verify --manifest ./conditor.json --target .
-          /tmp/conditor status --json --manifest ./conditor.json --target . > /tmp/conditor-status.json
+          "$CONDITOR" plan --manifest ./conditor.json --target .
+          "$CONDITOR" init --manifest ./conditor.json --target .
+          "$CONDITOR" verify --manifest ./conditor.json --target .
+          "$CONDITOR" status --json --manifest ./conditor.json --target . > /tmp/conditor-status.json
           cat /tmp/conditor-status.json
           grep -Eq '"healthy"[[:space:]]*:[[:space:]]*true' /tmp/conditor-status.json
 
