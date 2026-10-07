@@ -1,7 +1,7 @@
 {
   "schemaVersion": 4,
   "project": "fides",
-  "manifestSha256": "905f7323eb826a72efb6654364051ef8f52e93424c7adcbc61729ded469dfb83",
+  "manifestSha256": "c91292a25ba653c15ab83408420b2e2418b14097fda781dd59c04548dcac9e1e",
   "manifest": {
     "schemaVersion": 1,
     "name": "fides",
@@ -12,8 +12,38 @@
     },
     "components": [
       {
+        "id": "praxis",
+        "version": "3.7.2",
+        "required": true
+      },
+      {
+        "id": "ordo",
+        "version": "1.4.2",
+        "required": true
+      },
+      {
+        "id": "percepta",
+        "version": "0.1.0",
+        "required": true
+      },
+      {
         "id": "dokimos",
         "version": "0.2.0",
+        "required": true
+      },
+      {
+        "id": "visual-engineering",
+        "version": "1.0.1",
+        "required": true
+      },
+      {
+        "id": "communication-engineering",
+        "version": "1.0.0",
+        "required": true
+      },
+      {
+        "id": "tutela",
+        "version": "0.1.0",
         "required": true
       }
     ],
@@ -24,12 +54,66 @@
   },
   "components": [
     {
+      "id": "praxis",
+      "version": "3.7.2",
+      "distribution": "host-tool",
+      "package": "praxis",
+      "descriptorSha256": "476164cdd93d38e8b7960f37253334f1636204b6950c82e9f993605b269f0d45",
+      "authority": "embedded-component-descriptor",
+      "sourceReference": "host:praxis@3.7.2"
+    },
+    {
+      "id": "ordo",
+      "version": "1.4.2",
+      "distribution": "host-tool",
+      "package": "ordo",
+      "descriptorSha256": "ee057aa4a0c4cd5180269fd262e5570ff6146035e52fd6d17a0baede0df21f5c",
+      "authority": "embedded-component-descriptor",
+      "sourceReference": "host:ordo@1.4.2"
+    },
+    {
+      "id": "percepta",
+      "version": "0.1.0",
+      "distribution": "host-tool",
+      "package": "percepta-repo",
+      "descriptorSha256": "d948f27677d84168fe0236801640e3e2126b9c0170a71d9c481d13e9f5d8dc03",
+      "authority": "embedded-component-descriptor",
+      "sourceReference": "host:percepta@0.1.0"
+    },
+    {
       "id": "dokimos",
       "version": "0.2.0",
       "distribution": "host-tool",
       "package": "dokimos",
       "authority": "registry-resolved-set",
       "sourceReference": "resolved-set=sha256:cd8d8d0482c5c4750f4bb31d28bc79e9597d3be4f6264955691e3aebd86cb6d2;profile=sha256:786a6336fbb4b940e5666ad45e0ed93d6e06c3aeafc1b35573c97343b0523156;catalog=sha256:2a4abb1efb8a20f5b36cae7ed3b5bde0a99e3e182f9bc9349770e9905f109f67;systemId=dokimos;version=0.2.0;repository=kemiller2002/dokimos;tag=dokimos-v0.2.0;sourceCommit=e641048c52edd8755c2964b6bafa4ae860e34062;contract=echelon.repository-lifecycle/v1"
+    },
+    {
+      "id": "visual-engineering",
+      "version": "1.0.1",
+      "distribution": "lifecycle-npm",
+      "package": "@echelon-foundry/visual-engineering",
+      "descriptorSha256": "c352c4457b3a0bf08894c6b667eaee83ec4e8f7c993537eddb6d4f175a3cffad",
+      "authority": "embedded-component-descriptor",
+      "sourceReference": "@echelon-foundry/visual-engineering@1.0.1"
+    },
+    {
+      "id": "communication-engineering",
+      "version": "1.0.0",
+      "distribution": "lifecycle-npm",
+      "package": "@echelon-foundry/communication-engineering",
+      "descriptorSha256": "0884274dbd674238af85d32986473e2920955b3d8faf3fc88036335c3b49a8df",
+      "authority": "embedded-component-descriptor",
+      "sourceReference": "github:kemiller2002/communication-engineering#707396de512065fe35aff6fcf82cd28118df14b3|node:bin/communication-engineering.mjs"
+    },
+    {
+      "id": "tutela",
+      "version": "0.1.0",
+      "distribution": "lifecycle-npm",
+      "package": "@echelon-foundry/tutela",
+      "descriptorSha256": "c3749fa186d188a8cbe14807b3581dace40cd00ea54222d9cfa1b29a347bb5c1",
+      "authority": "embedded-component-descriptor",
+      "sourceReference": "github:kemiller2002/tutela#94afcc91a84bd3b94a4ee639f169d0727eaac727|node:bin/tutela.mjs"
     }
   ],
   "requirements": []

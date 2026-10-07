@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "protocolVersion": "1.0.0",
+  "repository": "fides",
+  "actor": "ros-bootstrap",
+  "startedAt": "2026-10-07T01:09:47.536Z",
+  "updatedAt": "2026-10-07T01:09:47.536Z",
+  "baselineDirtyPaths": [],
+  "workItems": [
+    {
+      "id": "ROS-INSTALL-3-7-2",
+      "type": "mechanical",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "installation",
+          "path": ".ros/installation.json"
+        }
+      ],
+      "updatedAt": "2026-10-07T01:09:47.536Z",
+      "completedAt": "2026-10-07T01:09:47.536Z"
+    }
+  ]
+}

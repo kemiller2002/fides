@@ -1,0 +1,350 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tutela Security Assessment",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "subject",
+    "posture",
+    "invariantResults",
+    "unknownSecurityEffects"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "subject": {
+      "type": "object",
+      "required": [
+        "repository",
+        "ref"
+      ],
+      "properties": {
+        "repository": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "string"
+        },
+        "artifactHash": {
+          "type": "object",
+          "required": [
+            "algorithm",
+            "value"
+          ],
+          "properties": {
+            "algorithm": {
+              "enum": [
+                "sha256",
+                "sha512"
+              ]
+            },
+            "value": {
+              "type": "string",
+              "minLength": 64
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "posture": {
+      "enum": [
+        "PASS",
+        "CONDITIONAL",
+        "BLOCKED",
+        "INDETERMINATE"
+      ]
+    },
+    "scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "invariantResults": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "state",
+          "evidence"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "state": {
+            "enum": [
+              "Verified",
+              "Violated",
+              "Unknown",
+              "Stale",
+              "NotApplicable"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "contradictoryEvidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "implementedBy": {
+            "type": "string"
+          },
+          "requiresIndependentVerification": {
+            "type": "boolean"
+          },
+          "verifierAttestations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "verifier",
+                "independent",
+                "verifierIdentity",
+                "separationBasis",
+                "evidence"
+              ],
+              "properties": {
+                "verifier": {
+                  "type": "string"
+                },
+                "independent": {
+                  "const": true
+                },
+                "verifierIdentity": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "value"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "separationBasis": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "evidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "threats": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "evidence.schema.json"
+      }
+    },
+    "unknownSecurityEffects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "staleEvidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exceptions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "trustRootChange": {
+      "type": "object",
+      "required": [
+        "id",
+        "paths",
+        "rationale",
+        "changedBy",
+        "changedByIdentity",
+        "previousDigest",
+        "newDigest",
+        "approvals"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "changedBy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "previousDigest": {
+          "type": "string",
+          "minLength": 1
+        },
+        "newDigest": {
+          "type": "string",
+          "minLength": 1
+        },
+        "weakening": {
+          "type": "boolean"
+        },
+        "weakeningExplicitlyAuthorized": {
+          "type": "boolean"
+        },
+        "approvals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "approved",
+              "approverIdentity",
+              "role",
+              "evidence"
+            ],
+            "properties": {
+              "approved": {
+                "const": true
+              },
+              "approverIdentity": {
+                "type": "object",
+                "required": [
+                  "kind",
+                  "provider",
+                  "subjectId",
+                  "bindingVerified",
+                  "bindingEvidence"
+                ],
+                "properties": {
+                  "kind": {
+                    "type": "string"
+                  },
+                  "provider": {
+                    "type": "string"
+                  },
+                  "subjectId": {
+                    "type": "string",
+                    "pattern": "^[0-9]+$"
+                  },
+                  "login": {
+                    "type": "string"
+                  },
+                  "bindingVerified": {
+                    "const": true
+                  },
+                  "bindingEvidence": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "minItems": 1
+                  }
+                },
+                "additionalProperties": false
+              },
+              "role": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "changedByIdentity": {
+          "type": "object",
+          "required": [
+            "kind",
+            "provider",
+            "subjectId",
+            "bindingVerified",
+            "bindingEvidence"
+          ],
+          "properties": {
+            "kind": {
+              "type": "string"
+            },
+            "provider": {
+              "type": "string"
+            },
+            "subjectId": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            },
+            "login": {
+              "type": "string"
+            },
+            "bindingVerified": {
+              "const": true
+            },
+            "bindingEvidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

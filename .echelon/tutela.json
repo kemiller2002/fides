@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "tool": "tutela",
+  "source": "github:kemiller2002/tutela",
+  "installedVersion": "0.1.0",
+  "mode": "fail-closed",
+  "unknownSecurityEffectsBlockRelease": true,
+  "selfCertificationAllowed": false,
+  "securityClaim": "evidence-scoped",
+  "managedArtifacts": [
+    {
+      "path": ".tutela/README.md",
+      "ownership": "tool-owned",
+      "sha256": "db2417cbdc4f2cb64644b7a8b7e62782992bce98aa05fd5fd350692aaefe20fe"
+    },
+    {
+      "path": ".tutela/schemas/evidence.schema.json",
+      "ownership": "tool-owned",
+      "sha256": "8b036168540175f9a47f3b832a48f1fe56805c27278f64caae785e6f3bdffdc4"
+    },
+    {
+      "path": ".tutela/schemas/exception.schema.json",
+      "ownership": "tool-owned",
+      "sha256": "de3c204549d1380424e836e8e4b9fb546f2e4b4f843e130a3f4705367d0bd019"
+    },
+    {
+      "path": ".tutela/schemas/security-assessment.schema.json",
+      "ownership": "tool-owned",
+      "sha256": "a582b0b755276ccafba4b206b11302f38221ef5a4efa73b9b3b6e8ea7e833806"
+    },
+    {
+      "path": ".tutela/schemas/security-invariant.schema.json",
+      "ownership": "tool-owned",
+      "sha256": "31c9c3fc44ea1dabb799e0347073772a4ab8bfa5d6890717ae5f96ec18f72012"
+    },
+    {
+      "path": ".tutela/schemas/threat.schema.json",
+      "ownership": "tool-owned",
+      "sha256": "4aeecc22b0a9614b355e1e0b3c102b971a67213ad585debeaafdd2542d1187ab"
+    },
+    {
+      "path": ".tutela/SECURITY-PROFILE.md",
+      "ownership": "tool-owned",
+      "sha256": "f84a4ab656589cc7adc4503e5bc1ac1b26786c069cac7f35a4a14aff1e90a3a0"
+    },
+    {
+      "path": "AGENTS.md#tutela-region",
+      "ownership": "shared-region",
+      "sha256": "b9244143756e596ee17b51580e3b7f9f7142ad1eac3b75b906b45a37acf97084"
+    }
+  ]
+}
