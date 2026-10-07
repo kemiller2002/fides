@@ -59,8 +59,9 @@ jobs:
           ORDO="$(find /tmp/ordo-dist -type f -name ordo -print -quit)"
           test -n "$ORDO"
           cp -a "$(dirname "$ORDO")/." /tmp/echelon-bin/
-          test -f /tmp/echelon-bin/ordo-bin
-          chmod +x /tmp/echelon-bin/ordo /tmp/echelon-bin/ordo-bin
+          chmod +x /tmp/echelon-bin/ordo
+          if [ -f /tmp/echelon-bin/ordo-bin ]; then chmod +x /tmp/echelon-bin/ordo-bin; fi
+          find /tmp/ordo-dist -maxdepth 2 -type f -printf 'Ordo asset: %P\n'
 
           curl -fLsS -o /tmp/echelon-bin/percepta-repo "https://github.com/kemiller2002/percepta/releases/download/percepta-repo-v0.1.0/percepta-repo-linux-x64"
           echo "e46113aa08c9d2a97dfb1f75ca65c986946e1601c5f2c5cdcc9e8c25841d6039  /tmp/echelon-bin/percepta-repo" | sha256sum -c -
