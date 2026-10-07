@@ -1,0 +1,23 @@
+{
+  "ActionRef": "e641048c52edd8755c2964b6bafa4ae860e34062",
+  "BuildTarget": null,
+  "ConfigurationVersion": 2,
+  "Contract": "dokimos.installation",
+  "DefaultBranch": "main",
+  "DokimosVersion": "0.2.0",
+  "EvidenceBranch": "dokimos-evidence",
+  "InitialBaseline": "The first default-branch run persists a snapshot; accept it with workflow_dispatch accept-baseline=true.",
+  "Ownership": {
+    "InstallationRecord": "dokimos-owned",
+    "Policy": "created-if-missing; user-owned after creation",
+    "Workflow": "dokimos-owned"
+  },
+  "PackageSha256": null,
+  "Policy": ".dokimos/policy.json",
+  "SchemaVersion": "1.1.0",
+  "Sources": [
+    "src"
+  ],
+  "System": "dokimos",
+  "Workflow": ".github/workflows/dokimos.yml"
+}

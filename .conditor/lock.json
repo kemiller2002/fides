@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 4,
+  "project": "fides",
+  "manifestSha256": "905f7323eb826a72efb6654364051ef8f52e93424c7adcbc61729ded469dfb83",
+  "manifest": {
+    "schemaVersion": 1,
+    "name": "fides",
+    "registryAuthority": {
+      "kind": "resolved-release-set",
+      "path": ".conditor/authority/resolved-release-set.json",
+      "sha256": "cd8d8d0482c5c4750f4bb31d28bc79e9597d3be4f6264955691e3aebd86cb6d2"
+    },
+    "components": [
+      {
+        "id": "dokimos",
+        "version": "0.2.0",
+        "required": true
+      }
+    ],
+    "requirements": [],
+    "execution": {
+      "enabled": false
+    }
+  },
+  "components": [
+    {
+      "id": "dokimos",
+      "version": "0.2.0",
+      "distribution": "host-tool",
+      "package": "dokimos",
+      "authority": "registry-resolved-set",
+      "sourceReference": "resolved-set=sha256:cd8d8d0482c5c4750f4bb31d28bc79e9597d3be4f6264955691e3aebd86cb6d2;profile=sha256:786a6336fbb4b940e5666ad45e0ed93d6e06c3aeafc1b35573c97343b0523156;catalog=sha256:2a4abb1efb8a20f5b36cae7ed3b5bde0a99e3e182f9bc9349770e9905f109f67;systemId=dokimos;version=0.2.0;repository=kemiller2002/dokimos;tag=dokimos-v0.2.0;sourceCommit=e641048c52edd8755c2964b6bafa4ae860e34062;contract=echelon.repository-lifecycle/v1"
+    }
+  ],
+  "requirements": []
+}
