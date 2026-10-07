@@ -48,8 +48,9 @@ jobs:
           tar -xzf /tmp/praxis.tar.gz -C /tmp/praxis-dist
           PRAXIS="$(find /tmp/praxis-dist -type f -name praxis -print -quit)"
           test -n "$PRAXIS"
-          chmod +x "$PRAXIS"
-          cp "$PRAXIS" /tmp/echelon-bin/praxis
+          cp -a "$(dirname "$PRAXIS")/." /tmp/echelon-bin/
+          test -f /tmp/echelon-bin/praxis-bin
+          chmod +x /tmp/echelon-bin/praxis /tmp/echelon-bin/praxis-bin
 
           curl -fLsS -o /tmp/ordo.tar.gz "https://github.com/kemiller2002/ordo/releases/download/v1.4.2/ordo-linux-x64.tar.gz"
           echo "64ee9562aab3f1a8a789af39e0086d479d26150352824e53dd534a4fc8b79ca0  /tmp/ordo.tar.gz" | sha256sum -c -
@@ -57,8 +58,9 @@ jobs:
           tar -xzf /tmp/ordo.tar.gz -C /tmp/ordo-dist
           ORDO="$(find /tmp/ordo-dist -type f -name ordo -print -quit)"
           test -n "$ORDO"
-          chmod +x "$ORDO"
-          cp "$ORDO" /tmp/echelon-bin/ordo
+          cp -a "$(dirname "$ORDO")/." /tmp/echelon-bin/
+          test -f /tmp/echelon-bin/ordo-bin
+          chmod +x /tmp/echelon-bin/ordo /tmp/echelon-bin/ordo-bin
 
           curl -fLsS -o /tmp/echelon-bin/percepta-repo "https://github.com/kemiller2002/percepta/releases/download/percepta-repo-v0.1.0/percepta-repo-linux-x64"
           echo "e46113aa08c9d2a97dfb1f75ca65c986946e1601c5f2c5cdcc9e8c25841d6039  /tmp/echelon-bin/percepta-repo" | sha256sum -c -
