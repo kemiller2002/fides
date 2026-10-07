@@ -91,16 +91,20 @@ jobs:
           cat /tmp/conditor-status.json
           grep -Eq '"healthy"[[:space:]]*:[[:space:]]*true' /tmp/conditor-status.json
 
-      - name: Commit governed state
+          echo "DOKIMOS_WORKFLOW_BEGIN"
+          cat .github/workflows/dokimos.yml
+          echo "DOKIMOS_WORKFLOW_END"
+
+      - name: Commit governed non-workflow state
         shell: bash
         run: |
           set -euo pipefail
 
-          rm -f .github/workflows/bootstrap-conditor-dokimos.yml
+          rm -f .github/workflows/dokimos.yml
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
+          git add conditor.json .conditor .dokimos
           git diff --cached --stat
-          git commit -m "Install Conditor and Dokimos [skip ci]"
+          git commit -m "Install Conditor and Dokimos state [skip ci]"
           git push origin HEAD:main
