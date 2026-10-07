@@ -1,0 +1,51 @@
+# Managed by Dokimos (installed by `dokimos init`; Dokimos 0.2.0). Pinned: do not float these versions.
+name: Dokimos
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      accept-baseline:
+        description: Accept this run's snapshot as the Dokimos baseline.
+        type: boolean
+        default: false
+      baseline-reason:
+        description: Why this snapshot is accepted as the baseline.
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Build (log captured as evidence)
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p artifacts/dokimos
+          dotnet build --configuration Release 2>&1 | tee artifacts/dokimos/build.log
+      - name: Test (TRX captured as evidence)
+        continue-on-error: true
+        run: dotnet test --configuration Release --no-build --logger trx --results-directory artifacts/dokimos/test-results
+      - uses: kemiller2002/dokimos/actions/quality-gate@e641048c52edd8755c2964b6bafa4ae860e34062
+        with:
+          version: 0.2.0
+          source: src
+          policy: .dokimos/policy.json
+          build-log: artifacts/dokimos/build.log
+          test-results: artifacts/dokimos/test-results
+          evidence-branch: dokimos-evidence
+          persist: ${{ (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') && 'true' || 'auto' }}
+          accept-baseline: ${{ inputs.accept-baseline == true && 'true' || 'false' }}
+          baseline-reason: ${{ inputs.baseline-reason }}
