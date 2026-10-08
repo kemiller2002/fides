@@ -1,0 +1,3135 @@
+{
+  "Contract": "dokimos.snapshot",
+  "SchemaVersion": "2.0.0",
+  "SnapshotId": "kemiller2002/fides@eb7c019d307ef2e44404ab88b0d7aef19cb48c53:f93603a0bfec97c3",
+  "Repository": "kemiller2002/fides",
+  "Revision": "eb7c019d307ef2e44404ab88b0d7aef19cb48c53",
+  "Ref": "main",
+  "CollectedAt": "2026-10-08T10:29:59.5237847+00:00",
+  "Collector": "dokimos/0.2.0+e641048c52edd8755c2964b6bafa4ae860e34062",
+  "Producer": {
+    "DokimosVersion": "0.2.0+e641048c52edd8755c2964b6bafa4ae860e34062",
+    "ConfigurationId": "dokimos-collection/1;duplicate-block-size=6",
+    "AnalyzedScope": [
+      "src"
+    ],
+    "Analyzers": [
+      {
+        "AnalyzerId": "dokimos.fsharp-structural",
+        "Version": "1",
+        "State": "ran",
+        "Reason": null,
+        "DurationMilliseconds": 50
+      },
+      {
+        "AnalyzerId": "dokimos.fsharp-complexity-proxy",
+        "Version": "1",
+        "State": "ran",
+        "Reason": null,
+        "DurationMilliseconds": null
+      },
+      {
+        "AnalyzerId": "dokimos.fsharp-agent-quality",
+        "Version": "1",
+        "State": "ran",
+        "Reason": null,
+        "DurationMilliseconds": null
+      },
+      {
+        "AnalyzerId": "dokimos.text-duplication",
+        "Version": "1",
+        "State": "ran",
+        "Reason": null,
+        "DurationMilliseconds": null
+      },
+      {
+        "AnalyzerId": "dokimos.hotspot-correlation",
+        "Version": "1",
+        "State": "ran",
+        "Reason": null,
+        "DurationMilliseconds": null
+      },
+      {
+        "AnalyzerId": "dokimos.git-temporal",
+        "Version": "1",
+        "State": "ran",
+        "Reason": null,
+        "DurationMilliseconds": 26
+      },
+      {
+        "AnalyzerId": "dokimos.dotnet-build-diagnostics",
+        "Version": "1",
+        "State": "ran",
+        "Reason": null,
+        "DurationMilliseconds": 8
+      },
+      {
+        "AnalyzerId": "dokimos.dotnet-test-results",
+        "Version": "1",
+        "State": "ran",
+        "Reason": null,
+        "DurationMilliseconds": 255
+      },
+      {
+        "AnalyzerId": "dokimos.cobertura-coverage",
+        "Version": "1",
+        "State": "not-run",
+        "Reason": "input not supplied",
+        "DurationMilliseconds": null
+      }
+    ]
+  },
+  "Performance": {
+    "TotalMilliseconds": 351,
+    "FileCount": 25,
+    "ObservationCount": 264,
+    "UnavailableCollectors": [
+      "dokimos.cobertura-coverage"
+    ],
+    "FailedCollectors": []
+  },
+  "Metrics": [
+    {
+      "MetricId": "build.compiler-errors",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.dotnet-build-diagnostics"
+    },
+    {
+      "MetricId": "build.compiler-warnings",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.dotnet-build-diagnostics"
+    },
+    {
+      "MetricId": "tests.total",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "available",
+      "Value": 300,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.dotnet-test-results"
+    },
+    {
+      "MetricId": "tests.passed",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "available",
+      "Value": 300,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.dotnet-test-results"
+    },
+    {
+      "MetricId": "tests.failed",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.dotnet-test-results"
+    },
+    {
+      "MetricId": "tests.skipped",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.dotnet-test-results"
+    },
+    {
+      "MetricId": "coverage.line-rate",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "unavailable",
+      "Value": null,
+      "Unit": "ratio",
+      "Reason": "not-configured",
+      "Detail": null,
+      "Source": "dokimos.cobertura-coverage"
+    },
+    {
+      "MetricId": "duplication.block-occurrences",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.text-duplication"
+    },
+    {
+      "MetricId": "change.region-commits",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "unavailable",
+      "Value": null,
+      "Unit": "count",
+      "Reason": "unsupported",
+      "Detail": null,
+      "Source": "dokimos"
+    },
+    {
+      "MetricId": "debt.age-days",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "unavailable",
+      "Value": null,
+      "Unit": "days",
+      "Reason": "unsupported",
+      "Detail": null,
+      "Source": "dokimos"
+    },
+    {
+      "MetricId": "debt.staleness-days",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "unavailable",
+      "Value": null,
+      "Unit": "days",
+      "Reason": "unsupported",
+      "Detail": null,
+      "Source": "dokimos"
+    },
+    {
+      "MetricId": "api.added",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "unavailable",
+      "Value": null,
+      "Unit": "symbols",
+      "Reason": "unsupported",
+      "Detail": null,
+      "Source": "dokimos"
+    },
+    {
+      "MetricId": "api.removed",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "unavailable",
+      "Value": null,
+      "Unit": "symbols",
+      "Reason": "unsupported",
+      "Detail": null,
+      "Source": "dokimos"
+    },
+    {
+      "MetricId": "api.signature-changed",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "unavailable",
+      "Value": null,
+      "Unit": "symbols",
+      "Reason": "unsupported",
+      "Detail": null,
+      "Source": "dokimos"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Codec.fs",
+      "State": "available",
+      "Value": 73,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Codec.fs",
+      "State": "available",
+      "Value": 63,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Codec.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Codec.fs",
+      "State": "available",
+      "Value": 16,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Codec.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Codec.fs",
+      "State": "available",
+      "Value": 5,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Codec.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Codec.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Codec.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Codec.fs",
+      "State": "available",
+      "Value": 72,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/FidesClient.fs",
+      "State": "available",
+      "Value": 284,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/FidesClient.fs",
+      "State": "available",
+      "Value": 250,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/FidesClient.fs",
+      "State": "available",
+      "Value": 5,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/FidesClient.fs",
+      "State": "available",
+      "Value": 45,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/FidesClient.fs",
+      "State": "available",
+      "Value": 3,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/FidesClient.fs",
+      "State": "available",
+      "Value": 2,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/FidesClient.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/FidesClient.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/FidesClient.fs",
+      "State": "available",
+      "Value": 2,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/FidesClient.fs",
+      "State": "available",
+      "Value": 315,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Model.fs",
+      "State": "available",
+      "Value": 108,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Model.fs",
+      "State": "available",
+      "Value": 92,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Model.fs",
+      "State": "available",
+      "Value": 13,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Model.fs",
+      "State": "available",
+      "Value": 35,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Model.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Model.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Model.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Model.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Model.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Model.fs",
+      "State": "available",
+      "Value": 107,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/SignIn.fs",
+      "State": "available",
+      "Value": 82,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/SignIn.fs",
+      "State": "available",
+      "Value": 69,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/SignIn.fs",
+      "State": "available",
+      "Value": 2,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/SignIn.fs",
+      "State": "available",
+      "Value": 20,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/SignIn.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/SignIn.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/SignIn.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/SignIn.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/SignIn.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/SignIn.fs",
+      "State": "available",
+      "Value": 81,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Tokens.fs",
+      "State": "available",
+      "Value": 52,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Tokens.fs",
+      "State": "available",
+      "Value": 45,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Tokens.fs",
+      "State": "available",
+      "Value": 3,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Tokens.fs",
+      "State": "available",
+      "Value": 22,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Tokens.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Tokens.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Tokens.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Tokens.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Tokens.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Client/Tokens.fs",
+      "State": "available",
+      "Value": 51,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Function.fs",
+      "State": "available",
+      "Value": 35,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Function.fs",
+      "State": "available",
+      "Value": 27,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Function.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Function.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Function.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Function.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Function.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Function.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Function.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Function.fs",
+      "State": "available",
+      "Value": 34,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Program.fs",
+      "State": "available",
+      "Value": 31,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Program.fs",
+      "State": "available",
+      "Value": 26,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Program.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Program.fs",
+      "State": "available",
+      "Value": 3,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Program.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Program.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Program.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Program.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Program.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Program.fs",
+      "State": "available",
+      "Value": 30,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/SecretsManagerPort.fs",
+      "State": "available",
+      "Value": 30,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/SecretsManagerPort.fs",
+      "State": "available",
+      "Value": 25,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/SecretsManagerPort.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/SecretsManagerPort.fs",
+      "State": "available",
+      "Value": 4,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/SecretsManagerPort.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/SecretsManagerPort.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/SecretsManagerPort.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/SecretsManagerPort.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/SecretsManagerPort.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/SecretsManagerPort.fs",
+      "State": "available",
+      "Value": 29,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Translation.fs",
+      "State": "available",
+      "Value": 62,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Translation.fs",
+      "State": "available",
+      "Value": 50,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Translation.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Translation.fs",
+      "State": "available",
+      "Value": 14,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Translation.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Translation.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Translation.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Translation.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Translation.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting.Aws/Translation.fs",
+      "State": "available",
+      "Value": 61,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Host.fs",
+      "State": "available",
+      "Value": 38,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Host.fs",
+      "State": "available",
+      "Value": 32,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Host.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Host.fs",
+      "State": "available",
+      "Value": 4,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Host.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Host.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Host.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Host.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Host.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Host.fs",
+      "State": "available",
+      "Value": 37,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/HttpPort.fs",
+      "State": "available",
+      "Value": 50,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/HttpPort.fs",
+      "State": "available",
+      "Value": 41,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/HttpPort.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/HttpPort.fs",
+      "State": "available",
+      "Value": 8,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/HttpPort.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/HttpPort.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/HttpPort.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/HttpPort.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/HttpPort.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/HttpPort.fs",
+      "State": "available",
+      "Value": 49,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Runtime.fs",
+      "State": "available",
+      "Value": 29,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Runtime.fs",
+      "State": "available",
+      "Value": 25,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Runtime.fs",
+      "State": "available",
+      "Value": 2,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Runtime.fs",
+      "State": "available",
+      "Value": 5,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Runtime.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Runtime.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Runtime.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Runtime.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Runtime.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/Runtime.fs",
+      "State": "available",
+      "Value": 28,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/SecretCache.fs",
+      "State": "available",
+      "Value": 28,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/SecretCache.fs",
+      "State": "available",
+      "Value": 22,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/SecretCache.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/SecretCache.fs",
+      "State": "available",
+      "Value": 5,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/SecretCache.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/SecretCache.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/SecretCache.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/SecretCache.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/SecretCache.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides.Hosting/SecretCache.fs",
+      "State": "available",
+      "Value": 27,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Configuration.fs",
+      "State": "available",
+      "Value": 165,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Configuration.fs",
+      "State": "available",
+      "Value": 142,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Configuration.fs",
+      "State": "available",
+      "Value": 5,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Configuration.fs",
+      "State": "available",
+      "Value": 50,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Configuration.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Configuration.fs",
+      "State": "available",
+      "Value": 4,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Configuration.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Configuration.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Configuration.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Configuration.fs",
+      "State": "available",
+      "Value": 164,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Effect.fs",
+      "State": "available",
+      "Value": 65,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Effect.fs",
+      "State": "available",
+      "Value": 54,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Effect.fs",
+      "State": "available",
+      "Value": 4,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Effect.fs",
+      "State": "available",
+      "Value": 15,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Effect.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Effect.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Effect.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Effect.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Effect.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Effect.fs",
+      "State": "available",
+      "Value": 64,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Exchange.fs",
+      "State": "available",
+      "Value": 128,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Exchange.fs",
+      "State": "available",
+      "Value": 111,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Exchange.fs",
+      "State": "available",
+      "Value": 4,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Exchange.fs",
+      "State": "available",
+      "Value": 46,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Exchange.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Exchange.fs",
+      "State": "available",
+      "Value": 2,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Exchange.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Exchange.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Exchange.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Exchange.fs",
+      "State": "available",
+      "Value": 127,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/GitHub.fs",
+      "State": "available",
+      "Value": 200,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/GitHub.fs",
+      "State": "available",
+      "Value": 175,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/GitHub.fs",
+      "State": "available",
+      "Value": 2,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/GitHub.fs",
+      "State": "available",
+      "Value": 43,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/GitHub.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/GitHub.fs",
+      "State": "available",
+      "Value": 3,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/GitHub.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/GitHub.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/GitHub.fs",
+      "State": "available",
+      "Value": 2,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/GitHub.fs",
+      "State": "available",
+      "Value": 203,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Http.fs",
+      "State": "available",
+      "Value": 40,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Http.fs",
+      "State": "available",
+      "Value": 32,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Http.fs",
+      "State": "available",
+      "Value": 5,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Http.fs",
+      "State": "available",
+      "Value": 8,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Http.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Http.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Http.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Http.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Http.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Http.fs",
+      "State": "available",
+      "Value": 39,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonRead.fs",
+      "State": "available",
+      "Value": 71,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonRead.fs",
+      "State": "available",
+      "Value": 58,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonRead.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonRead.fs",
+      "State": "available",
+      "Value": 12,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonRead.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonRead.fs",
+      "State": "available",
+      "Value": 3,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonRead.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonRead.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonRead.fs",
+      "State": "available",
+      "Value": 2,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonRead.fs",
+      "State": "available",
+      "Value": 70,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonWrite.fs",
+      "State": "available",
+      "Value": 30,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonWrite.fs",
+      "State": "available",
+      "Value": 24,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonWrite.fs",
+      "State": "available",
+      "Value": 2,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonWrite.fs",
+      "State": "available",
+      "Value": 14,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonWrite.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonWrite.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonWrite.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonWrite.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonWrite.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/JsonWrite.fs",
+      "State": "available",
+      "Value": 29,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Pkce.fs",
+      "State": "available",
+      "Value": 31,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Pkce.fs",
+      "State": "available",
+      "Value": 24,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Pkce.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Pkce.fs",
+      "State": "available",
+      "Value": 14,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Pkce.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Pkce.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Pkce.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Pkce.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Pkce.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Pkce.fs",
+      "State": "available",
+      "Value": 30,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Protocol.fs",
+      "State": "available",
+      "Value": 192,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Protocol.fs",
+      "State": "available",
+      "Value": 163,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Protocol.fs",
+      "State": "available",
+      "Value": 5,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Protocol.fs",
+      "State": "available",
+      "Value": 56,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Protocol.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Protocol.fs",
+      "State": "available",
+      "Value": 6,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Protocol.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Protocol.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Protocol.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Protocol.fs",
+      "State": "available",
+      "Value": 191,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Provider.fs",
+      "State": "available",
+      "Value": 150,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Provider.fs",
+      "State": "available",
+      "Value": 125,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Provider.fs",
+      "State": "available",
+      "Value": 14,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Provider.fs",
+      "State": "available",
+      "Value": 24,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Provider.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Provider.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Provider.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Provider.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Provider.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Provider.fs",
+      "State": "available",
+      "Value": 149,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Secrets.fs",
+      "State": "available",
+      "Value": 60,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Secrets.fs",
+      "State": "available",
+      "Value": 44,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Secrets.fs",
+      "State": "available",
+      "Value": 13,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Secrets.fs",
+      "State": "available",
+      "Value": 3,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Secrets.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Secrets.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Secrets.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Secrets.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Secrets.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Secrets.fs",
+      "State": "available",
+      "Value": 59,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Service.fs",
+      "State": "available",
+      "Value": 153,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Service.fs",
+      "State": "available",
+      "Value": 127,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Service.fs",
+      "State": "available",
+      "Value": 4,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Service.fs",
+      "State": "available",
+      "Value": 36,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Service.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Service.fs",
+      "State": "available",
+      "Value": 3,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Service.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Service.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Service.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Service.fs",
+      "State": "available",
+      "Value": 152,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    }
+  ],
+  "Findings": [
+    {
+      "FindingId": "correlation:maintainability-hotspot:src/Fides.Client/FidesClient.fs",
+      "Scope": "src/Fides.Client/FidesClient.fs",
+      "Kind": "maintainability-hotspot",
+      "State": "present",
+      "Evidence": [
+        {
+          "Kind": "structural-complexity",
+          "Value": 45
+        },
+        {
+          "Kind": "high-churn",
+          "Value": 315
+        }
+      ],
+      "Explanation": "Structural complexity coincides with temporal change pressure."
+    },
+    {
+      "FindingId": "correlation:maintainability-hotspot:src/Fides.Client/Model.fs",
+      "Scope": "src/Fides.Client/Model.fs",
+      "Kind": "maintainability-hotspot",
+      "State": "present",
+      "Evidence": [
+        {
+          "Kind": "structural-complexity",
+          "Value": 35
+        },
+        {
+          "Kind": "high-churn",
+          "Value": 107
+        }
+      ],
+      "Explanation": "Structural complexity coincides with temporal change pressure."
+    },
+    {
+      "FindingId": "correlation:maintainability-hotspot:src/Fides/Configuration.fs",
+      "Scope": "src/Fides/Configuration.fs",
+      "Kind": "maintainability-hotspot",
+      "State": "present",
+      "Evidence": [
+        {
+          "Kind": "structural-complexity",
+          "Value": 50
+        },
+        {
+          "Kind": "high-churn",
+          "Value": 164
+        }
+      ],
+      "Explanation": "Structural complexity coincides with temporal change pressure."
+    },
+    {
+      "FindingId": "correlation:maintainability-hotspot:src/Fides/Exchange.fs",
+      "Scope": "src/Fides/Exchange.fs",
+      "Kind": "maintainability-hotspot",
+      "State": "present",
+      "Evidence": [
+        {
+          "Kind": "structural-complexity",
+          "Value": 46
+        },
+        {
+          "Kind": "high-churn",
+          "Value": 127
+        }
+      ],
+      "Explanation": "Structural complexity coincides with temporal change pressure."
+    },
+    {
+      "FindingId": "correlation:maintainability-hotspot:src/Fides/GitHub.fs",
+      "Scope": "src/Fides/GitHub.fs",
+      "Kind": "maintainability-hotspot",
+      "State": "present",
+      "Evidence": [
+        {
+          "Kind": "structural-complexity",
+          "Value": 43
+        },
+        {
+          "Kind": "high-churn",
+          "Value": 203
+        }
+      ],
+      "Explanation": "Structural complexity coincides with temporal change pressure."
+    },
+    {
+      "FindingId": "correlation:maintainability-hotspot:src/Fides/Protocol.fs",
+      "Scope": "src/Fides/Protocol.fs",
+      "Kind": "maintainability-hotspot",
+      "State": "present",
+      "Evidence": [
+        {
+          "Kind": "structural-complexity",
+          "Value": 56
+        },
+        {
+          "Kind": "high-churn",
+          "Value": 191
+        }
+      ],
+      "Explanation": "Structural complexity coincides with temporal change pressure."
+    },
+    {
+      "FindingId": "correlation:maintainability-hotspot:src/Fides/Provider.fs",
+      "Scope": "src/Fides/Provider.fs",
+      "Kind": "maintainability-hotspot",
+      "State": "present",
+      "Evidence": [
+        {
+          "Kind": "structural-complexity",
+          "Value": 24
+        },
+        {
+          "Kind": "high-churn",
+          "Value": 149
+        }
+      ],
+      "Explanation": "Structural complexity coincides with temporal change pressure."
+    },
+    {
+      "FindingId": "correlation:maintainability-hotspot:src/Fides/Service.fs",
+      "Scope": "src/Fides/Service.fs",
+      "Kind": "maintainability-hotspot",
+      "State": "present",
+      "Evidence": [
+        {
+          "Kind": "structural-complexity",
+          "Value": 36
+        },
+        {
+          "Kind": "high-churn",
+          "Value": 152
+        }
+      ],
+      "Explanation": "Structural complexity coincides with temporal change pressure."
+    }
+  ]
+}
