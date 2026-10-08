@@ -18,7 +18,7 @@
 | WI-0013 | Make the Dokimos quality check pass: regenerate the test project as a dotnet test (xUnit) project so the gate gets TRX test evidence | complete | dokimos, ci | high |
 | WI-0014 | Classify the exchange host's unexpected failures through Aegis (FID-EXC-005 Aegis clause) | complete | fides, aegis, blocked-external | medium |
 | WI-0015 | Conditor's fsharp-nuget-library scaffold hides test output on failure: under bash -e, output=$(dotnet test ...) exits before echo | captured | ci, conditor, upstream | medium |
-| WI-0016 | EchelonFoundry.Fides.Arca bridge package: Fides.Client token provider to Arca.TokenProvider | active | fides, arca, blocked-external | medium |
+| WI-0016 | EchelonFoundry.Fides.Arca bridge package: Fides.Client token provider to Arca.TokenProvider | complete | fides, arca, blocked-external | medium |
 | WI-0017 | Fides client: two threads could both start a refresh, and refresh tokens are single use (single-flight race) | complete | fides, client, defect | high |
 | WI-0018 | Record Fides 0.1.0 in echelon-registry: release record, fides system entry, optional project binding | complete | fides, release, registry | high |
 | WI-0019 | Conditor: the fsharp-nuget-library scaffold's *.nupkg ignore rule hides the vendor/nuget release-asset feed | captured | conditor, upstream | medium |

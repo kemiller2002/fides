@@ -400,10 +400,10 @@
         "blocked-external"
       ],
       "priority": "medium",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-10-08T09:48:44.000Z",
-      "updatedAt": "2026-10-08T10:32:24.000Z",
+      "updatedAt": "2026-10-08T10:35:21.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
