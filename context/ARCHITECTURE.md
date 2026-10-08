@@ -42,4 +42,4 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
   logs, errors or prompts (FID-EXC-005).
 - Generated views must not silently replace canonical source records.
 
-The trust-boundary model is recorded by WI-0004.
+The trust-boundary model is [`docs/architecture/TRUST-BOUNDARIES.md`](../docs/architecture/TRUST-BOUNDARIES.md).

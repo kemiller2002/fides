@@ -255,5 +255,49 @@
     "title": "Until nuget.org is set up, Fides packages are distributed as Sigstore-attested GitHub release assets with an echelon-registry entry",
     "updated": "2026-10-08",
     "version": "1.0.0"
+  },
+  {
+    "created": "2026-10-08",
+    "id": "DF-FIDES-2026-0007",
+    "owners": [
+      "fides"
+    ],
+    "path": "research/decisions/DF-FIDES-2026-0007--what-github-proves-and-what-fides-owns.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261008T084724760Z-06b91672": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-10-08T08:48:15.068Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "FID-TB-006: what GitHub authentication proves versus what Fides owns (issue #1)"
+        }
+      }
+    },
+    "related_documents": [
+      "docs/architecture/TRUST-BOUNDARIES.md",
+      "docs/requirements/FIDES-REQUIREMENTS.md",
+      "research/decisions/DF-FIDES-2026-0003--github-app-user-to-server-tokens.md"
+    ],
+    "review_cycle": "on-trigger",
+    "status": "accepted",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "security",
+      "trust-boundaries",
+      "github",
+      "identity"
+    ],
+    "title": "GitHub authentication proves control of a GitHub account and the token's grant; Fides owns client registration, redirect policy, state and PKCE, session states and revocation propagation",
+    "updated": "2026-10-08",
+    "version": "1.0.0"
   }
 ]

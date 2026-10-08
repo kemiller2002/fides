@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-10-08T08:46:49.000Z",
+  "updatedAt": "2026-10-08T08:49:08.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -184,6 +184,47 @@
         }
       },
       "completedAt": "2026-10-08T08:46:49.000Z"
+    },
+    {
+      "id": "WI-0004",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "docs/architecture/TRUST-BOUNDARIES.md"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Fides.Tests/TrustBoundaryModelTests.fs"
+        }
+      ],
+      "updatedAt": "2026-10-08T08:49:08.000Z",
+      "telemetryExecutionIds": [
+        "EXE-20261008T084724760Z-06b91672"
+      ],
+      "latestCheckpoint": {
+        "id": "9599e0a33b638c463d2dff7e",
+        "recordedAt": "2026-10-08T08:49:07.000Z",
+        "executionId": "EXE-20261008T084724760Z-06b91672",
+        "repository": "fides",
+        "branch": "wi-0004/trust-boundaries",
+        "commit": "6ce456812495bcfdc503df4d483c599814801141",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides.git"
+        },
+        "remoteBranch": "wi-0004/trust-boundaries",
+        "remoteCommit": "6ce456812495bcfdc503df4d483c599814801141",
+        "summary": "Trust-boundary model (FID-TB-001..005) and DF-FIDES-2026-0007 (FID-TB-006) recorded with definition tests",
+        "nextAction": "WI-0005 acceptance tests before production code",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-10-08T08:49:08.000Z"
     }
   ]
 }
