@@ -19,3 +19,4 @@
 | WI-0014 | Bind Fides failure classification to Aegis once EchelonFoundry.Aegis.Core is published as a pinned release (FID-EXC-005 Aegis clause) | captured | fides, aegis, blocked-external | medium |
 | WI-0015 | Conditor's fsharp-nuget-library scaffold hides test output on failure: under bash -e, output=$(dotnet test ...) exits before echo | captured | ci, conditor, upstream | medium |
 | WI-0016 | EchelonFoundry.Fides.Arca bridge package: Fides.Client token provider to Arca.TokenProvider | captured | fides, arca, blocked-external | medium |
+| WI-0017 | Fides client: two threads could both start a refresh, and refresh tokens are single use (single-flight race) | complete | fides, client, defect | high |

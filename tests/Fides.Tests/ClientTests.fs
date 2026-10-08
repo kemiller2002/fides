@@ -193,3 +193,18 @@ let ``the stored session and pending sign-in round-trip`` () =
 
     Assert.Equal(Some session, Codec.decodeSession (Codec.encodeSession session))
     Assert.Equal(None, Codec.decodeSession "{not json")
+
+[<Fact>]
+[<Trait("Verifies", "FID-CLI-001")>]
+let ``many callers on many threads still make exactly one refresh`` () =
+    for _ in 1..20 do
+        let browser, client = signedIn MemoryOnly
+        browser.Now <- epoch.AddMinutes 479.
+        let gate = TaskCompletionSource<HttpOutcome>()
+        browser.Exchange <- fun _ _ -> Async.AwaitTask gate.Task
+        let callers = Array.init 16 (fun _ -> Async.StartAsTask(client.TokenProvider()))
+        Threading.Thread.Sleep 5
+        gate.SetResult(Responded { Status = 200; Body = grantBody browser.Now 480. 260000. "many" })
+        let results = callers |> Array.map _.Result
+        Assert.All(results, fun r -> Assert.True(Result.isOk r))
+        Assert.Equal(1, browser.Posted |> Seq.filter (fun (p, _) -> p = Protocol.RefreshPath) |> Seq.length)

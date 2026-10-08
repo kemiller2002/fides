@@ -67,6 +67,7 @@ module FidesClient =
         let mutable session: Session option = None
         let mutable state = SignedOut
         let mutable refreshing: Task<Result<AccessToken, TokenUnavailable>> option = None
+        let refreshGate = obj ()
 
         let key = sessionKey configuration
         let broadcast event = ports.Broadcast(message configuration event)
@@ -151,22 +152,31 @@ module FidesClient =
                     return Error TokenUnavailable.Expired
                 | Tokens.Unavailable reason -> return Error reason
                 | Tokens.Refresh current ->
-                    // At most one refresh at a time: concurrent callers share it.
-                    let task =
-                        match refreshing with
-                        | Some running -> running
-                        | None ->
-                            let running = Async.StartImmediateAsTask(refresh current)
-                            refreshing <- Some running
-                            running
+                    // At most one refresh at a time, even across threads: the
+                    // first caller claims it under the lock and runs it outside
+                    // the lock; everyone else awaits the same result.
+                    let claim =
+                        lock refreshGate (fun () ->
+                            match refreshing with
+                            | Some running -> Choice2Of2 running
+                            | None ->
+                                let completion = TaskCompletionSource<Result<AccessToken, TokenUnavailable>>()
+                                refreshing <- Some completion.Task
+                                Choice1Of2 completion)
 
-                    let! result = Async.AwaitTask task
+                    match claim with
+                    | Choice2Of2 running -> return! Async.AwaitTask running
+                    | Choice1Of2 completion ->
+                        let! outcome = refresh current |> Async.Catch
+                        lock refreshGate (fun () -> refreshing <- None)
 
-                    match refreshing with
-                    | Some running when Object.ReferenceEquals(running, task) -> refreshing <- None
-                    | _ -> ()
-
-                    return result
+                        match outcome with
+                        | Choice1Of2 result ->
+                            completion.SetResult result
+                            return result
+                        | Choice2Of2 error ->
+                            completion.SetException error
+                            return raise error
             }
 
         let signIn (retention: Retention) =
