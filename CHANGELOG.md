@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.0 (2026-10-08)
+
+- **EchelonFoundry.Fides.Arca** (new): Arca's token provider backed by the
+  Fides client, built against EchelonFoundry.Arca.Core 0.1.0 (WI-0016).
+- **EchelonFoundry.Fides.Hosting**: unexpected failures at the exchange host
+  are classified through Aegis 1.0.0 and answered with `internal_error`;
+  provider and configuration failures are reported to Aegis; exception
+  messages never reach a sink (WI-0014). Requires FSharp.Core 10.1.400
+  (.NET SDK 10.0.400 or later).
+
 ## 0.1.0 (2026-10-08)
 
 First release: the minimal single sign-on slices (WI-0003 to WI-0010, WI-0017).

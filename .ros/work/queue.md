@@ -22,3 +22,5 @@
 | WI-0017 | Fides client: two threads could both start a refresh, and refresh tokens are single use (single-flight race) | complete | fides, client, defect | high |
 | WI-0018 | Record Fides 0.1.0 in echelon-registry: release record, fides system entry, optional project binding | complete | fides, release, registry | high |
 | WI-0019 | Conditor: the fsharp-nuget-library scaffold's *.nupkg ignore rule hides the vendor/nuget release-asset feed | captured | conditor, upstream | medium |
+| WI-0020 | Release Fides 0.2.0: the Aegis binding and the Arca bridge | complete | fides, release | high |
+| WI-0021 | Record Fides 0.2.0 in echelon-registry and move echelon-current so fides resolves to 0.2.0 | captured | fides, registry | high |
