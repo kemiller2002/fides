@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-10-08T10:54:07.000Z",
+  "updatedAt": "2026-10-08T10:54:39.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -680,13 +680,43 @@
     {
       "id": "WI-0020",
       "type": "task",
-      "state": "active",
-      "semanticState": "active",
-      "evidence": [],
-      "updatedAt": "2026-10-08T10:54:07.000Z",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "Directory.Build.props"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Fides.Tests/ReleaseTests.fs"
+        }
+      ],
+      "updatedAt": "2026-10-08T10:54:39.000Z",
       "telemetryExecutionIds": [
         "EXE-20261008T105407425Z-ca83ad2d"
-      ]
+      ],
+      "latestCheckpoint": {
+        "id": "22e402e99bf4988d88715e63",
+        "recordedAt": "2026-10-08T10:54:38.000Z",
+        "executionId": "EXE-20261008T105407425Z-ca83ad2d",
+        "repository": "fides",
+        "branch": "wi-0020/release-0.2.0",
+        "commit": "eb63f2206f53f92e09ce679c67abd78d568134bd",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides.git"
+        },
+        "remoteBranch": "wi-0020/release-0.2.0",
+        "remoteCommit": "eb63f2206f53f92e09ce679c67abd78d568134bd",
+        "summary": "Version 0.2.0 ready to publish: four packages plus the Lambda package",
+        "nextAction": "Merge; confirm v0.2.0; WI-0021 registry record",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-10-08T10:54:39.000Z"
     }
   ]
 }
