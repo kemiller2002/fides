@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/Fides/Fides.fsproj" />
+    <Project Path="src/Fides.Arca/Fides.Arca.fsproj" />
     <Project Path="src/Fides.Client/Fides.Client.fsproj" />
     <Project Path="src/Fides.Hosting/Fides.Hosting.fsproj" />
     <Project Path="src/Fides.Hosting.Aws/Fides.Hosting.Aws.fsproj" />

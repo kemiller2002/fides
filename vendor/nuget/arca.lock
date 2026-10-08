@@ -1,0 +1,10 @@
+# conditor.nuget-feed-lock/v1. Written by Conditor; do not edit. The packages beside this
+# file are the unmodified release assets named here, each proven against the
+# Registry SHA-256. NuGet restores these ids only from this folder (NuGet.config).
+system arca
+version 0.1.0
+repository kemiller2002/arca
+tag v0.1.0
+release-manifest sha256:5cf084ee76ad2e4897796d5569212b0e7c1aaba8a28a8e24ce45f78687fe65a8
+package EchelonFoundry.Arca.Core 0.1.0 EchelonFoundry.Arca.Core.0.1.0.nupkg sha256:9a7de8d442b44557e44bf9f057b293e5f2ab44c95561ef548b1aea80c0293e37 https://github.com/kemiller2002/arca/releases/download/v0.1.0/EchelonFoundry.Arca.Core.0.1.0.nupkg
+package EchelonFoundry.Arca.GitHub 0.1.0 EchelonFoundry.Arca.GitHub.0.1.0.nupkg sha256:867382ac9b4e88d235bb1816fb08cb0c6f8aea0e74246d4d3c20aa9051081e8f https://github.com/kemiller2002/arca/releases/download/v0.1.0/EchelonFoundry.Arca.GitHub.0.1.0.nupkg

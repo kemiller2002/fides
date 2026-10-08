@@ -48,3 +48,8 @@ dist/
 TestResults/
 *.nupkg
 # conditor:build-outputs:end
+
+# Conditor's verified release-asset feed is committed: restore reads it, and
+# `conditor verify` proves its bytes against the Registry (Conditor
+# docs/nuget-feed-contract.md). It must survive the *.nupkg rule above.
+!vendor/nuget/*.nupkg
