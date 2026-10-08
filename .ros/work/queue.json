@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "fides",
-  "nextSeq": 15,
+  "nextSeq": 16,
   "items": [
     {
       "id": "WI-0001",
@@ -354,6 +354,31 @@
       "attachments": [],
       "createdAt": "2026-10-08T08:46:30.000Z",
       "updatedAt": "2026-10-08T08:46:30.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0015",
+      "title": "Conditor's fsharp-nuget-library scaffold hides test output on failure: under bash -e, output=$(dotnet test ...) exits before echo",
+      "description": "Found on fides#9: build-and-test and release.yml Test steps printed nothing when tests failed. Fixed locally in fides (status=0; output=$(...) || status=$?). The scaffold in kemiller2002/conditor should carry the same fix so new repositories do not inherit the masking.",
+      "tags": [
+        "ci",
+        "conditor",
+        "upstream"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-10-08T09:36:04.000Z",
+      "updatedAt": "2026-10-08T09:36:04.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

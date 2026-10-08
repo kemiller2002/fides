@@ -17,3 +17,4 @@
 | WI-0012 | Fides: release workflow and echelon-registry entry for the client package and exchange artifact | captured | fides, release, registry | medium |
 | WI-0013 | Make the Dokimos quality check pass: regenerate the test project as a dotnet test (xUnit) project so the gate gets TRX test evidence | complete | dokimos, ci | high |
 | WI-0014 | Bind Fides failure classification to Aegis once EchelonFoundry.Aegis.Core is published as a pinned release (FID-EXC-005 Aegis clause) | captured | fides, aegis, blocked-external | medium |
+| WI-0015 | Conditor's fsharp-nuget-library scaffold hides test output on failure: under bash -e, output=$(dotnet test ...) exits before echo | captured | ci, conditor, upstream | medium |

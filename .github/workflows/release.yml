@@ -93,8 +93,10 @@ jobs:
         shell: bash
         run: |
           set -uo pipefail
-          output=$(dotnet test Fides.slnx -c Release --no-build 2>&1)
-          status=$?
+          # GitHub runs bash with -e, so capture the status without letting a
+          # failing test run end the step before its output is printed.
+          status=0
+          output=$(dotnet test Fides.slnx -c Release --no-build 2>&1) || status=$?
           echo "$output"
           if [ "$status" -ne 0 ]; then exit "$status"; fi
           if ! echo "$output" | grep -qE 'Passed:[[:space:]]*[1-9]'; then

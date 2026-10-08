@@ -9,8 +9,16 @@ let private declared () =
 let private planned () =
     namedRequirements (openWorkText (RepositoryFiles.read ".ros/work/queue.json"))
 
-let private verified () =
+let private thisAssembly () =
     verifiedRequirements (System.Reflection.Assembly.GetExecutingAssembly())
+
+/// Every test project's sources under tests/.
+let private testSources () =
+    System.IO.Directory.EnumerateFiles(System.IO.Path.Combine(RepositoryFiles.root (), "tests"), "*.fs", System.IO.SearchOption.AllDirectories)
+    |> Seq.filter (fun path -> not (path.Contains "/obj/" || path.Contains "/bin/"))
+    |> Seq.map System.IO.File.ReadAllText
+
+let private verified () = verifiedInSources (testSources ())
 
 [<Fact>]
 let ``the requirements document declares requirement IDs`` () = Assert.NotEmpty(declared ())
@@ -39,4 +47,9 @@ let ``a requirement whose work item completed stays accounted for only while a t
 
 [<Fact>]
 let ``this test assembly's Verifies traits are discovered`` () =
-    Assert.Contains("FID-CTX-003", verified ())
+    Assert.Contains("FID-CTX-003", thisAssembly ())
+
+[<Fact>]
+let ``the source scan sees every claim this assembly makes and the adapter projects' claims`` () =
+    Assert.Empty(Set.difference (thisAssembly ()) (verified ()))
+    Assert.Contains("FID-HOST-003", verified ())
