@@ -14,14 +14,19 @@ module Function =
     [<Literal>]
     let ConfigurationVariable = "FIDES_CONFIGURATION"
 
-    let handle (configuration: Configuration) (ports: Ports) (request: APIGatewayHttpApiV2ProxyRequest) (context: ILambdaContext) =
+    let handle (aegis: Aegis.AegisConfig) (configuration: Configuration) (ports: Ports) (request: APIGatewayHttpApiV2ProxyRequest) (context: ILambdaContext) =
         task {
-            let! response, line = Host.handle configuration ports (Translation.toHostRequest request)
+            let! response, line = Host.handle aegis configuration ports (Translation.toHostRequest request)
 
             context.Logger.LogInformation line
 
             return Translation.toLambdaResponse response
         }
+
+    /// Aegis for a deployed function: faults go to standard error, which
+    /// Lambda sends to the function's log group.
+    let liveAegis () =
+        Diagnostics.configure (Some(string (typeof<Ports>.Assembly.GetName().Version))) [ Aegis.Sinks.standardError ]
 
     /// The ports a deployed function uses: an HttpClient with a ten-second
     /// timeout, Secrets Manager behind a five-minute cache, and the system clock.

@@ -39,7 +39,8 @@ let aws: Implementation =
         let context = TestLambdaContext()
         let logger = TestLambdaLogger()
         context.Logger <- logger
-        let response = (Function.handle ExchangeFixture.configuration ports event context).GetAwaiter().GetResult()
+        let aegis, _ = Collecting.aegis ()
+        let response = (Function.handle aegis ExchangeFixture.configuration ports event context).GetAwaiter().GetResult()
 
         handler.World,
         { Status = response.StatusCode

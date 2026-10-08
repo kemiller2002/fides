@@ -32,8 +32,8 @@ work, record `./praxis work checkpoint --id ID --occurred-at NOW --summary ...
 
 1. The operator's GitHub App registration, AWS account, region and domain
    (needed to deploy, not to build).
-2. Aegis publication, so failure classification can bind to a pinned
-   release.
+2. Whether the client should also report to Aegis once a browser sink
+   exists (DF-FIDES-2026-0009 keeps Aegis at the exchange host for now).
 
 ## Next action
 

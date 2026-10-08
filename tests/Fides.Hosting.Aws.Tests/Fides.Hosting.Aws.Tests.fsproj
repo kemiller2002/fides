@@ -8,6 +8,7 @@
     <ProjectReference Include="../Fides.Acceptance/Fides.Acceptance.fsproj" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collecting.fs" />
     <Compile Include="Events.fs" />
     <Compile Include="TranslationTests.fs" />
     <Compile Include="FunctionTests.fs" />
@@ -16,6 +17,7 @@
     <Compile Include="TemplateTests.fs" />
     <Compile Include="RuntimeEmulationTests.fs" />
     <Compile Include="ConformanceTests.fs" />
+    <Compile Include="DiagnosticsTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.TestUtilities" Version="4.2.0" />

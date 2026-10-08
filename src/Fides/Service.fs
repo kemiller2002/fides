@@ -84,7 +84,8 @@ module Service =
     let private refuse configuration request refusal =
         respond configuration request (status refusal) (encodeRefusal refusal)
 
-    let private operationName (path: string) =
+    /// The operation a path names: `token`, `refresh`, `revoke` or `unknown`.
+    let operationName (path: string) =
         match path with
         | p when p = TokenPath -> "token"
         | p when p = RefreshPath -> "refresh"
@@ -122,6 +123,13 @@ module Service =
             { Status = 204; Headers = baseHeaders @ corsHeaders origin; Body = "" }
         | _ ->
             { Status = 403; Headers = baseHeaders @ json; Body = encodeRefusal OriginNotAllowed }
+
+    /// The answer when the host itself fails unexpectedly: nothing about the
+    /// failure, and no CORS headers.
+    let internalError =
+        { Status = 500
+          Headers = baseHeaders @ json
+          Body = "{\"error\":\"internal_error\"}" }
 
     /// Answers one request.
     let handle (configuration: Configuration) (request: HostRequest) : Effect<HostResponse * AuditRecord> =

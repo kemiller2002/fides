@@ -43,6 +43,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Token-provider results mirror Arca's port; outage is provider_unavailable (WI-0009)"
+    EXE-20261008T102659947Z-c29ed82a:
+      operations: [modified]
+      at: 2026-10-08T10:31:04.196Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Host failure answer internal_error (WI-0014)"
 ---
 
 # Fides exchange and client protocol
@@ -129,6 +139,12 @@ usable.
 
 Requests must declare `Content-Type: application/json`; anything else is
 `malformed_request`.
+
+If the host itself fails unexpectedly, it answers `500` with
+`{"error": "internal_error"}` and nothing else, without CORS headers; the
+failure is classified through Aegis on the host (DF-FIDES-2026-0009). It is
+not a refusal of the request, and a client treats it like
+`provider_unavailable`.
 
 ## 4. CORS
 

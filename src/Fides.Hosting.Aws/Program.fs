@@ -20,10 +20,11 @@ let main _ =
         1
     | Ok configuration ->
         let ports = Function.livePorts (SecretsManagerPort.live (new AmazonSecretsManagerClient()))
+        let aegis = Function.liveAegis ()
 
         let handler =
             Func<APIGatewayHttpApiV2ProxyRequest, ILambdaContext, Task<APIGatewayHttpApiV2ProxyResponse>>(fun request context ->
-                Function.handle configuration ports request context)
+                Function.handle aegis configuration ports request context)
 
         use bootstrap = LambdaBootstrapBuilder.Create<APIGatewayHttpApiV2ProxyRequest, APIGatewayHttpApiV2ProxyResponse>(handler, DefaultLambdaJsonSerializer()).Build()
         bootstrap.RunAsync().GetAwaiter().GetResult()

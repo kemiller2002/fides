@@ -11,9 +11,14 @@
     <Compile Include="Runtime.fs" />
     <Compile Include="HttpPort.fs" />
     <Compile Include="SecretCache.fs" />
+    <Compile Include="Diagnostics.fs" />
     <Compile Include="Host.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../Fides/Fides.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Aegis 1.0.0 needs FSharp.Core 10.1.400 or later (SDK 10.0.4xx). -->
+    <PackageReference Include="EchelonFoundry.Aegis.Core" Version="1.0.0" />
   </ItemGroup>
 </Project>

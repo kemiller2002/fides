@@ -16,3 +16,4 @@ table is a navigation view, not a replacement for those records.
 | 2026-10-08 | Interim distribution: Sigstore-attested GitHub release assets plus an echelon-registry entry until nuget.org is set up. | accepted | DF-FIDES-2026-0006 |
 | 2026-10-08 | GitHub proves account control, the App authorization, token reach and identity; Fides owns client registration, redirect policy, state and PKCE, session states, revocation propagation and secret custody. | accepted | DF-FIDES-2026-0007 |
 | 2026-10-08 | The client mirrors Arca 0.1.0's token-provider port in its own types; a packaged bridge waits for Conditor to install Arca's release assets. | accepted | DF-FIDES-2026-0008 |
+| 2026-10-08 | Unexpected failures at the exchange host are classified through Aegis 1.0.0 with stable FIDES.* codes; exception messages never reach a sink; the client is not bound to Aegis yet. | accepted | DF-FIDES-2026-0009 |

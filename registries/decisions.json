@@ -358,5 +358,48 @@
     "title": "The Fides client mirrors Arca's published token-provider port; a packaged bridge waits for Conditor's release-asset installation",
     "updated": "2026-10-08",
     "version": "1.0.0"
+  },
+  {
+    "created": "2026-10-08",
+    "id": "DF-FIDES-2026-0009",
+    "owners": [
+      "fides"
+    ],
+    "path": "research/decisions/DF-FIDES-2026-0009--aegis-at-the-exchange-host.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261008T102659947Z-c29ed82a": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-10-08T10:31:03.810Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "Aegis binding at the exchange host (WI-0014, FID-EXC-005)"
+        }
+      }
+    },
+    "related_documents": [
+      "docs/requirements/FIDES-REQUIREMENTS.md",
+      "docs/architecture/EXCHANGE-PROTOCOL.md"
+    ],
+    "review_cycle": "on-trigger",
+    "status": "accepted",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "diagnostics",
+      "aegis",
+      "security",
+      "hosting"
+    ],
+    "title": "Unexpected failures at the exchange host are classified through Aegis 1.0.0; exception messages never reach a sink; the client is not bound to Aegis yet",
+    "updated": "2026-10-08",
+    "version": "1.0.0"
   }
 ]
