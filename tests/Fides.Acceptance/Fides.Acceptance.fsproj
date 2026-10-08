@@ -16,5 +16,6 @@
     <Compile Include="ExchangeFixture.fs" />
     <Compile Include="ScenarioRunner.fs" />
     <Compile Include="SimulatorHttpHandler.fs" />
+    <Compile Include="Conformance.fs" />
   </ItemGroup>
 </Project>

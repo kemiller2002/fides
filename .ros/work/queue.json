@@ -250,10 +250,10 @@
         "hosting"
       ],
       "priority": "medium",
-      "status": "captured",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-10-08T08:22:48.858Z",
-      "updatedAt": "2026-10-08T08:22:48.858Z",
+      "updatedAt": "2026-10-08T09:53:45.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
