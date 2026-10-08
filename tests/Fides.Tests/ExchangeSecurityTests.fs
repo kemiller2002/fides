@@ -7,9 +7,9 @@ open System
 open Xunit
 open Fides
 open Fides.Protocol
-open Fides.Tests.Acceptance
-open Fides.Tests.Acceptance.GitHubSimulator
-open Fides.Tests.Acceptance.Scenarios
+open Fides.Acceptance
+open Fides.Acceptance.GitHubSimulator
+open Fides.Acceptance.Scenarios
 
 let private configuration = ExchangeFixture.configuration
 let private chronaApp = configuration.Applications[ApplicationId "chrona-test"]

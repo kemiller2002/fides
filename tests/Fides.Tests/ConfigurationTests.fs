@@ -2,7 +2,7 @@ module Fides.Tests.ConfigurationTests
 
 open Xunit
 open Fides
-open Fides.Tests.Acceptance
+open Fides.Acceptance
 
 let private parse (document: string) = Configuration.parse ExchangeFixture.catalog document
 

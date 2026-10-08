@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-10-08T09:09:05.000Z",
+  "updatedAt": "2026-10-08T09:32:33.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -348,6 +348,47 @@
         }
       },
       "completedAt": "2026-10-08T09:09:05.000Z"
+    },
+    {
+      "id": "WI-0008",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "src/Fides.Hosting.Aws/Function.fs"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Fides.Hosting.Aws.Tests/FunctionTests.fs"
+        }
+      ],
+      "updatedAt": "2026-10-08T09:32:33.000Z",
+      "telemetryExecutionIds": [
+        "EXE-20261008T091048263Z-e6a3dfca"
+      ],
+      "latestCheckpoint": {
+        "id": "8fff5081240b2cdde77d8542",
+        "recordedAt": "2026-10-08T09:32:32.000Z",
+        "executionId": "EXE-20261008T091048263Z-e6a3dfca",
+        "repository": "fides",
+        "branch": "wi-0008/aws-lambda-adapter",
+        "commit": "5c636945e2e870b3d4b2485e9a09a4b2bc931212",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides.git"
+        },
+        "remoteBranch": "wi-0008/aws-lambda-adapter",
+        "remoteCommit": "5c636945e2e870b3d4b2485e9a09a4b2bc931212",
+        "summary": "AWS Lambda adapter, neutral hosting runtime, CloudFormation template and operator guide; 212 tests passing; nothing deployed",
+        "nextAction": "WI-0009 WASM client and Arca token provider",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-10-08T09:32:33.000Z"
     }
   ]
 }

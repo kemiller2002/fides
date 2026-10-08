@@ -17,8 +17,12 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
 
 - The pure core has its provider model and GitHub App provider (WI-0006)
   and the exchange core and host-neutral service (WI-0007). All 30 exchange
-  acceptance scenarios pass against the core. The AWS Lambda adapter is next
-  (WI-0008).
+  acceptance scenarios pass against the core.
+- The AWS Lambda adapter (WI-0008) is code, tests and a CloudFormation
+  template only: nothing is deployed. `docs/hosting/AWS.md` lists what the
+  operator must provide. Its tests run the function in process over real
+  HTTP against simulated GitHub, and run the built `bootstrap` against an
+  emulated Lambda Runtime API.
 - The acceptance scenarios (WI-0005) and the GitHub simulator live in
   `tests/Fides.Tests/Acceptance`.
 - The user decided: GitHub only, through a GitHub App with expiring

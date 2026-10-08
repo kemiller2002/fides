@@ -65,6 +65,15 @@ let verifiedRequirements (assembly: Assembly) =
         | _ -> None)
     |> Set.ofSeq
 
+/// Requirement IDs that test sources declare they verify, across every test
+/// project: `[<Trait("Verifies", "FID-...")>]` in any `.fs` file. Reading
+/// sources rather than one assembly keeps adapter test projects in scope.
+let verifiedInSources (sources: string seq) =
+    sources
+    |> Seq.collect (fun source -> System.Text.RegularExpressions.Regex.Matches(source, "Trait\\(\"Verifies\", \"(FID-[A-Z]+-\\d{3})\"\\)"))
+    |> Seq.map _.Groups[1].Value
+    |> Set.ofSeq
+
 /// Declared requirements that no open work item plans and no test verifies.
 let unaccounted (declared: Set<string>) (planned: Set<string>) (verified: Set<string>) =
     Set.difference declared (Set.union planned verified)

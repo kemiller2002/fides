@@ -2,12 +2,12 @@
 /// contract: a function from a call to a response, an audit line, and the
 /// simulated GitHub afterwards. The exchange core is one implementation; each
 /// hosting adapter is another (FID-TEST-002).
-module Fides.Tests.Acceptance.ScenarioRunner
+module Fides.Acceptance.ScenarioRunner
 
 open System
 open Fides
-open Fides.Tests.Acceptance.GitHubSimulator
-open Fides.Tests.Acceptance.Scenarios
+open Fides.Acceptance.GitHubSimulator
+open Fides.Acceptance.Scenarios
 
 /// What the scenario runner observes of one answered call.
 type Observed =

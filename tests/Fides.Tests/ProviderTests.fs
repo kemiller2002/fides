@@ -3,8 +3,8 @@ module Fides.Tests.ProviderTests
 open System
 open Xunit
 open Fides
-open Fides.Tests.Acceptance
-open Fides.Tests.Acceptance.GitHubSimulator
+open Fides.Acceptance
+open Fides.Acceptance.GitHubSimulator
 
 let private github = GitHub.provider GitHub.githubDotCom
 

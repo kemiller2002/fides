@@ -1,12 +1,12 @@
 /// The acceptance catalogue is complete against issue #1, the trust-boundary
 /// threat table and the protocol's codes. Running the scenarios against the
 /// exchange core is WI-0007; against the client, WI-0009.
-module Fides.Tests.Acceptance.AcceptanceCatalogueTests
+module Fides.Acceptance.AcceptanceCatalogueTests
 
 open System.Text.RegularExpressions
 open Xunit
 open Fides.Tests
-open Fides.Tests.Acceptance.Scenarios
+open Fides.Acceptance.Scenarios
 
 let private allIds =
     (exchangeScenarios |> List.map _.Id)

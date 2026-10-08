@@ -1,12 +1,12 @@
 /// The simulator behaves as GitHub documents. If it did not, scenarios that
 /// pass against it would prove nothing about GitHub.
-module Fides.Tests.Acceptance.GitHubSimulatorTests
+module Fides.Acceptance.GitHubSimulatorTests
 
 open System
 open System.Text
 open Xunit
-open Fides.Tests.Acceptance.GitHubSimulator
-open Fides.Tests.Acceptance.Scenarios
+open Fides.Acceptance.GitHubSimulator
+open Fides.Acceptance.Scenarios
 
 let private formBody (pairs: (string * string) list) =
     pairs |> List.map (fun (k, v) -> Uri.EscapeDataString k + "=" + Uri.EscapeDataString v) |> String.concat "&"

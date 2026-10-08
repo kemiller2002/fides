@@ -8,11 +8,11 @@
 /// Exchange scenarios run against the exchange core with the GitHub simulator
 /// standing in for GitHub (WI-0007) and again through every hosting adapter
 /// (WI-0010). Callback and session scenarios run against the client (WI-0009).
-module Fides.Tests.Acceptance.Scenarios
+module Fides.Acceptance.Scenarios
 
 open System
 open System.Text.Json
-open Fides.Tests.Acceptance.GitHubSimulator
+open Fides.Acceptance.GitHubSimulator
 
 /// The issue #1 categories, plus the supporting paths the protocol defines.
 type Category =
