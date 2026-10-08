@@ -117,10 +117,10 @@
         "FIDES-P0"
       ],
       "priority": "high",
-      "status": "captured",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-10-08T08:22:47.345Z",
-      "updatedAt": "2026-10-08T08:22:47.345Z",
+      "updatedAt": "2026-10-08T08:56:44.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
@@ -162,7 +162,7 @@
     {
       "id": "WI-0007",
       "title": "Fides slice 5: pure F# code-for-token exchange core - authorization code with PKCE, single-use state, replay refusal (FID-EXC-001..005)",
-      "description": "Minimal slice. Depends on WI-0005 and WI-0006. A cloud-agnostic pure core (decision FID-D-001): request, configuration and provider responses in; response or typed refusal out. Clock, randomness, secret retrieval and HTTP are explicit effect requests. Validate state, PKCE verifier, redirect URI and client registration before calling the provider. Refuse replays. A provider outage gives a typed failure and never a partial session. Codes, tokens, secrets and verifiers never reach logs, telemetry or errors. Aegis classifies unexpected failures. Must pass every WI-0005 test.",
+      "description": "Minimal slice. Depends on WI-0005 and WI-0006. A cloud-agnostic pure core (decision FID-D-001): request, configuration and provider responses in; response or typed refusal out. Clock, randomness, secret retrieval and HTTP are explicit effect requests. Validate state, PKCE verifier, redirect URI and client registration before calling the provider. Refuse replays. A provider outage gives a typed failure and never a partial session. Codes, tokens, secrets and verifiers never reach logs, telemetry or errors. Runs every WI-0005 exchange acceptance scenario against the core with the GitHub simulator (FID-TEST-001). Aegis binding is WI-0014.",
       "tags": [
         "fides",
         "slice:5",
@@ -174,7 +174,7 @@
       "status": "captured",
       "attachments": [],
       "createdAt": "2026-10-08T08:22:47.948Z",
-      "updatedAt": "2026-10-08T08:22:47.948Z",
+      "updatedAt": "2026-10-08T08:56:14.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
@@ -216,7 +216,7 @@
     {
       "id": "WI-0009",
       "title": "Fides slice 7: WASM client library and Arca token provider - sign-in, callback, session states, retention modes (FID-CLI-001..004)",
-      "description": "Minimal slice; the last one Chrona's sign-in needs. Depends on WI-0007. An F# client usable from Limen/Forma WASM applications: start sign-in, complete the callback, typed session states (signed out, signing in, signed in, expired, revoked, provider unavailable), and retention modes (memory-only default, session-scoped, persistent only by explicit choice with a clear action). Cross-tab signalling is an optimization only. It exposes a token provider matching Arca's token-provider port (ARCA-AUTH-001) without Arca referencing Fides. Published as a pinned package.",
+      "description": "Minimal slice; the last one Chrona's sign-in needs. Depends on WI-0007. An F# client usable from Limen/Forma WASM applications: start sign-in, complete the callback, typed session states (signed out, signing in, signed in, expired, revoked, provider unavailable), and retention modes (memory-only default, session-scoped, persistent only by explicit choice with a clear action). Cross-tab signalling is an optimization only. It exposes a token provider matching Arca's token-provider port (ARCA-AUTH-001) without Arca referencing Fides. Runs every WI-0005 callback and session acceptance scenario against the client (FID-TEST-001). Published as a pinned package.",
       "tags": [
         "fides",
         "slice:7",
@@ -228,7 +228,7 @@
       "status": "captured",
       "attachments": [],
       "createdAt": "2026-10-08T08:22:48.565Z",
-      "updatedAt": "2026-10-08T08:22:48.565Z",
+      "updatedAt": "2026-10-08T08:56:14.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

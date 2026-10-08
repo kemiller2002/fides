@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-10-08T08:49:08.000Z",
+  "updatedAt": "2026-10-08T08:56:44.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -225,6 +225,47 @@
         }
       },
       "completedAt": "2026-10-08T08:49:08.000Z"
+    },
+    {
+      "id": "WI-0005",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "docs/architecture/EXCHANGE-PROTOCOL.md"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Fides.Tests/Acceptance/Scenarios.fs"
+        }
+      ],
+      "updatedAt": "2026-10-08T08:56:44.000Z",
+      "telemetryExecutionIds": [
+        "EXE-20261008T085052343Z-fb043497"
+      ],
+      "latestCheckpoint": {
+        "id": "c4634dd3b0cfaf6d651868be",
+        "recordedAt": "2026-10-08T08:56:43.000Z",
+        "executionId": "EXE-20261008T085052343Z-fb043497",
+        "repository": "fides",
+        "branch": "wi-0005/acceptance-tests",
+        "commit": "e845e0d44327fc2729e411ae34f275d1fa01307d",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides.git"
+        },
+        "remoteBranch": "wi-0005/acceptance-tests",
+        "remoteCommit": "e845e0d44327fc2729e411ae34f275d1fa01307d",
+        "summary": "Exchange protocol contract and 48 acceptance scenarios (30 exchange, 9 callback, 9 session) with a GitHub simulator pinned to GitHub's documented behaviour",
+        "nextAction": "WI-0006 GitHub App provider model",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-10-08T08:56:44.000Z"
     }
   ]
 }
