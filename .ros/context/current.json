@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-10-08T09:57:23.000Z",
+  "updatedAt": "2026-10-08T10:05:35.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -475,13 +475,43 @@
     {
       "id": "WI-0017",
       "type": "task",
-      "state": "active",
-      "semanticState": "active",
-      "evidence": [],
-      "updatedAt": "2026-10-08T09:57:23.000Z",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "src/Fides.Client/FidesClient.fs"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Fides.Tests/ClientTests.fs"
+        }
+      ],
+      "updatedAt": "2026-10-08T10:05:35.000Z",
       "telemetryExecutionIds": [
         "EXE-20261008T095723881Z-768830db"
-      ]
+      ],
+      "latestCheckpoint": {
+        "id": "99c8716bb902847f8d4f6306",
+        "recordedAt": "2026-10-08T10:05:34.000Z",
+        "executionId": "EXE-20261008T095723881Z-768830db",
+        "repository": "fides",
+        "branch": "wi-0017/single-flight-refresh",
+        "commit": "2be44515ca40c1e3ef6877bf7c03b86c61176173",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides.git"
+        },
+        "remoteBranch": "wi-0017/single-flight-refresh",
+        "remoteCommit": "2be44515ca40c1e3ef6877bf7c03b86c61176173",
+        "summary": "Single-flight refresh made thread-safe; stress test fails on old code, passes now",
+        "nextAction": "WI-0012 interim release",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-10-08T10:05:35.000Z"
     }
   ]
 }

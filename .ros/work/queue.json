@@ -425,10 +425,10 @@
         "defect"
       ],
       "priority": "high",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-10-08T09:57:18.000Z",
-      "updatedAt": "2026-10-08T09:57:23.000Z",
+      "updatedAt": "2026-10-08T10:05:35.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
