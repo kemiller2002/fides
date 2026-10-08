@@ -48,11 +48,13 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
 - Release 0.1.0 (WI-0012) ships EchelonFoundry.Fides, .Fides.Client and
   .Fides.Hosting plus the AWS Lambda package as Sigstore-attested GitHub
   release assets; nuget.org publication is dormant until `NUGET_USER` is set.
+  echelon-registry records it (`releases/fides/0.1.0.release.json`) and
+  offers `fides` as an optional project binding in `echelon-current` 1.5.0
+  (WI-0018); Conditor installs it into a consumer's verified local feed.
 
 ## Active work
 
-The minimal slices (WI-0003 to WI-0010) are done. Next: the echelon-registry
-record for Fides 0.1.0, the packaged Arca bridge (WI-0016, now unblocked by
+The minimal slices (WI-0003 to WI-0010) are done. Next: the packaged Arca bridge (WI-0016, now unblocked by
 conditor#59), the Aegis binding (WI-0014, waiting on an Aegis release) and
 the Conditor scaffold fix (WI-0015). The Azure adapter (WI-0011) stays
 deferred.
