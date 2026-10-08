@@ -14,6 +14,10 @@
     <Compile Include="TrustBoundaryModelTests.fs" />
     <Compile Include="RequirementsTraceability.fs" />
     <Compile Include="RequirementsTraceabilityTests.fs" />
+    <Compile Include="Acceptance/GitHubSimulator.fs" />
+    <Compile Include="Acceptance/Scenarios.fs" />
+    <Compile Include="Acceptance/GitHubSimulatorTests.fs" />
+    <Compile Include="Acceptance/AcceptanceCatalogueTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />

@@ -2,7 +2,7 @@
 id: DF-FIDES-2026-0004
 title: The code-for-token exchange is stateless, with no session service and no server-held refresh tokens
 status: accepted
-version: 1.0.0
+version: 1.0.1
 created: 2026-10-08
 updated: 2026-10-08
 owners:
@@ -26,6 +26,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "User decision of 2026-10-08 recorded for WI-0003"
+    EXE-20261008T085052343Z-fb043497:
+      operations: [modified]
+      at: 2026-10-08T08:56:08.405Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Name the replay refusal by its protocol code, code_rejected"
 ---
 
 # DF-FIDES-2026-0004 — Stateless exchange
@@ -52,8 +62,8 @@ the provider's tokens to the browser client and keeping nothing).
    state: the client's single-use `state` (consumed on the first callback),
    PKCE (a stolen code is useless without the verifier, which never leaves
    the initiating browser before the exchange call), and the provider's own
-   single-use codes, whose refusal the exchange reports as a typed `replay`
-   refusal.
+   single-use codes, whose refusal the exchange reports as the typed
+   `code_rejected` refusal (docs/architecture/EXCHANGE-PROTOCOL.md).
 
 ## Alternatives considered
 
