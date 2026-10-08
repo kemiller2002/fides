@@ -1,14 +1,14 @@
 {
   "schemaVersion": 4,
   "project": "fides",
-  "manifestSha256": "c91292a25ba653c15ab83408420b2e2418b14097fda781dd59c04548dcac9e1e",
+  "manifestSha256": "5df205c809c8d5cc7c3106e49fc06f92d34dfe6428d4e71a43043600af4f8c27",
   "manifest": {
     "schemaVersion": 1,
     "name": "fides",
     "registryAuthority": {
       "kind": "resolved-release-set",
       "path": ".conditor/authority/resolved-release-set.json",
-      "sha256": "cd8d8d0482c5c4750f4bb31d28bc79e9597d3be4f6264955691e3aebd86cb6d2"
+      "sha256": "ea1b39a003d3f2f41c4fb6e979694ec82fd03964854e5dd268e38df51cd22931"
     },
     "components": [
       {
@@ -18,7 +18,7 @@
       },
       {
         "id": "ordo",
-        "version": "1.4.2",
+        "version": "1.5.0",
         "required": true
       },
       {
@@ -64,12 +64,12 @@
     },
     {
       "id": "ordo",
-      "version": "1.4.2",
+      "version": "1.5.0",
       "distribution": "host-tool",
       "package": "ordo",
-      "descriptorSha256": "ee057aa4a0c4cd5180269fd262e5570ff6146035e52fd6d17a0baede0df21f5c",
+      "descriptorSha256": "cac222af525161218391dade23d2a583c29315e8df255ffb9f11f0f2bb4eaf3a",
       "authority": "embedded-component-descriptor",
-      "sourceReference": "host:ordo@1.4.2"
+      "sourceReference": "host:ordo@1.5.0"
     },
     {
       "id": "percepta",
@@ -86,7 +86,7 @@
       "distribution": "host-tool",
       "package": "dokimos",
       "authority": "registry-resolved-set",
-      "sourceReference": "resolved-set=sha256:cd8d8d0482c5c4750f4bb31d28bc79e9597d3be4f6264955691e3aebd86cb6d2;profile=sha256:786a6336fbb4b940e5666ad45e0ed93d6e06c3aeafc1b35573c97343b0523156;catalog=sha256:2a4abb1efb8a20f5b36cae7ed3b5bde0a99e3e182f9bc9349770e9905f109f67;systemId=dokimos;version=0.2.0;repository=kemiller2002/dokimos;tag=dokimos-v0.2.0;sourceCommit=e641048c52edd8755c2964b6bafa4ae860e34062;contract=echelon.repository-lifecycle/v1"
+      "sourceReference": "resolved-set=sha256:ea1b39a003d3f2f41c4fb6e979694ec82fd03964854e5dd268e38df51cd22931;profile=sha256:703de3a300be873ff8a3eb09a290d46f1c1ebe336d45471d325927df4eae4891;catalog=sha256:bffd0e5a542400cebbee4a15f8d33c9d27db3088ef1c4d0e6676a834d1f50ed3;systemId=dokimos;version=0.2.0;repository=kemiller2002/dokimos;tag=dokimos-v0.2.0;sourceCommit=e641048c52edd8755c2964b6bafa4ae860e34062;contract=echelon.repository-lifecycle/v1"
     },
     {
       "id": "visual-engineering",
