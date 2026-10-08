@@ -2,7 +2,7 @@ namespace Fides
 
 open System
 open System.Text
-open System.Text.Json
+
 
 /// GitHub as an identity provider, through a GitHub App's user-to-server
 /// tokens with expiry and refresh (DF-FIDES-2026-0003).
@@ -74,7 +74,7 @@ module GitHub =
         { Method = "DELETE"
           Url = endpoints.ApiUrl + "/applications/" + Uri.EscapeDataString credentials.ClientId + "/token"
           Headers = ("Authorization", "Basic " + basic) :: apiHeaders endpoints
-          Body = Json(JsonSerializer.Serialize(dict [ "access_token", Secret.reveal token ])) }
+          Body = Json(JsonWrite.render (JsonWrite.Object [ "access_token", JsonWrite.String(Secret.reveal token) ])) }
 
     let repositoryAccessRequest (endpoints: Endpoints) token (repository: RepositoryName) =
         { Method = "GET"

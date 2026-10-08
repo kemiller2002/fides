@@ -22,6 +22,12 @@
     <Compile Include="PkceTests.fs" />
     <Compile Include="ProviderTests.fs" />
     <Compile Include="ProviderCatalogTests.fs" />
+    <Compile Include="Acceptance/ExchangeFixture.fs" />
+    <Compile Include="Acceptance/ScenarioRunner.fs" />
+    <Compile Include="Acceptance/ExchangeAcceptanceTests.fs" />
+    <Compile Include="ConfigurationTests.fs" />
+    <Compile Include="ExchangeSecurityTests.fs" />
+    <Compile Include="CoreBoundaryTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />

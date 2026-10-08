@@ -12,8 +12,13 @@
     <Compile Include="Http.fs" />
     <Compile Include="Effect.fs" />
     <Compile Include="JsonRead.fs" />
+    <Compile Include="JsonWrite.fs" />
     <Compile Include="Pkce.fs" />
     <Compile Include="Provider.fs" />
     <Compile Include="GitHub.fs" />
+    <Compile Include="Configuration.fs" />
+    <Compile Include="Protocol.fs" />
+    <Compile Include="Exchange.fs" />
+    <Compile Include="Service.fs" />
   </ItemGroup>
 </Project>
