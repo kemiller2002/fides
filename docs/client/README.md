@@ -74,6 +74,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Point consumers at 0.2.0 (WI-0020)"
+    EXE-20261008T110034478Z-24540bc2:
+      operations: [modified]
+      at: 2026-10-08T11:02:28.438Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "fides 0.2.0 resolves from echelon-current 1.7.0 (WI-0021)"
 ---
 
 # Using the Fides client
@@ -91,7 +101,7 @@ CI runs the full flow inside the trimmed WebAssembly runtime
 Until the packages are on nuget.org, each release ships them as
 Sigstore-attested GitHub release assets (DF-FIDES-2026-0006), and
 echelon-registry records them: `fides` is an optional project binding in
-`echelon-current` 1.5.0 and later (0.2.0 from 1.6.0). Declare it in the application's
+`echelon-current` 1.5.0 and later (0.2.0 from 1.7.0). Declare it in the application's
 `conditor.json`:
 
 ```json
