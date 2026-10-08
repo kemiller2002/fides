@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "fides",
-  "nextSeq": 17,
+  "nextSeq": 18,
   "items": [
     {
       "id": "WI-0001",
@@ -404,6 +404,31 @@
       "attachments": [],
       "createdAt": "2026-10-08T09:48:44.000Z",
       "updatedAt": "2026-10-08T09:48:44.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0017",
+      "title": "Fides client: two threads could both start a refresh, and refresh tokens are single use (single-flight race)",
+      "description": "Found by the post-completion test run for WI-0010: 'concurrent token requests share one refresh' fails 8/8 in isolation. The in-flight refresh was claimed with an unsynchronised check-then-set, so two thread-pool callers could both refresh; the second refresh would then be refused and the session wrongly revoked. Fix: claim the refresh under a lock, run it outside the lock, complete a shared TaskCompletionSource for every waiter.",
+      "tags": [
+        "fides",
+        "client",
+        "defect"
+      ],
+      "priority": "high",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-10-08T09:57:18.000Z",
+      "updatedAt": "2026-10-08T09:57:23.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
