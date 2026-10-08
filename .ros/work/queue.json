@@ -522,10 +522,10 @@
         "registry"
       ],
       "priority": "high",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-10-08T10:53:58.000Z",
-      "updatedAt": "2026-10-08T11:00:33.000Z",
+      "updatedAt": "2026-10-08T11:04:48.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
