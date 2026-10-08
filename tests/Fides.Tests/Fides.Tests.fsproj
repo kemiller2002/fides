@@ -11,6 +11,7 @@
     <Compile Include="LibraryTests.fs" />
     <Compile Include="RepositoryContext.fs" />
     <Compile Include="RepositoryContextTests.fs" />
+    <Compile Include="TrustBoundaryModelTests.fs" />
     <Compile Include="RequirementsTraceability.fs" />
     <Compile Include="RequirementsTraceabilityTests.fs" />
   </ItemGroup>
