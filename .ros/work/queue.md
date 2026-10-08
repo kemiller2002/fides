@@ -4,7 +4,7 @@
 |---|---|---|---|---|
 | ROS-INSTALL-3-7-2 | ROS-INSTALL-3-7-2 | complete |  |  |
 | WI-0001 | Complete Fides's Conditor setup: echelon-current 1.3.0 (Ordo 1.5.0) through conditor upgrade --current, plus the fsharp-nuget-library scaffold (buildable project, foundations, build-and-test, release workflow); supersedes fides#2 | complete | conditor, setup | high |
-| WI-0002 | Consolidate Fides's SSO requirements, record the hosting and provider decisions, and capture the dependency-ordered backlog | active | planning, requirements | high |
+| WI-0002 | Consolidate Fides's SSO requirements, record the hosting and provider decisions, and capture the dependency-ordered backlog | complete | planning, requirements | high |
 | WI-0003 | Fides slice 1: re-anchor the charter and context on SSO, with a context gate test (FID-CTX-001..003, issue #1) | captured | fides, slice:1, minimal, context, FIDES-P0 | high |
 | WI-0004 | Fides slice 2: trust-boundary model and the decision on what GitHub authentication proves (FID-TB-001..006, issue #1) | captured | fides, slice:2, minimal, trust-boundaries, decision | high |
 | WI-0005 | Fides slice 3: executable acceptance tests before production code - invalid state/nonce, replay, wrong callback, revoked identity, expired session, repository access denial, provider outage (FID-TEST-001) | captured | fides, slice:3, minimal, testing, FIDES-P0 | high |
