@@ -325,10 +325,10 @@
         "ci"
       ],
       "priority": "high",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-10-08T08:27:10.000Z",
-      "updatedAt": "2026-10-08T08:27:10.000Z",
+      "updatedAt": "2026-10-08T08:28:03.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
