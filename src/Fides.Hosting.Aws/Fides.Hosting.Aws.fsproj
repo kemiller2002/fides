@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The AWS hosting adapter: an AWS Lambda function behind an API Gateway
+       HTTP API (payload format 2.0), on the provided.al2023 runtime, so it does
+       not depend on which .NET versions Lambda manages. Published as a
+       self-contained linux-arm64 executable named `bootstrap`. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>bootstrap</AssemblyName>
+    <RootNamespace>Fides.Hosting.Aws</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <Description>Fides (Echelon Foundry): AWS Lambda hosting adapter for the Fides exchange.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Translation.fs" />
+    <Compile Include="SecretsManagerPort.fs" />
+    <Compile Include="Function.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Fides.Hosting/Fides.Hosting.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Amazon.Lambda.Core" Version="3.3.0" />
+    <PackageReference Include="Amazon.Lambda.APIGatewayEvents" Version="3.0.1" />
+    <PackageReference Include="Amazon.Lambda.Serialization.SystemTextJson" Version="3.0.1" />
+    <PackageReference Include="Amazon.Lambda.RuntimeSupport" Version="2.2.2" />
+    <PackageReference Include="AWSSDK.SecretsManager" Version="4.0.100.14" />
+  </ItemGroup>
+</Project>

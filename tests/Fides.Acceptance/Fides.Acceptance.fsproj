@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The acceptance scenarios, the GitHub simulator and the scenario runner,
+       shared by the core's tests and every hosting adapter's conformance
+       tests. A library, not a test project. -->
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>false</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/Fides/Fides.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GitHubSimulator.fs" />
+    <Compile Include="Scenarios.fs" />
+    <Compile Include="SimulatedHost.fs" />
+    <Compile Include="ExchangeFixture.fs" />
+    <Compile Include="ScenarioRunner.fs" />
+    <Compile Include="SimulatorHttpHandler.fs" />
+  </ItemGroup>
+</Project>

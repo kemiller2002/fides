@@ -1,11 +1,11 @@
 /// The exchange as the acceptance scenarios see it: configured from the
 /// scenarios' registrations through the real configuration parser, and run
 /// against the GitHub simulator.
-module Fides.Tests.Acceptance.ExchangeFixture
+module Fides.Acceptance.ExchangeFixture
 
 open Fides
-open Fides.Tests.Acceptance.GitHubSimulator
-open Fides.Tests.Acceptance.Scenarios
+open Fides.Acceptance.GitHubSimulator
+open Fides.Acceptance.Scenarios
 open Fides.JsonWrite
 
 let catalog = ProviderCatalog.ofList [ GitHub.provider GitHub.githubDotCom ]

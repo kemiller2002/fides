@@ -1,9 +1,9 @@
 /// Every exchange acceptance scenario from WI-0005, run against the exchange
 /// core (FID-TEST-001).
-module Fides.Tests.Acceptance.ExchangeAcceptanceTests
+module Fides.Acceptance.ExchangeAcceptanceTests
 
 open Xunit
-open Fides.Tests.Acceptance.Scenarios
+open Fides.Acceptance.Scenarios
 
 let scenarioIds: seq<objnull array> = exchangeScenarios |> Seq.map (fun s -> [| box s.Id |])
 
@@ -25,8 +25,8 @@ let ``the exchange core satisfies the acceptance scenario`` (id: string) =
 /// The runner must fail implementations that are wrong, leaky or call the
 /// provider too early, or a passing scenario would prove nothing.
 module RunnerSelfTests =
-    open Fides.Tests.Acceptance.GitHubSimulator
-    open Fides.Tests.Acceptance.ScenarioRunner
+    open Fides.Acceptance.GitHubSimulator
+    open Fides.Acceptance.ScenarioRunner
 
     let private scenario id = exchangeScenarios |> List.find (fun s -> s.Id = id)
 

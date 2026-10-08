@@ -10,7 +10,7 @@
 | WI-0005 | Fides slice 3: executable acceptance tests before production code - invalid state/nonce, replay, wrong callback, revoked identity, expired session, repository access denial, provider outage (FID-TEST-001) | complete | fides, slice:3, minimal, testing, FIDES-P0 | high |
 | WI-0006 | Fides slice 4: extensible provider model with GitHub as the only provider (FID-PRV-001..004, decision FID-D-002) | complete | fides, slice:4, minimal, providers, github | high |
 | WI-0007 | Fides slice 5: pure F# code-for-token exchange core - authorization code with PKCE, single-use state, replay refusal (FID-EXC-001..005) | complete | fides, slice:5, minimal, exchange, pure-core | high |
-| WI-0008 | Fides slice 6: AWS hosting adapter - Lambda behind API Gateway, client secret from Secrets Manager/SSM, infrastructure as code per environment (FID-HOST-001..003, FID-HOST-005) | captured | fides, slice:6, minimal, hosting, aws | high |
+| WI-0008 | Fides slice 6: AWS hosting adapter - Lambda behind API Gateway, client secret from Secrets Manager/SSM, infrastructure as code per environment (FID-HOST-001..003, FID-HOST-005) | ready | fides, slice:6, minimal, hosting, aws | high |
 | WI-0009 | Fides slice 7: WASM client library and Arca token provider - sign-in, callback, session states, retention modes (FID-CLI-001..004) | captured | fides, slice:7, minimal, client, wasm | high |
 | WI-0010 | Fides: shared hosting-adapter conformance suite (FID-TEST-002, FID-HOST-004) | captured | fides, conformance, hosting | medium |
 | WI-0011 | (Deferred) Fides Azure hosting adapter - Azure Functions plus Key Vault (FID-HOST-004) | captured | fides, deferred, hosting, azure | low |

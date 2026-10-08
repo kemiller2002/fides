@@ -41,3 +41,22 @@ jobs:
           fi
       - name: Pack
         run: dotnet pack src/Fides/Fides.fsproj -c Release --no-build -o dist
+      - name: Package the AWS Lambda function (linux-arm64)
+        shell: bash
+        run: |
+          set -euo pipefail
+          dotnet publish src/Fides.Hosting.Aws/Fides.Hosting.Aws.fsproj -c Release -r linux-arm64 --self-contained -o dist/lambda
+          test -x dist/lambda/bootstrap
+          file dist/lambda/bootstrap | grep -q 'ARM aarch64'
+
+  infrastructure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Lint the CloudFormation template
+        run: |
+          python -m pip install --disable-pip-version-check cfn-lint==1.57.2
+          cfn-lint infrastructure/aws/fides-exchange.template.json

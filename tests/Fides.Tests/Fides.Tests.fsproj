@@ -5,6 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/Fides/Fides.fsproj" />
+    <ProjectReference Include="../Fides.Acceptance/Fides.Acceptance.fsproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RepositoryFiles.fs" />
@@ -13,17 +14,12 @@
     <Compile Include="TrustBoundaryModelTests.fs" />
     <Compile Include="RequirementsTraceability.fs" />
     <Compile Include="RequirementsTraceabilityTests.fs" />
-    <Compile Include="Acceptance/GitHubSimulator.fs" />
-    <Compile Include="Acceptance/Scenarios.fs" />
-    <Compile Include="Acceptance/SimulatedHost.fs" />
     <Compile Include="Acceptance/GitHubSimulatorTests.fs" />
     <Compile Include="Acceptance/AcceptanceCatalogueTests.fs" />
     <Compile Include="SecretsTests.fs" />
     <Compile Include="PkceTests.fs" />
     <Compile Include="ProviderTests.fs" />
     <Compile Include="ProviderCatalogTests.fs" />
-    <Compile Include="Acceptance/ExchangeFixture.fs" />
-    <Compile Include="Acceptance/ScenarioRunner.fs" />
     <Compile Include="Acceptance/ExchangeAcceptanceTests.fs" />
     <Compile Include="ConfigurationTests.fs" />
     <Compile Include="ExchangeSecurityTests.fs" />

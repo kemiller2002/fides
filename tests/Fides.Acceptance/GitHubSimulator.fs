@@ -17,7 +17,7 @@
 ///
 /// The simulator is a state transition: `handle world request` returns the new
 /// world and the outcome. Every token it issues is visibly synthetic.
-module Fides.Tests.Acceptance.GitHubSimulator
+module Fides.Acceptance.GitHubSimulator
 
 open System
 open System.Security.Cryptography

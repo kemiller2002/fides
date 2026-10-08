@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/Fides.Hosting.Aws/Fides.Hosting.Aws.fsproj" />
+    <ProjectReference Include="../Fides.Acceptance/Fides.Acceptance.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Events.fs" />
+    <Compile Include="TranslationTests.fs" />
+    <Compile Include="FunctionTests.fs" />
+    <Compile Include="SecretsTests.fs" />
+    <Compile Include="HttpPortTests.fs" />
+    <Compile Include="TemplateTests.fs" />
+    <Compile Include="RuntimeEmulationTests.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Amazon.Lambda.TestUtilities" Version="4.2.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+  </ItemGroup>
+</Project>

@@ -20,10 +20,12 @@ This initial routing map was established by Conditor from accepted governing inp
 | Exchange protocol | The wire contract shared by exchange and client: requests, token response, refusal codes and statuses (EXCHANGE-PROTOCOL.md) | `src/Fides/Protocol.fs`, `src/Fides/JsonWrite.fs`, `src/Fides/JsonRead.fs` | not established yet | Reflection-free JSON so it trims and runs under WebAssembly. |
 | Exchange core | Validation before any provider call, code exchange, identity, required-repository check, refresh and revocation; discards tokens it will not return (FID-EXC-001..005) | `src/Fides/Exchange.fs` | not established yet | Stateless (DF-FIDES-2026-0004). |
 | Exchange service | The exchange as a host-neutral HTTP service: routing, body limits, CORS, cache headers, audit records without content (FID-HOST-001, FID-HOST-005) | `src/Fides/Service.fs` | not established yet | Hosting adapters translate to and from it. |
+| Hosting runtime | Runs the core's effects with HttpClient (timeouts, no redirects, bounded responses), a cached secret port and the clock; audit log lines (FID-HOST-001) | `src/Fides.Hosting/` | not established yet | Cloud-neutral; every adapter builds on it. |
+| AWS adapter | Lambda (provided.al2023, arm64) behind an API Gateway HTTP API: event translation, Secrets Manager port, bootstrap (FID-HOST-002) | `src/Fides.Hosting.Aws/`, `infrastructure/aws/`, `docs/hosting/AWS.md` | not established yet | Nothing is deployed from the repository (DF-FIDES-2026-0005). |
 
 ## Repository-wide composition
 
-- Composition/root entry point: `src/Fides/Fides.fsproj`
+- Composition/root entry point: `src/Fides/Fides.fsproj` (core); `src/Fides.Hosting.Aws/Program.fs` (AWS Lambda bootstrap)
 - Shared contracts: see the governing inputs above.
 - Architecture checks: installed Ordo/Praxis verification plus repository build/tests.
 - Boundary checks: installed Ordo/Praxis verification and the declared Echelon foundations.

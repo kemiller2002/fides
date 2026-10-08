@@ -14,8 +14,8 @@ scope are in [`PROJECT-CHARTER.md`](PROJECT-CHARTER.md); the requirements are in
 | Client | F# library for Limen/Forma WebAssembly applications: sign-in, callback, session, and the token provider that Arca consumes. |
 
 Nothing is deployed from this repository. What the operator must supply to
-deploy is listed in the hosting documentation once the AWS adapter lands
-(WI-0008).
+deploy (GitHub App registration, AWS account, region, domain, certificate and
+secret) is listed in [`docs/hosting/AWS.md`](docs/hosting/AWS.md).
 
 ## Start here
 

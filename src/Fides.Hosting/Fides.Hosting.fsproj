@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackageId>EchelonFoundry.Fides.Hosting</PackageId>
+    <AssemblyName>Fides.Hosting</AssemblyName>
+    <RootNamespace>Fides.Hosting</RootNamespace>
+    <Description>Fides (Echelon Foundry): the cloud-neutral hosting runtime for the Fides exchange. Runs the pure core's effects with HttpClient, a secret-store port and the clock. Every cloud adapter builds on it.</Description>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Runtime.fs" />
+    <Compile Include="HttpPort.fs" />
+    <Compile Include="SecretCache.fs" />
+    <Compile Include="Host.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Fides/Fides.fsproj" />
+  </ItemGroup>
+</Project>

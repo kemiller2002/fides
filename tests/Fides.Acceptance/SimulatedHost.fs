@@ -1,10 +1,10 @@
 /// Runs the core's effects against the GitHub simulator: the test stand-in
 /// for a hosting adapter's interpreter.
-module Fides.Tests.Acceptance.SimulatedHost
+module Fides.Acceptance.SimulatedHost
 
 open System
 open Fides
-open Fides.Tests.Acceptance.GitHubSimulator
+open Fides.Acceptance.GitHubSimulator
 
 let private formEncode (pairs: (string * string) list) =
     pairs |> List.map (fun (k, v) -> Uri.EscapeDataString k + "=" + Uri.EscapeDataString v) |> String.concat "&"
