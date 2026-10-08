@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "fides",
-  "nextSeq": 20,
+  "nextSeq": 22,
   "items": [
     {
       "id": "WI-0001",
@@ -478,6 +478,54 @@
       "attachments": [],
       "createdAt": "2026-10-08T10:32:56.000Z",
       "updatedAt": "2026-10-08T10:32:56.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0020",
+      "title": "Release Fides 0.2.0: the Aegis binding and the Arca bridge",
+      "description": "Bump to 0.2.0 so the release workflow publishes the four packages and the Lambda package as attested GitHub release assets, verified after upload (DF-FIDES-2026-0006). The registry record is a separate item.",
+      "tags": [
+        "fides",
+        "release"
+      ],
+      "priority": "high",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-10-08T10:53:58.000Z",
+      "updatedAt": "2026-10-08T10:54:06.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0021",
+      "title": "Record Fides 0.2.0 in echelon-registry and move echelon-current so fides resolves to 0.2.0",
+      "description": "After v0.2.0 publishes: verify every asset's sha256 and attestation, add releases/fides/0.2.0.release.json to the catalog snapshot, regenerate the channels with the registry's tools, run its conformance checks, and prove Conditor installs fides@0.2.0 into a consumer.",
+      "tags": [
+        "fides",
+        "registry"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-10-08T10:53:58.000Z",
+      "updatedAt": "2026-10-08T10:53:58.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

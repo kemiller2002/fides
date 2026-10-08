@@ -54,6 +54,26 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Packaged Arca bridge through Conditor's feed (WI-0016)"
+    EXE-20261008T103619300Z-cbdf68f0:
+      operations: [modified]
+      at: 2026-10-08T10:36:30.569Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Point consumers at 0.2.0 (WI-0020)"
+    EXE-20261008T105407425Z-ca83ad2d:
+      operations: [modified]
+      at: 2026-10-08T10:54:07.729Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Point consumers at 0.2.0 (WI-0020)"
 ---
 
 # Using the Fides client
@@ -71,11 +91,11 @@ CI runs the full flow inside the trimmed WebAssembly runtime
 Until the packages are on nuget.org, each release ships them as
 Sigstore-attested GitHub release assets (DF-FIDES-2026-0006), and
 echelon-registry records them: `fides` is an optional project binding in
-`echelon-current` 1.5.0 and later. Declare it in the application's
+`echelon-current` 1.5.0 and later (0.2.0 from 1.6.0). Declare it in the application's
 `conditor.json`:
 
 ```json
-{ "id": "fides", "version": "0.1.0", "required": true }
+{ "id": "fides", "version": "0.2.0", "required": true }
 ```
 
 and run `conditor upgrade --current` (or `conditor init`). Conditor proves
@@ -85,7 +105,7 @@ it in `vendor/nuget` with a lock, and maps `EchelonFoundry.Fides`,
 only. Then reference the packages by exact version:
 
 ```xml
-<PackageReference Include="EchelonFoundry.Fides.Client" Version="0.1.0" />
+<PackageReference Include="EchelonFoundry.Fides.Client" Version="0.2.0" />
 ```
 
 Anyone can check provenance with
