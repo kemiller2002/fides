@@ -12,7 +12,10 @@ This initial routing map was established by Conditor from accepted governing inp
 
 | Semantic area / feature | Purpose | Location | Manifest | Notes |
 |---|---|---|---|---|
-| Initial application mission | Establish the smallest semantic model required by the accepted contract | `src/Fides/` | not established yet | Domain concepts, legal state, transitions, invariants, and guards are intentionally unknown until the governing inputs are interpreted. |
+| Secret material | Typed, always-redacted tokens, codes, verifiers and client secrets (FID-EXC-005) | `src/Fides/Secrets.fs` | not established yet | Every secret prints as `<redacted>`; values leave only through `Secret.reveal`. |
+| Effects | Provider HTTP, secret reads and the clock as data the host interprets (FID-EXC-002) | `src/Fides/Http.fs`, `src/Fides/Effect.fs` | not established yet | The core never performs I/O. |
+| Provider model | Identity providers as records of pure request builders and response readers, with declared capabilities and a "proves" statement (FID-PRV-001, FID-PRV-004) | `src/Fides/Provider.fs` | not established yet | Adding a provider adds a catalog entry. |
+| GitHub App provider | GitHub user-to-server tokens with expiry and refresh (FID-PRV-002, FID-PRV-003, DF-FIDES-2026-0003) | `src/Fides/GitHub.fs`, `src/Fides/Pkce.fs` | not established yet | Provider text never leaves the module; responses become typed refusals. |
 
 ## Repository-wide composition
 

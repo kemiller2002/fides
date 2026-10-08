@@ -4,10 +4,16 @@
     <PackageId>EchelonFoundry.Fides</PackageId>
     <AssemblyName>Fides</AssemblyName>
     <RootNamespace>Fides</RootNamespace>
-    <Description>Fides (Echelon Foundry).</Description>
+    <Description>Fides (Echelon Foundry): the pure core of the Echelon single sign-on boundary. Provider model, GitHub App provider and the code-for-token exchange; every effect is explicit data.</Description>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Library.fs" />
+    <Compile Include="Secrets.fs" />
+    <Compile Include="Http.fs" />
+    <Compile Include="Effect.fs" />
+    <Compile Include="JsonRead.fs" />
+    <Compile Include="Pkce.fs" />
+    <Compile Include="Provider.fs" />
+    <Compile Include="GitHub.fs" />
   </ItemGroup>
 </Project>

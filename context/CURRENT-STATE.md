@@ -15,8 +15,11 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
 
 ## Observed facts
 
-- No production code exists yet; `src/Fides/Library.fs` is the scaffold
-  placeholder until the provider model lands (WI-0006).
+- The pure core has its provider model and GitHub App provider (WI-0006):
+  redacted secret types, effects as data, PKCE S256, and typed provider
+  refusals. The exchange core is next (WI-0007).
+- The acceptance scenarios (WI-0005) and the GitHub simulator live in
+  `tests/Fides.Tests/Acceptance`.
 - The user decided: GitHub only, through a GitHub App with expiring
   user-to-server tokens (DF-FIDES-2026-0003); a stateless exchange with no
   session service (DF-FIDES-2026-0004); AWS Lambda first, with account,
