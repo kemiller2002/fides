@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-10-08T10:14:54.000Z",
+  "updatedAt": "2026-10-08T10:25:31.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -553,6 +553,47 @@
         }
       },
       "completedAt": "2026-10-08T10:14:54.000Z"
+    },
+    {
+      "id": "WI-0018",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "docs/client/README.md"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Fides.Tests/ReleaseTests.fs"
+        }
+      ],
+      "updatedAt": "2026-10-08T10:25:31.000Z",
+      "telemetryExecutionIds": [
+        "EXE-20261008T102052994Z-ff16f8b9"
+      ],
+      "latestCheckpoint": {
+        "id": "8bb171fcca23b8beeb533ebc",
+        "recordedAt": "2026-10-08T10:25:30.000Z",
+        "executionId": "EXE-20261008T102052994Z-ff16f8b9",
+        "repository": "fides",
+        "branch": "wi-0018/registry-record",
+        "commit": "e3c5fb032391491a7f7c6049334913ffb9a33878",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides.git"
+        },
+        "remoteBranch": "wi-0018/registry-record",
+        "remoteCommit": "e3c5fb032391491a7f7c6049334913ffb9a33878",
+        "summary": "Fides 0.1.0 recorded in echelon-registry (#46 merged at 345b7a7), fides optional binding in echelon-current 1.5.0; Conditor installs it end to end",
+        "nextAction": "WI-0014 Aegis binding",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-10-08T10:25:31.000Z"
     }
   ]
 }

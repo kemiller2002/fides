@@ -2,7 +2,7 @@
 id: FIDES-CLIENT-GUIDE
 title: Using the Fides client in an F# WebAssembly application
 status: accepted
-version: 1.1.0
+version: 1.2.0
 created: 2026-10-08
 updated: 2026-10-08
 owners:
@@ -34,6 +34,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Released assets: download, verify and install (WI-0012)"
+    EXE-20261008T102052994Z-ff16f8b9:
+      operations: [modified]
+      at: 2026-10-08T10:23:41.930Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Install Fides through Conditor from echelon-current 1.5.0 (WI-0018)"
 ---
 
 # Using the Fides client
@@ -49,10 +59,20 @@ CI runs the full flow inside the trimmed WebAssembly runtime
 ## Installing
 
 Until the packages are on nuget.org, each release ships them as
-Sigstore-attested GitHub release assets (DF-FIDES-2026-0006). Install them
-through Conditor's release-asset feed (it checks each package's sha256
-against the echelon-registry record and maps `EchelonFoundry.Fides.*` to the
-pinned local feed only), then reference them by exact version:
+Sigstore-attested GitHub release assets (DF-FIDES-2026-0006), and
+echelon-registry records them: `fides` is an optional project binding in
+`echelon-current` 1.5.0 and later. Declare it in the application's
+`conditor.json`:
+
+```json
+{ "id": "fides", "version": "0.1.0", "required": true }
+```
+
+and run `conditor upgrade --current` (or `conditor init`). Conditor proves
+each package against the registry's sha256 before writing anything, places
+it in `vendor/nuget` with a lock, and maps `EchelonFoundry.Fides`,
+`EchelonFoundry.Fides.Client` and `EchelonFoundry.Fides.Hosting` to that feed
+only. Then reference the packages by exact version:
 
 ```xml
 <PackageReference Include="EchelonFoundry.Fides.Client" Version="0.1.0" />
