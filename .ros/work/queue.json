@@ -1,6 +1,28 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "fides",
-  "nextSeq": 1,
-  "items": []
+  "nextSeq": 2,
+  "items": [
+    {
+      "id": "WI-0001",
+      "title": "Move fides to Ordo 1.5.0 via echelon-current 1.2.0 (conditor upgrade --current)",
+      "description": null,
+      "tags": [],
+      "priority": "medium",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-10-08T07:14:47.784Z",
+      "updatedAt": "2026-10-08T07:14:48.019Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    }
+  ]
 }
