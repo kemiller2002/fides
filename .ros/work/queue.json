@@ -90,10 +90,10 @@
         "decision"
       ],
       "priority": "high",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-10-08T08:22:47.033Z",
-      "updatedAt": "2026-10-08T08:47:24.000Z",
+      "updatedAt": "2026-10-08T08:49:08.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
