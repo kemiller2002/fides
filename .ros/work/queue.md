@@ -8,7 +8,7 @@
 | WI-0003 | Fides slice 1: re-anchor the charter and context on SSO, with a context gate test (FID-CTX-001..003, issue #1) | complete | fides, slice:1, minimal, context, FIDES-P0 | high |
 | WI-0004 | Fides slice 2: trust-boundary model and the decision on what GitHub authentication proves (FID-TB-001..006, issue #1) | complete | fides, slice:2, minimal, trust-boundaries, decision | high |
 | WI-0005 | Fides slice 3: executable acceptance tests before production code - invalid state/nonce, replay, wrong callback, revoked identity, expired session, repository access denial, provider outage (FID-TEST-001) | complete | fides, slice:3, minimal, testing, FIDES-P0 | high |
-| WI-0006 | Fides slice 4: extensible provider model with GitHub as the only provider (FID-PRV-001..004, decision FID-D-002) | captured | fides, slice:4, minimal, providers, github | high |
+| WI-0006 | Fides slice 4: extensible provider model with GitHub as the only provider (FID-PRV-001..004, decision FID-D-002) | ready | fides, slice:4, minimal, providers, github | high |
 | WI-0007 | Fides slice 5: pure F# code-for-token exchange core - authorization code with PKCE, single-use state, replay refusal (FID-EXC-001..005) | captured | fides, slice:5, minimal, exchange, pure-core | high |
 | WI-0008 | Fides slice 6: AWS hosting adapter - Lambda behind API Gateway, client secret from Secrets Manager/SSM, infrastructure as code per environment (FID-HOST-001..003, FID-HOST-005) | captured | fides, slice:6, minimal, hosting, aws | high |
 | WI-0009 | Fides slice 7: WASM client library and Arca token provider - sign-in, callback, session states, retention modes (FID-CLI-001..004) | captured | fides, slice:7, minimal, client, wasm | high |
