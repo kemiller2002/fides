@@ -225,10 +225,10 @@
         "wasm"
       ],
       "priority": "high",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-10-08T08:22:48.565Z",
-      "updatedAt": "2026-10-08T09:38:27.000Z",
+      "updatedAt": "2026-10-08T09:49:07.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
