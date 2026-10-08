@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-10-08T10:31:35.000Z",
+  "updatedAt": "2026-10-08T10:35:21.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -635,6 +635,47 @@
         }
       },
       "completedAt": "2026-10-08T10:31:35.000Z"
+    },
+    {
+      "id": "WI-0016",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "src/Fides.Arca/TokenBridge.fs"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Fides.Tests/ArcaBridgeTests.fs"
+        }
+      ],
+      "updatedAt": "2026-10-08T10:35:21.000Z",
+      "telemetryExecutionIds": [
+        "EXE-20261008T103225377Z-c76772c6"
+      ],
+      "latestCheckpoint": {
+        "id": "128048437b495d34797e07f0",
+        "recordedAt": "2026-10-08T10:35:20.000Z",
+        "executionId": "EXE-20261008T103225377Z-c76772c6",
+        "repository": "fides",
+        "branch": "wi-0016/arca-bridge",
+        "commit": "81918b6fac6e6d8602b7a4feae919284a07a5f97",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides.git"
+        },
+        "remoteBranch": "wi-0016/arca-bridge",
+        "remoteCommit": "81918b6fac6e6d8602b7a4feae919284a07a5f97",
+        "summary": "Arca opted in via Conditor (echelon-current 1.5.0); EchelonFoundry.Fides.Arca bridge tested against Arca 0.1.0's real types",
+        "nextAction": "Release 0.2.0 with the Aegis binding and the Arca bridge, then record it in echelon-registry",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-10-08T10:35:21.000Z"
     }
   ]
 }

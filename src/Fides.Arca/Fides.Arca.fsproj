@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The bridge between Fides's client and Arca's token-provider port
+       (ARCA-AUTH-001, DF-FIDES-2026-0008). Arca never references Fides; an
+       application that uses both references this package. Arca.Core comes
+       from Conditor's verified release-asset feed (vendor/nuget), never from
+       a public feed. -->
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackageId>EchelonFoundry.Fides.Arca</PackageId>
+    <AssemblyName>Fides.Arca</AssemblyName>
+    <RootNamespace>Fides.Arca</RootNamespace>
+    <Description>Fides (Echelon Foundry): hands Arca a token provider backed by the Fides client, and tells Fides when Arca's provider rejects the token.</Description>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IsTrimmable>true</IsTrimmable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="TokenBridge.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Fides.Client/Fides.Client.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EchelonFoundry.Arca.Core" Version="0.1.0" />
+  </ItemGroup>
+</Project>

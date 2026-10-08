@@ -336,6 +336,20 @@
             "created"
           ],
           "reason": "Client token provider mirrors Arca 0.1.0's port (WI-0009)"
+        },
+        "EXE-20261008T103225377Z-c76772c6": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-10-08T10:34:37.403Z",
+          "operations": [
+            "modified"
+          ],
+          "reason": "Packaged Arca bridge through Conditor's feed (WI-0016)"
         }
       }
     },
@@ -357,7 +371,7 @@
     ],
     "title": "The Fides client mirrors Arca's published token-provider port; a packaged bridge waits for Conditor's release-asset installation",
     "updated": "2026-10-08",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   {
     "created": "2026-10-08",

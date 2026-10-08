@@ -18,6 +18,12 @@
       "mediaType": "application/zip"
     },
     {
+      "name": "EchelonFoundry.Fides.Arca.{version}.nupkg",
+      "purpose": "package",
+      "platform": null,
+      "mediaType": "application/zip"
+    },
+    {
       "name": "EchelonFoundry.Fides.Client.{version}.nupkg",
       "purpose": "package",
       "platform": null,

@@ -2,7 +2,7 @@
 id: DF-FIDES-2026-0008
 title: The Fides client mirrors Arca's published token-provider port; a packaged bridge waits for Conditor's release-asset installation
 status: accepted
-version: 1.0.0
+version: 1.1.0
 created: 2026-10-08
 updated: 2026-10-08
 owners:
@@ -28,6 +28,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Client token provider mirrors Arca 0.1.0's port (WI-0009)"
+    EXE-20261008T103225377Z-c76772c6:
+      operations: [modified]
+      at: 2026-10-08T10:34:37.403Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Packaged Arca bridge through Conditor's feed (WI-0016)"
 ---
 
 # DF-FIDES-2026-0008 — The client mirrors Arca's port
@@ -60,6 +70,15 @@ belongs to the Arca agent.
    `EchelonFoundry.Fides.Arca`, is a captured work item that starts once
    Conditor installs Arca's release assets, so Fides does not duplicate
    that installation path.
+
+## Update (2026-10-08, WI-0016)
+
+kemiller2002/conditor#59 now installs GitHub-release-asset NuGet libraries
+into a pinned, verified local feed, and echelon-registry records arca 0.1.0
+as an optional project binding. Fides opted in through `conditor upgrade
+--current` (echelon-current 1.5.0), and the packaged bridge
+`EchelonFoundry.Fides.Arca` maps the client's provider to Arca's, tested
+against Arca's real types. The client itself still references neither.
 
 ## Consequences
 

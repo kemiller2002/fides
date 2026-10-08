@@ -23,7 +23,7 @@ let private declared () =
 [<Fact>]
 [<Trait("Verifies", "FID-CLI-004")>]
 let ``the release declares every packable project and nothing else`` () =
-    Assert.Equal<Set<string>>(Set.ofList [ "EchelonFoundry.Fides"; "EchelonFoundry.Fides.Client"; "EchelonFoundry.Fides.Hosting" ], packageIds ())
+    Assert.Equal<Set<string>>(Set.ofList [ "EchelonFoundry.Fides"; "EchelonFoundry.Fides.Arca"; "EchelonFoundry.Fides.Client"; "EchelonFoundry.Fides.Hosting" ], packageIds ())
     Assert.Equal<Set<string>>(packageIds (), declared ())
 
 [<Fact>]

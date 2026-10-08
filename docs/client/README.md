@@ -2,7 +2,7 @@
 id: FIDES-CLIENT-GUIDE
 title: Using the Fides client in an F# WebAssembly application
 status: accepted
-version: 1.2.0
+version: 1.3.0
 created: 2026-10-08
 updated: 2026-10-08
 owners:
@@ -44,6 +44,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Install Fides through Conditor from echelon-current 1.5.0 (WI-0018)"
+    EXE-20261008T103225377Z-c76772c6:
+      operations: [modified]
+      at: 2026-10-08T10:34:37.041Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Packaged Arca bridge through Conditor's feed (WI-0016)"
 ---
 
 # Using the Fides client
@@ -138,25 +148,15 @@ token, and a tab still confirms with the provider before acting.
 
 `fides.TokenProvider` has the shape of Arca's port,
 `unit -> Async<Result<AccessToken, TokenUnavailable>>`, with the same four
-failures as `Arca.TokenUnavailable`. Arca never references Fides; the
-application bridges the two types where it composes them:
+failures as `Arca.TokenUnavailable`. Arca never references Fides; an
+application that uses both references `EchelonFoundry.Fides.Arca`, which
+depends on `EchelonFoundry.Arca.Core` 0.1.0 (installed by Conditor from its
+verified release-asset feed, like Fides itself):
 
 ```fsharp
-let arcaTokens (fides: FidesClient) : Arca.TokenProvider =
-    fun () ->
-        async {
-            match! fides.TokenProvider() with
-            | Ok token ->
-                return
-                    Arca.AccessToken.create (Fides.Secret.reveal token)
-                    |> Result.mapError (fun _ -> Arca.TokenUnavailable.ProviderFailed "malformed token")
-            | Error Fides.Client.TokenUnavailable.NoToken -> return Error Arca.TokenUnavailable.NoToken
-            | Error Fides.Client.TokenUnavailable.Expired -> return Error Arca.TokenUnavailable.Expired
-            | Error Fides.Client.TokenUnavailable.Revoked -> return Error Arca.TokenUnavailable.Revoked
-            | Error(Fides.Client.TokenUnavailable.ProviderFailed reason) -> return Error(Arca.TokenUnavailable.ProviderFailed reason)
-        }
+open Fides.Arca
+
+let arcaTokens: Arca.TokenProvider = TokenBridge.ofClient fides
 ```
 
 When Arca reports a `401` for the token, call `fides.ReportUnauthorized()`.
-A packaged bridge (`EchelonFoundry.Fides.Arca`) is planned once Conditor can
-install Arca's release assets (DF-FIDES-2026-0008).

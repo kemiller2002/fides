@@ -15,8 +15,8 @@ name: NuGet library release
 #     publication is dormant and consumers install the release assets through
 #     Conditor's local feed (DF-FIDES-2026-0006).
 #
-# Released: EchelonFoundry.Fides (core), EchelonFoundry.Fides.Client and
-# EchelonFoundry.Fides.Hosting, plus fides-exchange-linux-arm64.zip, the AWS
+# Released: EchelonFoundry.Fides (core), EchelonFoundry.Fides.Client,
+# EchelonFoundry.Fides.Arca (the Arca bridge) and EchelonFoundry.Fides.Hosting, plus fides-exchange-linux-arm64.zip, the AWS
 # Lambda package the operator deploys (docs/hosting/AWS.md).
 #
 # The version source is <Version> in Directory.Build.props. 0.0.0 means "not
@@ -115,14 +115,14 @@ jobs:
           mkdir -p dist/release
           # Pack each library on its own: packing the solution with --no-build
           # makes the SDK try to rebuild referenced projects (NETSDK1085).
-          for project in Fides Fides.Client Fides.Hosting; do
+          for project in Fides Fides.Arca Fides.Client Fides.Hosting; do
             dotnet pack "src/${project}/${project}.fsproj" -c Release --no-build \
               -p:ContinuousIntegrationBuild=true -p:BuildProjectReferences=false -o dist/release
           done
-          for id in EchelonFoundry.Fides EchelonFoundry.Fides.Client EchelonFoundry.Fides.Hosting; do
+          for id in EchelonFoundry.Fides EchelonFoundry.Fides.Arca EchelonFoundry.Fides.Client EchelonFoundry.Fides.Hosting; do
             test -f "dist/release/${id}.${VERSION}.nupkg"
           done
-          test "$(ls dist/release/*.nupkg | wc -l)" -eq 3
+          test "$(ls dist/release/*.nupkg | wc -l)" -eq 4
 
       - name: Package the AWS Lambda function
         shell: bash
@@ -231,7 +231,7 @@ jobs:
         run: |
           set -euo pipefail
           gh release create "v${VERSION}" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Fides v${VERSION}" \
-            --notes "Fides ${VERSION} built from ${GITHUB_SHA}: EchelonFoundry.Fides, EchelonFoundry.Fides.Client and EchelonFoundry.Fides.Hosting, the AWS Lambda package fides-exchange-linux-arm64.zip, their SHA-256 checksums and the Echelon release manifest, each with a GitHub build-provenance (Sigstore) attestation. Install the packages through Conditor's release-asset feed until they are on nuget.org; deploy the Lambda package as docs/hosting/AWS.md describes. Verify with: gh attestation verify <file> --repo ${GITHUB_REPOSITORY}" \
+            --notes "Fides ${VERSION} built from ${GITHUB_SHA}: EchelonFoundry.Fides, EchelonFoundry.Fides.Client, EchelonFoundry.Fides.Arca and EchelonFoundry.Fides.Hosting, the AWS Lambda package fides-exchange-linux-arm64.zip, their SHA-256 checksums and the Echelon release manifest, each with a GitHub build-provenance (Sigstore) attestation. Install the packages through Conditor's release-asset feed until they are on nuget.org; deploy the Lambda package as docs/hosting/AWS.md describes. Verify with: gh attestation verify <file> --repo ${GITHUB_REPOSITORY}" \
             dist/release/*.nupkg dist/release/*.zip dist/release/checksums.txt dist/release/echelon-release.json
 
       - name: Verify the published assets and their attestations

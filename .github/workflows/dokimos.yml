@@ -38,7 +38,7 @@ jobs:
       - name: Test (TRX captured as evidence)
         continue-on-error: true
         run: dotnet test --configuration Release --no-build --logger trx --results-directory artifacts/dokimos/test-results
-      - uses: kemiller2002/dokimos/actions/quality-gate@e641048c52edd8755c2964b6bafa4ae860e34062
+      - uses: kemiller2002/dokimos/actions/quality-gate@2be0cf4e8cbba482ab481614f99c7c88b49354ec
         with:
           version: 0.2.0
           source: src

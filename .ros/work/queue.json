@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "fides",
-  "nextSeq": 19,
+  "nextSeq": 20,
   "items": [
     {
       "id": "WI-0001",
@@ -400,10 +400,10 @@
         "blocked-external"
       ],
       "priority": "medium",
-      "status": "captured",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-10-08T09:48:44.000Z",
-      "updatedAt": "2026-10-08T10:07:53.000Z",
+      "updatedAt": "2026-10-08T10:35:21.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
@@ -454,6 +454,30 @@
       "attachments": [],
       "createdAt": "2026-10-08T10:14:50.000Z",
       "updatedAt": "2026-10-08T10:25:31.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0019",
+      "title": "Conditor: the fsharp-nuget-library scaffold's *.nupkg ignore rule hides the vendor/nuget release-asset feed",
+      "description": "Found on fides WI-0016: after conditor upgrade --current opted in to arca, vendor/nuget/*.nupkg were git-ignored by the scaffold's conditor:build-outputs region, so a commit would silently drop the feed and CI restore would fail. Fides adds !vendor/nuget/*.nupkg after the region. The scaffold region (or the feed installer) in kemiller2002/conditor should carry the exception; that fix belongs to Conditor's owner (the Arca agent for distribution).",
+      "tags": [
+        "conditor",
+        "upstream"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-10-08T10:32:56.000Z",
+      "updatedAt": "2026-10-08T10:32:56.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
