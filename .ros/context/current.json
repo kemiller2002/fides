@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-10-08T11:00:34.000Z",
+  "updatedAt": "2026-10-08T11:03:02.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -721,13 +721,34 @@
     {
       "id": "WI-0021",
       "type": "task",
-      "state": "active",
-      "semanticState": "active",
+      "state": "blocked",
+      "semanticState": "blocked",
       "evidence": [],
-      "updatedAt": "2026-10-08T11:00:34.000Z",
+      "updatedAt": "2026-10-08T11:03:02.000Z",
       "telemetryExecutionIds": [
         "EXE-20261008T110034478Z-24540bc2"
-      ]
+      ],
+      "latestCheckpoint": {
+        "id": "1ed34358b3a878950cd1812c",
+        "recordedAt": "2026-10-08T11:03:01.000Z",
+        "executionId": "EXE-20261008T110034478Z-24540bc2",
+        "repository": "fides",
+        "branch": "wi-0021/registry-0.2.0",
+        "commit": "401865501145466b10e788b6f8d836b34f952f4a",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides.git"
+        },
+        "remoteBranch": "wi-0021/registry-0.2.0",
+        "remoteCommit": "401865501145466b10e788b6f8d836b34f952f4a",
+        "summary": "Fides 0.2.0 recorded in echelon-registry#48 (echelon-current 1.7.0), verified locally; client guide points at 1.7.0",
+        "nextAction": "When GitHub Actions runs again: get echelon-registry#48 green and merge it, then fides#18, then complete WI-0021",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "blockReason": "echelon-registry#48 cannot merge: GitHub Actions stopped starting jobs on the account (billing/spending limit), so its checks have not run"
     }
   ]
 }

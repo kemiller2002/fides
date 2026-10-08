@@ -609,14 +609,30 @@
     },
     {
       "metricId": "agent.interruptions",
-      "status": "unknown",
-      "reason": "runtime capability not reported or mapped",
-      "discoveredAt": "2026-10-08T11:00:34.478Z",
+      "status": "derived",
+      "reason": "normalized measurement recorded",
+      "discoveredAt": "2026-10-08T11:03:02.000Z",
       "source": {
-        "type": "environment",
-        "name": "runtime-identity",
-        "mechanism": "whitelisted-claude-environment"
-      }
+        "type": "calculated",
+        "name": "ros-work-protocol",
+        "mechanism": "blocked-transition"
+      },
+      "lastAssessedAt": "2026-10-08T11:03:02.000Z",
+      "recordedAt": "2026-10-08T11:03:02.000Z",
+      "history": [
+        {
+          "status": "unknown",
+          "reason": "runtime capability not reported or mapped",
+          "source": {
+            "type": "environment",
+            "name": "runtime-identity",
+            "mechanism": "whitelisted-claude-environment"
+          },
+          "discoveredAt": "2026-10-08T11:00:34.478Z",
+          "lastAssessedAt": "2026-10-08T11:00:34.478Z",
+          "recordedAt": "2026-10-08T11:00:34.478Z"
+        }
+      ]
     },
     {
       "metricId": "agent.resumes",
@@ -1458,6 +1474,26 @@
       },
       "collectedAt": "2026-10-08T11:00:34.478Z",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "measurementId": "MEAS-cd6c889f19dabdb6c4056e4d",
+      "id": "agent.interruptions",
+      "value": 1,
+      "unit": "count",
+      "currency": null,
+      "quality": "derived",
+      "confidence": null,
+      "scope": "execution",
+      "aggregation": "sum",
+      "dimensions": {},
+      "pricing": null,
+      "source": {
+        "type": "calculated",
+        "name": "ros-work-protocol",
+        "mechanism": "blocked-transition"
+      },
+      "collectedAt": "2026-10-08T11:03:02.000Z",
+      "schemaVersion": "1.0.0"
     }
   ],
   "rawTelemetry": [],
@@ -1470,6 +1506,17 @@
         "name": "ros",
         "mechanism": "work-lifecycle"
       }
+    },
+    {
+      "type": "work.blocked",
+      "occurredAt": "2026-10-08T11:03:02.000Z",
+      "reason": "echelon-registry#48 cannot merge: GitHub Actions stopped starting jobs on the account (billing/spending limit), so its checks have not run",
+      "source": {
+        "type": "ros-clock",
+        "name": "ros",
+        "mechanism": "work-lifecycle"
+      },
+      "eventId": "TEVT-bab69da28eee459ffb4ec59e"
     }
   ],
   "repository": {
