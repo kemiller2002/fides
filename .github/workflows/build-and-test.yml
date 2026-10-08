@@ -1,0 +1,43 @@
+name: Build and test
+
+# Build the library and run its tests on every pull request and on main.
+# The test step fails an empty or skipped run as well as a failing one.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+      - name: Build
+        run: dotnet build Fides.slnx -c Release
+      - name: Test
+        shell: bash
+        run: |
+          set -uo pipefail
+          output=$(dotnet test Fides.slnx -c Release --no-build 2>&1)
+          status=$?
+          echo "$output"
+          if [ "$status" -ne 0 ]; then exit "$status"; fi
+          if ! echo "$output" | grep -qE 'Passed:[[:space:]]*[1-9]'; then
+            echo "::error::No test passed. An empty test run is not a pass."; exit 1
+          fi
+          if echo "$output" | grep -qE 'Skipped:[[:space:]]*[1-9]'; then
+            echo "::error::Tests were skipped. A run that skips tests is not a pass."; exit 1
+          fi
+      - name: Pack
+        run: dotnet pack src/Fides/Fides.fsproj -c Release --no-build -o dist
