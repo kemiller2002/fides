@@ -1,1 +1,87 @@
-[]
+[
+  {
+    "created": "2026-10-08",
+    "id": "DF-FIDES-2026-0001",
+    "owners": [
+      "fides"
+    ],
+    "path": "research/decisions/DF-FIDES-2026-0001--cloud-agnostic-exchange-aws-first.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261008T082246199Z-61dcdd53": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-10-08T08:23:19.834Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "Consolidated from issue #1, user decisions of 2026-10-08 and consumer sign-in requirements"
+        }
+      }
+    },
+    "related_documents": [
+      "docs/requirements/FIDES-REQUIREMENTS.md"
+    ],
+    "review_cycle": "on-trigger",
+    "status": "accepted",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "hosting",
+      "aws",
+      "azure",
+      "architecture"
+    ],
+    "title": "Fides's code-for-token exchange is a pure, cloud-agnostic core behind a thin hosting adapter; AWS (Lambda behind API Gateway) is the first target and Azure stays possible",
+    "updated": "2026-10-08",
+    "version": "1.0.0"
+  },
+  {
+    "created": "2026-10-08",
+    "id": "DF-FIDES-2026-0002",
+    "owners": [
+      "fides"
+    ],
+    "path": "research/decisions/DF-FIDES-2026-0002--github-only-extensible-provider-model.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261008T082246199Z-61dcdd53": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-10-08T08:23:20.140Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "Consolidated from issue #1, user decisions of 2026-10-08 and consumer sign-in requirements"
+        }
+      }
+    },
+    "related_documents": [
+      "docs/requirements/FIDES-REQUIREMENTS.md"
+    ],
+    "review_cycle": "on-trigger",
+    "status": "accepted",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "providers",
+      "github",
+      "scope",
+      "helix",
+      "arca"
+    ],
+    "title": "Fides starts with GitHub as its only identity provider behind an extensible provider model; Helix keeps its own sign-in for now; Arca never depends on Fides",
+    "updated": "2026-10-08",
+    "version": "1.0.0"
+  }
+]

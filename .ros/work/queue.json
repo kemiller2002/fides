@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "fides",
-  "nextSeq": 2,
+  "nextSeq": 13,
   "items": [
     {
       "id": "WI-0001",
@@ -16,6 +16,295 @@
       "attachments": [],
       "createdAt": "2026-10-08T08:21:43.000Z",
       "updatedAt": "2026-10-08T08:22:28.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0002",
+      "title": "Consolidate Fides's SSO requirements, record the hosting and provider decisions, and capture the dependency-ordered backlog",
+      "description": "There was no requirements document. Consolidate issue #1 (FIDES-P0), the user decisions of 2026-10-08 (cloud-agnostic exchange with a pure core and an AWS-first hosting adapter, Azure possible; GitHub as the only provider behind an extensible model; Helix keeps its own sign-in) and the consumer sign-in requirements (Chrona, Summa, Signal, Arca) into docs/requirements/FIDES-REQUIREMENTS.md with FID-* IDs. Record DF-FIDES-2026-0001/0002. Capture the minimal slices before Chrona's sign-in. Add a test that every requirement is named by an open work item.",
+      "tags": [
+        "planning",
+        "requirements"
+      ],
+      "priority": "high",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-10-08T08:22:45.000Z",
+      "updatedAt": "2026-10-08T08:22:45.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0003",
+      "title": "Fides slice 1: re-anchor the charter and context on SSO, with a context gate test (FID-CTX-001..003, issue #1)",
+      "description": "Minimal slice; blocking context defect (issue #1 FIDES-P0). Replace the boilerplate PROJECT-CHARTER.md with Fides's purpose: the common Echelon authentication/SSO identity boundary, GitHub first, not GitHub forever. Reconcile README.md and context/ARCHITECTURE.md, CURRENT-STATE.md, DECISIONS.md and the queue so they cannot disagree. Add a repository-context test that fails if the charter or product identity reverts to unrelated boilerplate. Requirements: docs/requirements/FIDES-REQUIREMENTS.md section 2.",
+      "tags": [
+        "fides",
+        "slice:1",
+        "minimal",
+        "context",
+        "FIDES-P0"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-10-08T08:22:46.692Z",
+      "updatedAt": "2026-10-08T08:22:46.692Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0004",
+      "title": "Fides slice 2: trust-boundary model and the decision on what GitHub authentication proves (FID-TB-001..006, issue #1)",
+      "description": "Minimal slice. Depends on WI-0003. Define users, trust boundaries (browser application, exchange service, provider, data repository), token and session ownership (the client secret exists only server-side), exact-match registered redirect URIs per application, the relationship between sign-in, GitHub repository permissions and each application's own capabilities, and logout/revocation states. Write the decision record required by issue #1 on what GitHub proves versus what Fides owns. Needs the answers to OQ-FIDES-001 (GitHub OAuth App or GitHub App) and OQ-FIDES-002 (stateless or session service).",
+      "tags": [
+        "fides",
+        "slice:2",
+        "minimal",
+        "trust-boundaries",
+        "decision"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-10-08T08:22:47.033Z",
+      "updatedAt": "2026-10-08T08:22:47.033Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0005",
+      "title": "Fides slice 3: executable acceptance tests before production code - invalid state/nonce, replay, wrong callback, revoked identity, expired session, repository access denial, provider outage (FID-TEST-001)",
+      "description": "Minimal slice. Depends on WI-0004. Issue #1 requires these tests before production implementation. Write them against the pure core's types, failing first, with a fake provider. They become the definition of done for WI-0004's model and the exchange slice.",
+      "tags": [
+        "fides",
+        "slice:3",
+        "minimal",
+        "testing",
+        "FIDES-P0"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-10-08T08:22:47.345Z",
+      "updatedAt": "2026-10-08T08:22:47.345Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0006",
+      "title": "Fides slice 4: extensible provider model with GitHub as the only provider (FID-PRV-001..004, decision FID-D-002)",
+      "description": "Minimal slice. Depends on WI-0004. User decision 2026-10-08: start small, GitHub only, because Arca needs a GitHub token; keep the model extensible. A provider interface (authorization URL, code exchange, identity resolution, revocation, declared capabilities) and a GitHub implementation with the narrowest grant that gives Arca repository read/write (OQ-FIDES-001). Identity comes from the provider (GET /user), never a typed username. A second provider must need no consumer changes beyond configuration.",
+      "tags": [
+        "fides",
+        "slice:4",
+        "minimal",
+        "providers",
+        "github"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-10-08T08:22:47.646Z",
+      "updatedAt": "2026-10-08T08:22:47.646Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0007",
+      "title": "Fides slice 5: pure F# code-for-token exchange core - authorization code with PKCE, single-use state, replay refusal (FID-EXC-001..005)",
+      "description": "Minimal slice. Depends on WI-0005 and WI-0006. A cloud-agnostic pure core (decision FID-D-001): request, configuration and provider responses in; response or typed refusal out. Clock, randomness, secret retrieval and HTTP are explicit effect requests. Validate state, PKCE verifier, redirect URI and client registration before calling the provider. Refuse replays. A provider outage gives a typed failure and never a partial session. Codes, tokens, secrets and verifiers never reach logs, telemetry or errors. Aegis classifies unexpected failures. Must pass every WI-0005 test.",
+      "tags": [
+        "fides",
+        "slice:5",
+        "minimal",
+        "exchange",
+        "pure-core"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-10-08T08:22:47.948Z",
+      "updatedAt": "2026-10-08T08:22:47.948Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0008",
+      "title": "Fides slice 6: AWS hosting adapter - Lambda behind API Gateway, client secret from Secrets Manager/SSM, infrastructure as code per environment (FID-HOST-001..003, FID-HOST-005)",
+      "description": "Minimal slice. Depends on WI-0007. User decision 2026-10-08: AWS most likely, Azure possible, so target AWS first with a thin adapter. Translate API Gateway HTTP API events to and from the core's types; the core references no cloud SDK. Read the client secret at runtime from Secrets Manager or SSM. Reproducible infrastructure as code, separate test/staging/production stacks and OAuth registrations, and CORS limited to registered origins. Needs OQ-FIDES-003 (account, region, domain).",
+      "tags": [
+        "fides",
+        "slice:6",
+        "minimal",
+        "hosting",
+        "aws"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-10-08T08:22:48.248Z",
+      "updatedAt": "2026-10-08T08:22:48.248Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0009",
+      "title": "Fides slice 7: WASM client library and Arca token provider - sign-in, callback, session states, retention modes (FID-CLI-001..004)",
+      "description": "Minimal slice; the last one Chrona's sign-in needs. Depends on WI-0007. An F# client usable from Limen/Forma WASM applications: start sign-in, complete the callback, typed session states (signed out, signing in, signed in, expired, revoked, provider unavailable), and retention modes (memory-only default, session-scoped, persistent only by explicit choice with a clear action). Cross-tab signalling is an optimization only. It exposes a token provider matching Arca's token-provider port (ARCA-AUTH-001) without Arca referencing Fides. Published as a pinned package.",
+      "tags": [
+        "fides",
+        "slice:7",
+        "minimal",
+        "client",
+        "wasm"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-10-08T08:22:48.565Z",
+      "updatedAt": "2026-10-08T08:22:48.565Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0010",
+      "title": "Fides: shared hosting-adapter conformance suite (FID-TEST-002, FID-HOST-004)",
+      "description": "Depends on WI-0008. A suite every hosting adapter must pass with identical observable behaviour, so the Azure adapter can be added later without touching the core.",
+      "tags": [
+        "fides",
+        "conformance",
+        "hosting"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-10-08T08:22:48.858Z",
+      "updatedAt": "2026-10-08T08:22:48.858Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0011",
+      "title": "(Deferred) Fides Azure hosting adapter - Azure Functions plus Key Vault (FID-HOST-004)",
+      "description": "Depends on WI-0010. Kept possible by decision FID-D-001; build only when Azure hosting is chosen.",
+      "tags": [
+        "fides",
+        "deferred",
+        "hosting",
+        "azure"
+      ],
+      "priority": "low",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-10-08T08:22:49.142Z",
+      "updatedAt": "2026-10-08T08:22:49.142Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0012",
+      "title": "Fides: release workflow and echelon-registry entry for the client package and exchange artifact",
+      "description": "Depends on WI-0009. Release the WASM client package through the Echelon release contract, register Fides in echelon-registry, and declare it so applications (Chrona first) pin it through conditor.json. Helix is not a consumer for now (decision FID-D-003).",
+      "tags": [
+        "fides",
+        "release",
+        "registry"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-10-08T08:22:49.441Z",
+      "updatedAt": "2026-10-08T08:22:49.441Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
