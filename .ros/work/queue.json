@@ -198,10 +198,10 @@
         "aws"
       ],
       "priority": "high",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-10-08T08:22:48.248Z",
-      "updatedAt": "2026-10-08T09:10:47.000Z",
+      "updatedAt": "2026-10-08T09:32:33.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
