@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-10-08T10:25:31.000Z",
+  "updatedAt": "2026-10-08T10:31:35.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -594,6 +594,47 @@
         }
       },
       "completedAt": "2026-10-08T10:25:31.000Z"
+    },
+    {
+      "id": "WI-0014",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "src/Fides.Hosting/Diagnostics.fs"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Fides.Hosting.Aws.Tests/DiagnosticsTests.fs"
+        }
+      ],
+      "updatedAt": "2026-10-08T10:31:35.000Z",
+      "telemetryExecutionIds": [
+        "EXE-20261008T102659947Z-c29ed82a"
+      ],
+      "latestCheckpoint": {
+        "id": "0153b6494cbe2ca8986d527f",
+        "recordedAt": "2026-10-08T10:31:34.000Z",
+        "executionId": "EXE-20261008T102659947Z-c29ed82a",
+        "repository": "fides",
+        "branch": "wi-0014/aegis",
+        "commit": "1ee21d492e461dc2c910f9edec73757aa8289fa5",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides.git"
+        },
+        "remoteBranch": "wi-0014/aegis",
+        "remoteCommit": "1ee21d492e461dc2c910f9edec73757aa8289fa5",
+        "summary": "Exchange host classifies unexpected, provider and configuration failures through Aegis 1.0.0; messages withheld; SDK floor 10.0.400",
+        "nextAction": "WI-0016 Arca bridge package",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-10-08T10:31:35.000Z"
     }
   ]
 }

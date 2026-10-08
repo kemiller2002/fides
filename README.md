@@ -26,6 +26,10 @@ secret) is listed in [`docs/hosting/AWS.md`](docs/hosting/AWS.md).
 
 ## Build and test
 
+Needs the .NET SDK 10.0.400 or later (`global.json`; Aegis 1.0.0 needs
+FSharp.Core 10.1.400). The browser-wasm check (`scripts/verify-wasm.sh`) also
+needs the `wasm-tools` workload and Node.
+
 ```bash
 dotnet build Fides.slnx -c Release
 dotnet test Fides.slnx -c Release

@@ -25,7 +25,8 @@ let private invoke (ports: Ports) (event) =
     let context = TestLambdaContext()
     let logger = TestLambdaLogger()
     context.Logger <- logger
-    let response = (Function.handle ExchangeFixture.configuration ports event context).GetAwaiter().GetResult()
+    let aegis, _ = Collecting.aegis ()
+    let response = (Function.handle aegis ExchangeFixture.configuration ports event context).GetAwaiter().GetResult()
     response, logger.Buffer.ToString()
 
 let private tokenEvent (code: string) =

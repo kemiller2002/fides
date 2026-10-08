@@ -28,10 +28,34 @@ module Host =
                   "durationMs", Some(Number(int64 elapsed.TotalMilliseconds)) ]
         )
 
-    /// Answers a request and returns the response with its log line.
-    let handle (configuration: Configuration) (ports: Ports) (request: Service.HostRequest) =
+    /// Answers a request and returns the response with its log line. An
+    /// exception that escapes the exchange is captured and classified through
+    /// Aegis and answered with `internal_error`; a provider or configuration
+    /// failure is reported to Aegis as well (FID-EXC-005). Neither changes
+    /// what the caller receives for an answered request.
+    let handle (aegis: Aegis.AegisConfig) (configuration: Configuration) (ports: Ports) (request: Service.HostRequest) =
         task {
             let clock = Stopwatch.StartNew()
-            let! response, audit = Runtime.run ports (Service.handle configuration request)
-            return response, auditLine audit clock.Elapsed
+            let operation = Service.operationName request.Path
+            let scope = Diagnostics.scope aegis operation
+
+            let! result =
+                Aegis.Aegis.captureAsync aegis scope (Diagnostics.classify aegis) (fun () ->
+                    Runtime.run ports (Service.handle configuration request) |> Async.AwaitTask)
+                |> Async.StartAsTask
+
+            match result with
+            | Ok(response, audit) ->
+                match Diagnostics.outcomeFault aegis scope audit.Outcome with
+                | Some fault -> Aegis.Aegis.report aegis (Aegis.FaultRecorded fault) |> ignore
+                | None -> ()
+
+                return response, auditLine audit clock.Elapsed
+            | Error _ ->
+                let audit: Service.AuditRecord =
+                    { Operation = operation
+                      Application = None
+                      Outcome = "internal_error" }
+
+                return Service.internalError, auditLine audit clock.Elapsed
         }

@@ -38,8 +38,12 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
 - The WebAssembly client (WI-0009) runs every callback and session acceptance
   scenario, and its full flow runs inside the trimmed browser-wasm runtime
   under Node in CI (`scripts/verify-wasm.sh`).
-- Aegis (`EchelonFoundry.Aegis.Core`) is not yet published as a package, so
-  FID-EXC-005's Aegis classification cannot be bound to a pinned release yet.
+- The exchange host classifies unexpected failures through Aegis
+  (`EchelonFoundry.Aegis.Core` 1.0.0 from nuget.org, WI-0014,
+  DF-FIDES-2026-0009). Correction: an earlier entry here said Aegis was
+  unpublished; that check had queried a package id that does not exist.
+  Aegis 1.0.0 needs FSharp.Core 10.1.400, so building needs .NET SDK 10.0.400
+  or later (`global.json`).
 
 - The hosting-adapter conformance suite (WI-0010) runs every exchange
   scenario and 12 extra HTTP cases through an adapter and requires the
@@ -55,8 +59,7 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
 ## Active work
 
 The minimal slices (WI-0003 to WI-0010) are done. Next: the packaged Arca bridge (WI-0016, now unblocked by
-conditor#59), the Aegis binding (WI-0014, waiting on an Aegis release) and
-the Conditor scaffold fix (WI-0015). The Azure adapter (WI-0011) stays
+conditor#59) and the Conditor scaffold fix (WI-0015). The Azure adapter (WI-0011) stays
 deferred.
 
 ## Largest decision-relevant unknown

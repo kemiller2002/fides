@@ -342,18 +342,18 @@
     },
     {
       "id": "WI-0014",
-      "title": "Bind Fides failure classification to Aegis once EchelonFoundry.Aegis.Core is published as a pinned release (FID-EXC-005 Aegis clause)",
-      "description": "Aegis is not on nuget.org or GitHub releases as of 2026-10-08, so the exchange and client keep a typed failure model with a classification seam. When Aegis publishes, map Fides refusals and provider failures to Aegis classifications and pin the version.",
+      "title": "Classify the exchange host's unexpected failures through Aegis (FID-EXC-005 Aegis clause)",
+      "description": "Correction: EchelonFoundry.Aegis.Core 1.0.0 is on nuget.org (an earlier check queried the non-existent id echelonfoundry.aegis and wrongly recorded Aegis as unpublished). Bind the hosting runtime to it: capture unexpected failures at the host boundary as Aegis faults with stable FIDES.* codes and a 500 internal_error answer that discloses nothing, report provider outages and contract violations as Aegis faults, and deliver to standard error so the Lambda logs carry them.",
       "tags": [
         "fides",
         "aegis",
         "blocked-external"
       ],
       "priority": "medium",
-      "status": "captured",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-10-08T08:46:30.000Z",
-      "updatedAt": "2026-10-08T08:46:30.000Z",
+      "updatedAt": "2026-10-08T10:31:35.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
