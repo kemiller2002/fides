@@ -14,9 +14,10 @@
 | WI-0009 | Fides slice 7: WASM client library and Arca token provider - sign-in, callback, session states, retention modes (FID-CLI-001..004) | complete | fides, slice:7, minimal, client, wasm | high |
 | WI-0010 | Fides: shared hosting-adapter conformance suite (FID-TEST-002, FID-HOST-004) | complete | fides, conformance, hosting | medium |
 | WI-0011 | (Deferred) Fides Azure hosting adapter - Azure Functions plus Key Vault (FID-HOST-004) | captured | fides, deferred, hosting, azure | low |
-| WI-0012 | Fides: release workflow and echelon-registry entry for the client package and exchange artifact | captured | fides, release, registry | medium |
+| WI-0012 | Fides: release workflow and echelon-registry entry for the client package and exchange artifact | active | fides, release, registry | medium |
 | WI-0013 | Make the Dokimos quality check pass: regenerate the test project as a dotnet test (xUnit) project so the gate gets TRX test evidence | complete | dokimos, ci | high |
 | WI-0014 | Bind Fides failure classification to Aegis once EchelonFoundry.Aegis.Core is published as a pinned release (FID-EXC-005 Aegis clause) | captured | fides, aegis, blocked-external | medium |
 | WI-0015 | Conditor's fsharp-nuget-library scaffold hides test output on failure: under bash -e, output=$(dotnet test ...) exits before echo | captured | ci, conditor, upstream | medium |
 | WI-0016 | EchelonFoundry.Fides.Arca bridge package: Fides.Client token provider to Arca.TokenProvider | captured | fides, arca, blocked-external | medium |
 | WI-0017 | Fides client: two threads could both start a refresh, and refresh tokens are single use (single-flight race) | complete | fides, client, defect | high |
+| WI-0018 | Record Fides 0.1.0 in echelon-registry: release record, fides system entry, optional project binding | captured | fides, release, registry | high |

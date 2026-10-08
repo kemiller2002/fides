@@ -45,12 +45,17 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
   scenario and 12 extra HTTP cases through an adapter and requires the
   core's exact status, body and headers; the AWS adapter conforms.
 
+- Release 0.1.0 (WI-0012) ships EchelonFoundry.Fides, .Fides.Client and
+  .Fides.Hosting plus the AWS Lambda package as Sigstore-attested GitHub
+  release assets; nuget.org publication is dormant until `NUGET_USER` is set.
+
 ## Active work
 
-The minimal slices in order: trust boundaries (WI-0004), acceptance tests
-(WI-0005), the GitHub App provider (WI-0006), the exchange core (WI-0007),
-the AWS Lambda adapter (WI-0008), the WebAssembly client (WI-0009) and the
-adapter conformance suite (WI-0010). Release (WI-0012) follows.
+The minimal slices (WI-0003 to WI-0010) are done. Next: the echelon-registry
+record for Fides 0.1.0, the packaged Arca bridge (WI-0016, now unblocked by
+conditor#59), the Aegis binding (WI-0014, waiting on an Aegis release) and
+the Conditor scaffold fix (WI-0015). The Azure adapter (WI-0011) stays
+deferred.
 
 ## Largest decision-relevant unknown
 

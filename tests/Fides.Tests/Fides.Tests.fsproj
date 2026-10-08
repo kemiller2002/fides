@@ -26,6 +26,7 @@
     <Compile Include="ExchangeSecurityTests.fs" />
     <Compile Include="CoreBoundaryTests.fs" />
     <Compile Include="ConformanceSuiteTests.fs" />
+    <Compile Include="ReleaseTests.fs" />
     <Compile Include="FakeBrowser.fs" />
     <Compile Include="Acceptance/ClientAcceptanceTests.fs" />
     <Compile Include="ClientTests.fs" />
