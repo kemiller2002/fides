@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-10-08T10:54:39.000Z",
+  "updatedAt": "2026-10-08T11:04:48.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -717,6 +717,48 @@
         }
       },
       "completedAt": "2026-10-08T10:54:39.000Z"
+    },
+    {
+      "id": "WI-0021",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "docs/client/README.md"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Fides.Tests/ReleaseTests.fs"
+        }
+      ],
+      "updatedAt": "2026-10-08T11:04:48.000Z",
+      "telemetryExecutionIds": [
+        "EXE-20261008T110034478Z-24540bc2"
+      ],
+      "latestCheckpoint": {
+        "id": "0d45e13cf830b4273208b678",
+        "recordedAt": "2026-10-08T11:04:47.000Z",
+        "executionId": "EXE-20261008T110034478Z-24540bc2",
+        "repository": "fides",
+        "branch": "wi-0021/registry-0.2.0",
+        "commit": "1e62629711d7086a5bf12289e384eb67784cae38",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides.git"
+        },
+        "remoteBranch": "wi-0021/registry-0.2.0",
+        "remoteCommit": "1e62629711d7086a5bf12289e384eb67784cae38",
+        "summary": "Fides 0.2.0 recorded in echelon-registry (#48 merged at e9b8cf7), echelon-current 1.7.0; consumer install verified",
+        "nextAction": "Open items: WI-0015 and WI-0019 (Conditor scaffold defects), WI-0011 (deferred Azure)",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "blockReason": "echelon-registry#48 cannot merge: GitHub Actions stopped starting jobs on the account (billing/spending limit), so its checks have not run",
+      "completedAt": "2026-10-08T11:04:48.000Z"
     }
   ]
 }

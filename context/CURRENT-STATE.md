@@ -55,6 +55,9 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
   echelon-registry records it (`releases/fides/0.1.0.release.json`) and
   offers `fides` as an optional project binding in `echelon-current` 1.5.0
   (WI-0018); Conditor installs it into a consumer's verified local feed.
+- Release 0.2.0 (WI-0020) adds EchelonFoundry.Fides.Arca and the Aegis
+  binding; it is published, attested and recorded in echelon-registry
+  (echelon-current 1.7.0, kemiller2002/echelon-registry#48, WI-0021).
 
 ## Active work
 
