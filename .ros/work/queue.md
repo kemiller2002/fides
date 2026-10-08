@@ -15,3 +15,4 @@
 | WI-0010 | Fides: shared hosting-adapter conformance suite (FID-TEST-002, FID-HOST-004) | captured | fides, conformance, hosting | medium |
 | WI-0011 | (Deferred) Fides Azure hosting adapter - Azure Functions plus Key Vault (FID-HOST-004) | captured | fides, deferred, hosting, azure | low |
 | WI-0012 | Fides: release workflow and echelon-registry entry for the client package and exchange artifact | captured | fides, release, registry | medium |
+| WI-0013 | Make the Dokimos quality check pass: regenerate the test project as a dotnet test (xUnit) project so the gate gets TRX test evidence | ready | dokimos, ci | high |

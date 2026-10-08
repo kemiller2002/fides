@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "fides",
-  "nextSeq": 13,
+  "nextSeq": 14,
   "items": [
     {
       "id": "WI-0001",
@@ -305,6 +305,30 @@
       "attachments": [],
       "createdAt": "2026-10-08T08:22:49.441Z",
       "updatedAt": "2026-10-08T08:22:49.441Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0013",
+      "title": "Make the Dokimos quality check pass: regenerate the test project as a dotnet test (xUnit) project so the gate gets TRX test evidence",
+      "description": "fides#3 run 37749426810: the build succeeded, but the Dokimos gate reported required-evidence-unavailable (exit 3). The policy (.dokimos/policy.json) requires tests.total and tests.failed, which come from the TRX that 'dotnet test --logger trx' writes, and the scaffold's console test runner is invisible to dotnet test. Root cause fixed in Conditor (conditor#54). Regenerate the scaffold test project and workflows with it, port the requirements traceability check to xUnit facts, and keep the gate enabled and unchanged.",
+      "tags": [
+        "dokimos",
+        "ci"
+      ],
+      "priority": "high",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-10-08T08:27:10.000Z",
+      "updatedAt": "2026-10-08T08:27:10.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

@@ -34,7 +34,7 @@
     {
       "path": ".gitignore",
       "ownership": "user-owned",
-      "sha256": "19ce7116090c3567fe2cb261b261c60993baceb8cfc342ba96ac889de3241249"
+      "sha256": "a8422dca248f9a079432b82d36b9a56247cb3cd569391e6f345c1b0125e5bc05"
     },
     {
       "path": "AGENTS.md",
@@ -269,7 +269,7 @@
     {
       "path": "registries/decisions.json",
       "ownership": "generated",
-      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      "sha256": "186391590dbc2c99f2e5c783ef4de8737c27a77bdbb47975960d3ad6bdfe5569"
     },
     {
       "path": "registries/evidence.json",
