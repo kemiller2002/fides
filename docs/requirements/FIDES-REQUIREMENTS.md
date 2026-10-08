@@ -2,7 +2,7 @@
 id: FIDES-REQ
 title: Fides single sign-on requirements
 status: draft
-version: 0.1.0
+version: 0.2.0
 created: 2026-10-08
 updated: 2026-10-08
 owners:
@@ -10,6 +10,10 @@ owners:
 related_documents:
   - research/decisions/DF-FIDES-2026-0001--cloud-agnostic-exchange-aws-first.md
   - research/decisions/DF-FIDES-2026-0002--github-only-extensible-provider-model.md
+  - research/decisions/DF-FIDES-2026-0003--github-app-user-to-server-tokens.md
+  - research/decisions/DF-FIDES-2026-0004--stateless-exchange.md
+  - research/decisions/DF-FIDES-2026-0005--deployment-is-operator-configuration.md
+  - research/decisions/DF-FIDES-2026-0006--interim-distribution-attested-github-releases.md
 tags: [requirements, authentication, sso, github, oauth]
 provenance:
   contributions:
@@ -23,6 +27,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Consolidated from issue #1, user decisions of 2026-10-08 and consumer sign-in requirements"
+    EXE-20261008T084302418Z-58dc4016:
+      operations: [modified]
+      at: 2026-10-08T08:46:19.913Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Resolve OQ-FIDES-001..003 with the user's decisions (GitHub App, stateless exchange, deployment as configuration)"
 ---
 
 # Fides single sign-on requirements
@@ -48,6 +62,10 @@ Keywords follow RFC 2119.
 | FID-D-003 | **Helix keeps its own sign-in for now** and does not move to Fides yet. Fides's first consumers are Chrona, then Summa, then Signal. | DF-FIDES-2026-0002 |
 | FID-D-004 | Arca does not depend on Fides. Fides supplies a token provider that satisfies Arca's token-provider port (ARCA-AUTH-001). | DF-FIDES-2026-0002 |
 | FID-D-005 | Build order: the minimal Fides slices (FID-CTX, FID-TB, FID-PRV-001..003, FID-EXC, FID-HOST-001..003, FID-CLI) come before Chrona's sign-in work. | user decision 2026-10-08 |
+| FID-D-006 | The GitHub provider is a **GitHub App** with expiring user-to-server tokens and refresh, not an OAuth App. | [DF-FIDES-2026-0003](../../research/decisions/DF-FIDES-2026-0003--github-app-user-to-server-tokens.md) |
+| FID-D-007 | The exchange is **stateless**: no session service, no server-held refresh tokens. | [DF-FIDES-2026-0004](../../research/decisions/DF-FIDES-2026-0004--stateless-exchange.md) |
+| FID-D-008 | The AWS account, region and domain are **operator configuration**; nothing is deployed from this work; no secret enters the repository. | [DF-FIDES-2026-0005](../../research/decisions/DF-FIDES-2026-0005--deployment-is-operator-configuration.md) |
+| FID-D-009 | Interim distribution: **Sigstore-attested GitHub release assets plus an echelon-registry entry** until nuget.org is set up. | [DF-FIDES-2026-0006](../../research/decisions/DF-FIDES-2026-0006--interim-distribution-attested-github-releases.md) |
 
 ## 2. Context and identity of the repository (FID-CTX)
 
@@ -101,11 +119,11 @@ interface. The interface covers authorization URL construction, code
 exchange, identity resolution and revocation, with each provider's
 capabilities declared explicitly. *Source: FID-D-002.*
 
-**FID-PRV-002** GitHub MUST be the only provider implemented for now. It
-MUST support the scopes Arca needs for repository read/write, and it SHOULD
-prefer the narrowest grant: a GitHub App user-to-server token, or
-fine-grained repository access where available. *Sources: FID-D-002;
-SIG ADM-004 ("prefer a fine-grained token").*
+**FID-PRV-002** GitHub MUST be the only provider implemented for now, as a
+**GitHub App** issuing expiring user-to-server tokens with refresh tokens.
+The App's fine-grained permissions and installations bound what the token
+can reach; Arca needs repository contents read/write. *Sources: FID-D-002,
+FID-D-006; SIG ADM-004 ("prefer a fine-grained token").*
 
 **FID-PRV-003** The resolved identity MUST come from the provider, for
 example GitHub `GET /user`, never from a typed username. *Sources: CHX-022,
@@ -193,10 +211,10 @@ identity, expired session, repository access denial and provider outage.
 **FID-TEST-002** The hosting adapters MUST pass a shared adapter conformance
 suite. *Source: FID-HOST-004.*
 
-## 9. Open questions for the user
+## 9. Resolved questions
 
-| ID | Question |
-|---|---|
-| OQ-FIDES-001 | GitHub OAuth App or GitHub App (user-to-server tokens, fine-grained per-repository access, expiring tokens with refresh)? The GitHub App is the narrower grant and fits Arca's "separate repository per permission boundary" decision better. Fides needs the choice before FID-PRV-002. |
-| OQ-FIDES-002 | Should Fides hold refresh tokens server-side (a session service) or stay stateless, returning the token to the browser client only? Stateless is simpler and cheaper on Lambda. A session service allows central revocation. |
-| OQ-FIDES-003 | Which AWS account and region, and which domain name will the exchange endpoint use? |
+| ID | Question | Resolution |
+|---|---|---|
+| OQ-FIDES-001 | GitHub OAuth App or GitHub App? | GitHub App with expiring user-to-server tokens and refresh (FID-D-006). |
+| OQ-FIDES-002 | Session service or stateless exchange? | Stateless (FID-D-007). |
+| OQ-FIDES-003 | Which AWS account, region and domain? | Operator configuration, chosen at deployment; nothing is deployed now (FID-D-008). |

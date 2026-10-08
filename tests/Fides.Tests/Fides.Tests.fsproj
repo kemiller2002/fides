@@ -7,7 +7,10 @@
     <ProjectReference Include="../../src/Fides/Fides.fsproj" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RepositoryFiles.fs" />
     <Compile Include="LibraryTests.fs" />
+    <Compile Include="RepositoryContext.fs" />
+    <Compile Include="RepositoryContextTests.fs" />
     <Compile Include="RequirementsTraceability.fs" />
     <Compile Include="RequirementsTraceabilityTests.fs" />
   </ItemGroup>

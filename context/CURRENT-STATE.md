@@ -1,32 +1,50 @@
 # Fides current state
 
+Fides is the common Echelon authentication and single sign-on (SSO) identity boundary.
+
 ## Repository status
 
-Newly initialized with Praxis 3.7.2.
+- Praxis 3.7.2 governs the repository; Conditor installed the Echelon
+  tooling (echelon-current 1.3.0, Ordo 1.5.0) and the F# NuGet library
+  scaffold (WI-0001, WI-0013).
+- Requirements, decisions and the dependency-ordered backlog are recorded
+  (WI-0002): `docs/requirements/FIDES-REQUIREMENTS.md`,
+  `docs/requirements/backlog-plan.md`, `research/decisions/`.
+- The charter and this context are anchored on SSO (WI-0003, issue #1). A
+  context gate test fails if they drift back to boilerplate.
 
 ## Observed facts
 
-- No domain evidence has been accepted.
-- No vertical slice has been selected.
-- No discipline-boundary claim has been tested.
-
-## Assumptions
-
-- A small, concrete communication problem can exercise the operating model.
+- No production code exists yet; `src/Fides/Library.fs` is the scaffold
+  placeholder until the provider model lands (WI-0006).
+- The user decided: GitHub only, through a GitHub App with expiring
+  user-to-server tokens (DF-FIDES-2026-0003); a stateless exchange with no
+  session service (DF-FIDES-2026-0004); AWS Lambda first, with account,
+  region and domain as operator configuration and no deployment from here
+  (DF-FIDES-2026-0005); interim distribution as attested GitHub release
+  assets plus a registry entry (DF-FIDES-2026-0006).
+- Arca's token-provider port (ARCA-AUTH-001) is a documented requirement in
+  kemiller2002/arca but has no code on arca main yet (checked 2026-10-08).
+- Aegis (`EchelonFoundry.Aegis.Core`) is not yet published as a package, so
+  FID-EXC-005's Aegis classification cannot be bound to a pinned release yet.
 
 ## Active work
 
-Complete the charter and select the first bounded pilot slice.
+The minimal slices in order: trust boundaries (WI-0004), acceptance tests
+(WI-0005), the GitHub App provider (WI-0006), the exchange core (WI-0007),
+the AWS Lambda adapter (WI-0008), the WebAssembly client (WI-0009) and the
+adapter conformance suite (WI-0010). Release (WI-0012) follows.
 
 ## Largest decision-relevant unknown
 
-Which first use case will provide measurable value while exposing the important
-communication constraints?
+The operator's GitHub App registration, AWS account, region and domain.
+None blocks building and testing; all block deployment.
 
 ## Baseline
 
-Not yet recorded. Define how the same slice would be approached without Praxis and
-which comparison measures are feasible.
+The pilot measurement plan (`docs/PILOT-MEASUREMENT-PLAN.md`) compares this
+Praxis-governed build against a declared lightweight workflow; Praxis
+telemetry records each slice's executions.
 
 <!-- conditor:ordo-baseline:start -->
 # Current State — Conditor Baseline

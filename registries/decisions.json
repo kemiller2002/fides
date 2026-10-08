@@ -83,5 +83,177 @@
     "title": "Fides starts with GitHub as its only identity provider behind an extensible provider model; Helix keeps its own sign-in for now; Arca never depends on Fides",
     "updated": "2026-10-08",
     "version": "1.0.0"
+  },
+  {
+    "created": "2026-10-08",
+    "id": "DF-FIDES-2026-0003",
+    "owners": [
+      "fides"
+    ],
+    "path": "research/decisions/DF-FIDES-2026-0003--github-app-user-to-server-tokens.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261008T084302418Z-58dc4016": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-10-08T08:46:18.478Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "User decision of 2026-10-08 recorded for WI-0003"
+        }
+      }
+    },
+    "related_documents": [
+      "docs/requirements/FIDES-REQUIREMENTS.md",
+      "research/decisions/DF-FIDES-2026-0002--github-only-extensible-provider-model.md"
+    ],
+    "review_cycle": "on-trigger",
+    "status": "accepted",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "providers",
+      "github",
+      "github-app",
+      "tokens",
+      "security"
+    ],
+    "title": "The GitHub provider is a GitHub App using expiring user-to-server tokens with refresh, not an OAuth App",
+    "updated": "2026-10-08",
+    "version": "1.0.0"
+  },
+  {
+    "created": "2026-10-08",
+    "id": "DF-FIDES-2026-0004",
+    "owners": [
+      "fides"
+    ],
+    "path": "research/decisions/DF-FIDES-2026-0004--stateless-exchange.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261008T084302418Z-58dc4016": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-10-08T08:46:18.872Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "User decision of 2026-10-08 recorded for WI-0003"
+        }
+      }
+    },
+    "related_documents": [
+      "docs/requirements/FIDES-REQUIREMENTS.md",
+      "research/decisions/DF-FIDES-2026-0001--cloud-agnostic-exchange-aws-first.md"
+    ],
+    "review_cycle": "on-trigger",
+    "status": "accepted",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "architecture",
+      "exchange",
+      "sessions",
+      "security"
+    ],
+    "title": "The code-for-token exchange is stateless, with no session service and no server-held refresh tokens",
+    "updated": "2026-10-08",
+    "version": "1.0.0"
+  },
+  {
+    "created": "2026-10-08",
+    "id": "DF-FIDES-2026-0005",
+    "owners": [
+      "fides"
+    ],
+    "path": "research/decisions/DF-FIDES-2026-0005--deployment-is-operator-configuration.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261008T084302418Z-58dc4016": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-10-08T08:46:19.210Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "User decision of 2026-10-08 recorded for WI-0003"
+        }
+      }
+    },
+    "related_documents": [
+      "docs/requirements/FIDES-REQUIREMENTS.md",
+      "research/decisions/DF-FIDES-2026-0001--cloud-agnostic-exchange-aws-first.md"
+    ],
+    "review_cycle": "on-trigger",
+    "status": "accepted",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "hosting",
+      "aws",
+      "deployment",
+      "secrets",
+      "configuration"
+    ],
+    "title": "The AWS account, region and domain are operator configuration; nothing is deployed from this work and no secret enters the repository",
+    "updated": "2026-10-08",
+    "version": "1.0.0"
+  },
+  {
+    "created": "2026-10-08",
+    "id": "DF-FIDES-2026-0006",
+    "owners": [
+      "fides"
+    ],
+    "path": "research/decisions/DF-FIDES-2026-0006--interim-distribution-attested-github-releases.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261008T084302418Z-58dc4016": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-10-08T08:46:19.552Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "User decision of 2026-10-08 recorded for WI-0003"
+        }
+      }
+    },
+    "related_documents": [
+      "docs/requirements/FIDES-REQUIREMENTS.md"
+    ],
+    "review_cycle": "on-trigger",
+    "status": "accepted",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "release",
+      "distribution",
+      "supply-chain"
+    ],
+    "title": "Until nuget.org is set up, Fides packages are distributed as Sigstore-attested GitHub release assets with an echelon-registry entry",
+    "updated": "2026-10-08",
+    "version": "1.0.0"
   }
 ]

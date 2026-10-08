@@ -1,22 +1,22 @@
 # Fides handoff
 
+Fides is the common Echelon authentication and single sign-on (SSO) identity boundary.
+
 ## Objective
 
-Bootstrap Fides as a greenfield Praxis pilot.
+Build Fides's minimal slices (WI-0003 to WI-0010) so Chrona can sign in
+with GitHub and hand Arca a token, then release the packages (WI-0012).
 
 ## Current state
 
-- Praxis 3.7.2 greenfield profile installed on 2026-10-07.
-- Project charter is a draft.
-- No first vertical slice, evidence record, hypothesis, or experiment has been
-  accepted.
-- The operating system is under evaluation.
+See [`context/CURRENT-STATE.md`](context/CURRENT-STATE.md) and the queue
+(`./praxis work ready`, `.ros/work/queue.md`).
 
 ## Validation
 
-Run:
-
 ```bash
+dotnet build Fides.slnx -c Release
+dotnet test Fides.slnx -c Release
 ./praxis registry check
 ./praxis validate
 ```
@@ -30,12 +30,11 @@ work, record `./praxis work checkpoint --id ID --occurred-at NOW --summary ...
 
 ## Unresolved questions
 
-1. What concrete communication problem and user should the first slice serve?
-2. What baseline workflow will be used for comparison?
-3. What data, privacy, safety, and accessibility constraints apply?
-4. Which outcome would distinguish useful engineering from additional process?
+1. The operator's GitHub App registration, AWS account, region and domain
+   (needed to deploy, not to build).
+2. Aegis publication, so failure classification can bind to a pinned
+   release.
 
 ## Next action
 
-Complete `PROJECT-CHARTER.md`, choose the first bounded outcome, and record its
-baseline and acceptance criteria in `context/CURRENT-STATE.md`.
+Take the next ready slice in backlog order.
