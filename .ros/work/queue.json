@@ -144,10 +144,10 @@
         "github"
       ],
       "priority": "high",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-10-08T08:22:47.646Z",
-      "updatedAt": "2026-10-08T08:57:38.000Z",
+      "updatedAt": "2026-10-08T09:01:37.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

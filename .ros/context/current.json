@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-10-08T08:57:39.000Z",
+  "updatedAt": "2026-10-08T09:01:37.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -270,13 +270,43 @@
     {
       "id": "WI-0006",
       "type": "task",
-      "state": "active",
-      "semanticState": "active",
-      "evidence": [],
-      "updatedAt": "2026-10-08T08:57:39.000Z",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "src/Fides/GitHub.fs"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Fides.Tests/ProviderTests.fs"
+        }
+      ],
+      "updatedAt": "2026-10-08T09:01:37.000Z",
       "telemetryExecutionIds": [
         "EXE-20261008T085739439Z-baa366fc"
-      ]
+      ],
+      "latestCheckpoint": {
+        "id": "e7258e7cfde96e35e08877d1",
+        "recordedAt": "2026-10-08T09:01:36.000Z",
+        "executionId": "EXE-20261008T085739439Z-baa366fc",
+        "repository": "fides",
+        "branch": "wi-0006/github-app-provider",
+        "commit": "64f8bebab4e230f267ea5910aa0a20c25d41be01",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides.git"
+        },
+        "remoteBranch": "wi-0006/github-app-provider",
+        "remoteCommit": "64f8bebab4e230f267ea5910aa0a20c25d41be01",
+        "summary": "Provider model, GitHub App provider, redacted secrets, effects as data and PKCE S256 in the pure core, 89 tests passing",
+        "nextAction": "WI-0007 pure exchange core running the acceptance scenarios",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-10-08T09:01:37.000Z"
     }
   ]
 }
