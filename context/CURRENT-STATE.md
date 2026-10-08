@@ -15,9 +15,10 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
 
 ## Observed facts
 
-- The pure core has its provider model and GitHub App provider (WI-0006):
-  redacted secret types, effects as data, PKCE S256, and typed provider
-  refusals. The exchange core is next (WI-0007).
+- The pure core has its provider model and GitHub App provider (WI-0006)
+  and the exchange core and host-neutral service (WI-0007). All 30 exchange
+  acceptance scenarios pass against the core. The AWS Lambda adapter is next
+  (WI-0008).
 - The acceptance scenarios (WI-0005) and the GitHub simulator live in
   `tests/Fides.Tests/Acceptance`.
 - The user decided: GitHub only, through a GitHub App with expiring

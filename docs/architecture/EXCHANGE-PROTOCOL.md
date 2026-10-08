@@ -2,7 +2,7 @@
 id: FIDES-EXCHANGE-PROTOCOL
 title: Fides exchange and client protocol
 status: accepted
-version: 1.0.0
+version: 1.1.0
 created: 2026-10-08
 updated: 2026-10-08
 owners:
@@ -23,6 +23,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Public exchange and client contract the acceptance scenarios target (FID-TEST-001)"
+    EXE-20261008T090220646Z-b33143d6:
+      operations: [modified]
+      at: 2026-10-08T09:08:47.664Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Pin instant format, no-store, JSON content type, token discard on refusal and credential rejection (WI-0007)"
 ---
 
 # Fides exchange and client protocol
@@ -67,14 +77,15 @@ A token response is:
 ```json
 {
   "accessToken": "…",
-  "accessTokenExpiresAt": "2026-10-08T17:00:00+00:00",
+  "accessTokenExpiresAt": "2026-10-08T17:00:00Z",
   "refreshToken": "…",
-  "refreshTokenExpiresAt": "2027-04-08T09:00:00+00:00",
+  "refreshTokenExpiresAt": "2027-04-08T09:00:00Z",
   "identity": { "provider": "github", "subject": "583231", "login": "octocat", "name": "The Octocat" }
 }
 ```
 
-`identity` is present on `/v1/token` only. `subject` is the provider's
+Instants are UTC ISO 8601 with a `Z`. Every response carries
+`Cache-Control: no-store`. `identity` is present on `/v1/token` only. `subject` is the provider's
 stable numeric account id; `login` is a display value.
 
 ## 3. Refusals
@@ -90,7 +101,7 @@ contract.
 | `origin_not_allowed` | 403 | `Origin` is missing or not registered for the application | no |
 | `redirect_uri_not_allowed` | 400 | `redirectUri` is not exactly one of the application's registered URIs | no |
 | `invalid_code_verifier` | 400 | `codeVerifier` is not 43-128 characters of `A-Z a-z 0-9 - . _ ~` | no |
-| `configuration_unavailable` | 500 | The client secret could not be read | no |
+| `configuration_unavailable` | 500 | The client secret could not be read, or the provider rejected the exchange's client credentials | no, or yes when the provider rejected the credentials |
 | `code_rejected` | 400 | The provider refused the code: wrong, expired, already used (replayed) or not matching the verifier | yes |
 | `refresh_rejected` | 401 | The provider refused the refresh token: revoked, expired or already used | yes |
 | `identity_revoked` | 401 | The provider refused the new token when resolving the identity | yes |
@@ -101,7 +112,13 @@ contract.
 | `method_not_allowed` | 405 | Known path, wrong method | no |
 
 The exchange never returns a partial result: either the whole token
-response or a refusal.
+response or a refusal. Whenever it obtained a token but refuses (identity,
+required repository or outage after issuance), it revokes that token before
+answering, best effort, so a token that is not handed out does not stay
+usable.
+
+Requests must declare `Content-Type: application/json`; anything else is
+`malformed_request`.
 
 ## 4. CORS
 

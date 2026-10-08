@@ -171,10 +171,10 @@
         "pure-core"
       ],
       "priority": "high",
-      "status": "captured",
+      "status": "ready",
       "attachments": [],
       "createdAt": "2026-10-08T08:22:47.948Z",
-      "updatedAt": "2026-10-08T08:56:14.000Z",
+      "updatedAt": "2026-10-08T09:02:20.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

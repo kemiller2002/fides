@@ -38,3 +38,33 @@ module JsonRead =
 
     /// Whether the property is present (with any value, including null).
     let has (name: string) (element: JsonElement) = (property name element).IsSome
+
+    /// A boolean property.
+    let bool (name: string) (element: JsonElement) =
+        property name element
+        |> Option.bind (fun v ->
+            match v.ValueKind with
+            | JsonValueKind.True -> Some true
+            | JsonValueKind.False -> Some false
+            | _ -> None)
+
+    /// A nested object property.
+    let child (name: string) (element: JsonElement) =
+        property name element |> Option.filter (fun v -> v.ValueKind = JsonValueKind.Object)
+
+    /// The elements of an array property.
+    let array (name: string) (element: JsonElement) =
+        property name element
+        |> Option.filter (fun v -> v.ValueKind = JsonValueKind.Array)
+        |> Option.map (fun v -> v.EnumerateArray() |> List.ofSeq)
+
+    /// An array of strings; `None` if any element is not a string.
+    let strings (name: string) (element: JsonElement) =
+        array name element
+        |> Option.bind (fun items ->
+            let values = items |> List.choose (fun i -> if i.ValueKind = JsonValueKind.String then i.GetString() |> Option.ofObj else None)
+            if values.Length = items.Length then Some values else None)
+
+    /// The members of an object property, by name.
+    let members (name: string) (element: JsonElement) =
+        child name element |> Option.map (fun v -> v.EnumerateObject() |> Seq.map (fun p -> p.Name, p.Value) |> List.ofSeq)
