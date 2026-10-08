@@ -41,6 +41,10 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
 - Aegis (`EchelonFoundry.Aegis.Core`) is not yet published as a package, so
   FID-EXC-005's Aegis classification cannot be bound to a pinned release yet.
 
+- The hosting-adapter conformance suite (WI-0010) runs every exchange
+  scenario and 12 extra HTTP cases through an adapter and requires the
+  core's exact status, body and headers; the AWS adapter conforms.
+
 ## Active work
 
 The minimal slices in order: trust boundaries (WI-0004), acceptance tests

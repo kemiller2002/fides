@@ -15,6 +15,7 @@
     <Compile Include="HttpPortTests.fs" />
     <Compile Include="TemplateTests.fs" />
     <Compile Include="RuntimeEmulationTests.fs" />
+    <Compile Include="ConformanceTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.TestUtilities" Version="4.2.0" />
