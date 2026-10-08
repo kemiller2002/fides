@@ -11,10 +11,11 @@
 | WI-0006 | Fides slice 4: extensible provider model with GitHub as the only provider (FID-PRV-001..004, decision FID-D-002) | complete | fides, slice:4, minimal, providers, github | high |
 | WI-0007 | Fides slice 5: pure F# code-for-token exchange core - authorization code with PKCE, single-use state, replay refusal (FID-EXC-001..005) | complete | fides, slice:5, minimal, exchange, pure-core | high |
 | WI-0008 | Fides slice 6: AWS hosting adapter - Lambda behind API Gateway, client secret from Secrets Manager/SSM, infrastructure as code per environment (FID-HOST-001..003, FID-HOST-005) | complete | fides, slice:6, minimal, hosting, aws | high |
-| WI-0009 | Fides slice 7: WASM client library and Arca token provider - sign-in, callback, session states, retention modes (FID-CLI-001..004) | captured | fides, slice:7, minimal, client, wasm | high |
+| WI-0009 | Fides slice 7: WASM client library and Arca token provider - sign-in, callback, session states, retention modes (FID-CLI-001..004) | active | fides, slice:7, minimal, client, wasm | high |
 | WI-0010 | Fides: shared hosting-adapter conformance suite (FID-TEST-002, FID-HOST-004) | captured | fides, conformance, hosting | medium |
 | WI-0011 | (Deferred) Fides Azure hosting adapter - Azure Functions plus Key Vault (FID-HOST-004) | captured | fides, deferred, hosting, azure | low |
 | WI-0012 | Fides: release workflow and echelon-registry entry for the client package and exchange artifact | captured | fides, release, registry | medium |
 | WI-0013 | Make the Dokimos quality check pass: regenerate the test project as a dotnet test (xUnit) project so the gate gets TRX test evidence | complete | dokimos, ci | high |
 | WI-0014 | Bind Fides failure classification to Aegis once EchelonFoundry.Aegis.Core is published as a pinned release (FID-EXC-005 Aegis clause) | captured | fides, aegis, blocked-external | medium |
 | WI-0015 | Conditor's fsharp-nuget-library scaffold hides test output on failure: under bash -e, output=$(dotnet test ...) exits before echo | captured | ci, conditor, upstream | medium |
+| WI-0016 | EchelonFoundry.Fides.Arca bridge package: Fides.Client token provider to Arca.TokenProvider | captured | fides, arca, blocked-external | medium |

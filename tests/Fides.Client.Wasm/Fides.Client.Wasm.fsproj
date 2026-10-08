@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.WebAssembly">
+  <!-- Runs the Fides client inside the .NET WebAssembly runtime (browser-wasm)
+       under Node, to prove the client works where applications run it. It is
+       outside Fides.slnx because it needs the wasm-tools workload; CI builds
+       and runs it in its own job (scripts/verify-wasm.sh). -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>false</IsTestProject>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/Fides.Client/Fides.Client.fsproj" />
+    <ProjectReference Include="../Fides.Acceptance/Fides.Acceptance.fsproj" />
+  </ItemGroup>
+</Project>

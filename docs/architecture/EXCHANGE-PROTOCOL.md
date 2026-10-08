@@ -2,7 +2,7 @@
 id: FIDES-EXCHANGE-PROTOCOL
 title: Fides exchange and client protocol
 status: accepted
-version: 1.1.0
+version: 1.2.0
 created: 2026-10-08
 updated: 2026-10-08
 owners:
@@ -33,6 +33,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Pin instant format, no-store, JSON content type, token discard on refusal and credential rejection (WI-0007)"
+    EXE-20261008T093828040Z-3faec4b1:
+      operations: [modified]
+      at: 2026-10-08T09:48:37.177Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Token-provider results mirror Arca's port; outage is provider_unavailable (WI-0009)"
 ---
 
 # Fides exchange and client protocol
@@ -148,11 +158,18 @@ Session states: `signed_out`, `signing_in`, `signed_in`, `expired`,
 `revoked`, `provider_unavailable`.
 
 The token provider, which Arca consumes (ARCA-AUTH-001), yields either a
-current access token or one of three typed failures:
+current access token or one of four typed failures. They mirror Arca's
+published port (`Arca.TokenUnavailable` in EchelonFoundry.Arca.Core 0.1.0:
+`NoToken`, `Expired`, `Revoked`, `ProviderFailed`):
 
-| Result | When |
-|---|---|
-| token | Signed in and the access token is valid for at least the refresh margin (5 minutes), refreshing first if needed |
-| `none` | Signed out or signing in |
-| `expired` | The access token expired and could not be refreshed: the refresh token is past its expiry, or the provider was unavailable |
-| `revoked` | The provider refused the token or the refresh grant before its expiry, or the application reported a `401` for the token |
+| Result | Arca case | When |
+|---|---|---|
+| token | `Ok` | Signed in and the access token is valid for at least the refresh margin (5 minutes), refreshing first if needed |
+| `none` | `NoToken` | Signed out or signing in |
+| `expired` | `Expired` | The access token expired and the refresh token is past its own expiry: the person must sign in again |
+| `revoked` | `Revoked` | The provider refused the refresh grant before its expiry, or the application reported a `401` for the token |
+| `provider_unavailable` | `ProviderFailed` | The token needed refreshing and the exchange or provider was unavailable; the session is kept and the next call retries |
+
+Refresh tokens are single use, so the client runs at most one refresh at a
+time and, when a refresh is refused, first adopts a newer session another
+tab may already have stored before it reports `revoked`.

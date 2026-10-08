@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The Fides client for Limen/Forma F# WebAssembly applications. Pure
+       decisions plus a thin runtime over host ports (HTTP to the exchange,
+       browser storage, navigation, cross-tab messages, clock, randomness).
+       It touches no browser API itself, so it runs in browser-wasm and in
+       tests alike. -->
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackageId>EchelonFoundry.Fides.Client</PackageId>
+    <AssemblyName>Fides.Client</AssemblyName>
+    <RootNamespace>Fides.Client</RootNamespace>
+    <Description>Fides (Echelon Foundry): the single sign-on client for F# WebAssembly applications. Sign-in with PKCE and single-use state, typed session states, retention modes, and a token provider matching Arca's token-provider port.</Description>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IsTrimmable>true</IsTrimmable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Model.fs" />
+    <Compile Include="Codec.fs" />
+    <Compile Include="SignIn.fs" />
+    <Compile Include="Tokens.fs" />
+    <Compile Include="FidesClient.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Fides/Fides.fsproj" />
+  </ItemGroup>
+</Project>

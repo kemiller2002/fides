@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "fides",
-  "nextSeq": 16,
+  "nextSeq": 17,
   "items": [
     {
       "id": "WI-0001",
@@ -225,10 +225,10 @@
         "wasm"
       ],
       "priority": "high",
-      "status": "captured",
+      "status": "ready",
       "attachments": [],
       "createdAt": "2026-10-08T08:22:48.565Z",
-      "updatedAt": "2026-10-08T08:56:14.000Z",
+      "updatedAt": "2026-10-08T09:38:27.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
@@ -294,7 +294,7 @@
     {
       "id": "WI-0012",
       "title": "Fides: release workflow and echelon-registry entry for the client package and exchange artifact",
-      "description": "Depends on WI-0009. Release the WASM client package through the Echelon release contract, register Fides in echelon-registry, and declare it so applications (Chrona first) pin it through conditor.json. Helix is not a consumer for now (decision FID-D-003).",
+      "description": "Depends on WI-0009. Release the client package (FID-CLI-004) and the core, hosting and AWS Lambda artifacts through the Echelon release contract as Sigstore-attested GitHub release assets (DF-FIDES-2026-0006; nuget.org dormant until NUGET_USER), register Fides in echelon-registry, and declare it so applications (Chrona first) pin it. Helix is not a consumer for now (decision FID-D-003).",
       "tags": [
         "fides",
         "release",
@@ -304,7 +304,7 @@
       "status": "captured",
       "attachments": [],
       "createdAt": "2026-10-08T08:22:49.441Z",
-      "updatedAt": "2026-10-08T08:22:49.441Z",
+      "updatedAt": "2026-10-08T09:49:02.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
@@ -379,6 +379,31 @@
       "attachments": [],
       "createdAt": "2026-10-08T09:36:04.000Z",
       "updatedAt": "2026-10-08T09:36:04.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0016",
+      "title": "EchelonFoundry.Fides.Arca bridge package: Fides.Client token provider to Arca.TokenProvider",
+      "description": "Blocked on Conditor installing Arca's attested GitHub release assets into a pinned local feed (Arca's distribution plan; owned by the Arca agent). Then: a package referencing EchelonFoundry.Arca.Core 0.1.0 by exact version and Fides.Client, exposing toArca, with contract tests against Arca's real types (DF-FIDES-2026-0008).",
+      "tags": [
+        "fides",
+        "arca",
+        "blocked-external"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-10-08T09:48:44.000Z",
+      "updatedAt": "2026-10-08T09:48:44.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

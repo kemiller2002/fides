@@ -31,8 +31,13 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
   region and domain as operator configuration and no deployment from here
   (DF-FIDES-2026-0005); interim distribution as attested GitHub release
   assets plus a registry entry (DF-FIDES-2026-0006).
-- Arca's token-provider port (ARCA-AUTH-001) is a documented requirement in
-  kemiller2002/arca but has no code on arca main yet (checked 2026-10-08).
+- Arca's token-provider port is on arca main and released in
+  EchelonFoundry.Arca.Core 0.1.0 (attested GitHub release assets). The Fides
+  client mirrors it case for case (DF-FIDES-2026-0008); the packaged bridge
+  (WI-0016) waits for Conditor to install Arca's release assets.
+- The WebAssembly client (WI-0009) runs every callback and session acceptance
+  scenario, and its full flow runs inside the trimmed browser-wasm runtime
+  under Node in CI (`scripts/verify-wasm.sh`).
 - Aegis (`EchelonFoundry.Aegis.Core`) is not yet published as a package, so
   FID-EXC-005's Aegis classification cannot be bound to a pinned release yet.
 

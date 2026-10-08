@@ -146,12 +146,15 @@ type Json =
     | B of bool
     | O of (string * Json) list
 
-let rec render =
+let rec private toValue =
     function
-    | S value -> JsonSerializer.Serialize value
-    | N value -> string value
-    | B value -> if value then "true" else "false"
-    | O pairs -> "{" + (pairs |> List.map (fun (k, v) -> JsonSerializer.Serialize k + ":" + render v) |> String.concat ",") + "}"
+    | S value -> Fides.JsonWrite.String value
+    | N value -> Fides.JsonWrite.Number value
+    | B value -> Fides.JsonWrite.Bool value
+    | O pairs -> Fides.JsonWrite.Object(pairs |> List.map (fun (k, v) -> k, toValue v))
+
+/// Reflection-free, so the simulator also runs under trimmed WebAssembly.
+let render json = Fides.JsonWrite.render (toValue json)
 
 let private json pairs = render (O pairs)
 
