@@ -106,7 +106,8 @@ let field (name: string) (body: string) =
     with :? JsonException ->
         None
 
-let private serialize (pairs: (string * string) list) = JsonSerializer.Serialize(dict pairs)
+let private serialize (pairs: (string * string) list) =
+    Fides.JsonWrite.render (Fides.JsonWrite.Object(pairs |> List.map (fun (k, v) -> k, Fides.JsonWrite.String v)))
 
 let tokenBody (registration: Registration) (code: string) (codeVerifier: string) (redirectUri: string) =
     serialize [ "application", registration.Application; "code", code; "codeVerifier", codeVerifier; "redirectUri", redirectUri ]
@@ -394,7 +395,8 @@ type SessionScenario =
       Session: SessionFixture
       Events: SessionEvent list
       Refresh: RefreshAnswer
-      /// `token`, `none`, `expired` or `revoked` (EXCHANGE-PROTOCOL.md section 6).
+      /// `token`, `none`, `expired`, `revoked` or `provider_unavailable`
+      /// (EXCHANGE-PROTOCOL.md section 6).
       ExpectToken: string
       ExpectState: string }
 
@@ -412,8 +414,8 @@ let sessionScenarios: SessionScenario list =
         Description = "An expired access token whose refresh token has also expired yields expired, without calling the exchange"
         Session = Session(-30, -1); Events = []; Refresh = RefreshNotExpected; ExpectToken = "expired"; ExpectState = "expired" }
       { Id = "expired-session-outage"; Category = ProviderOutage; Requirements = [ "FID-EXC-004"; "FID-CLI-003" ]
-        Description = "An expired access token that cannot be refreshed during an outage yields expired"
-        Session = Session(-30, 100000); Events = []; Refresh = RefreshUnavailable; ExpectToken = "expired"; ExpectState = "provider_unavailable" }
+        Description = "An expired access token that cannot be refreshed during an outage is a transient provider failure, and the session is kept"
+        Session = Session(-30, 100000); Events = []; Refresh = RefreshUnavailable; ExpectToken = "provider_unavailable"; ExpectState = "provider_unavailable" }
       { Id = "revoked-refresh"; Category = RevokedIdentity; Requirements = [ "FID-TB-005"; "FID-CLI-003" ]
         Description = "A refresh refused before the refresh token's expiry means the grant was revoked"
         Session = Session(-30, 100000); Events = []; Refresh = RefreshRefused; ExpectToken = "revoked"; ExpectState = "revoked" }

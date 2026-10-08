@@ -22,6 +22,7 @@ This initial routing map was established by Conditor from accepted governing inp
 | Exchange service | The exchange as a host-neutral HTTP service: routing, body limits, CORS, cache headers, audit records without content (FID-HOST-001, FID-HOST-005) | `src/Fides/Service.fs` | not established yet | Hosting adapters translate to and from it. |
 | Hosting runtime | Runs the core's effects with HttpClient (timeouts, no redirects, bounded responses), a cached secret port and the clock; audit log lines (FID-HOST-001) | `src/Fides.Hosting/` | not established yet | Cloud-neutral; every adapter builds on it. |
 | AWS adapter | Lambda (provided.al2023, arm64) behind an API Gateway HTTP API: event translation, Secrets Manager port, bootstrap (FID-HOST-002) | `src/Fides.Hosting.Aws/`, `infrastructure/aws/`, `docs/hosting/AWS.md` | not established yet | Nothing is deployed from the repository (DF-FIDES-2026-0005). |
+| WebAssembly client | Sign-in with PKCE and single-use state, callback, typed session states, retention modes, single-flight refresh, cross-tab messages, and the token provider mirroring Arca's port (FID-CLI-001..003) | `src/Fides.Client/`, `docs/client/README.md` | not established yet | Touches no browser API; the host supplies ports. Verified in browser-wasm by `tests/Fides.Client.Wasm`. |
 
 ## Repository-wide composition
 

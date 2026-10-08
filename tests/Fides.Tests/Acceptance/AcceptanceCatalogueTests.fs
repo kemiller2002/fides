@@ -80,7 +80,7 @@ let ``every callback outcome in the protocol is exercised`` () =
 let ``every session state and token-provider result is exercised`` () =
     let states = Set.ofList (sessionScenarios |> List.map _.ExpectState)
     let tokens = Set.ofList (sessionScenarios |> List.map _.ExpectToken)
-    Assert.Equal<Set<string>>(Set.ofList [ "token"; "none"; "expired"; "revoked" ], tokens)
+    Assert.Equal<Set<string>>(Set.ofList [ "token"; "none"; "expired"; "revoked"; "provider_unavailable" ], tokens)
 
     Assert.Equal<Set<string>>(
         Set.ofList [ "signed_in"; "signed_out"; "expired"; "revoked"; "provider_unavailable" ],

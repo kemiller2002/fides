@@ -313,5 +313,50 @@
     "title": "GitHub authentication proves control of a GitHub account and the token's grant; Fides owns client registration, redirect policy, state and PKCE, session states and revocation propagation",
     "updated": "2026-10-08",
     "version": "1.0.0"
+  },
+  {
+    "created": "2026-10-08",
+    "id": "DF-FIDES-2026-0008",
+    "owners": [
+      "fides"
+    ],
+    "path": "research/decisions/DF-FIDES-2026-0008--client-mirrors-arca-token-provider-port.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261008T093828040Z-3faec4b1": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-10-08T09:48:36.466Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "Client token provider mirrors Arca 0.1.0's port (WI-0009)"
+        }
+      }
+    },
+    "related_documents": [
+      "docs/client/README.md",
+      "docs/architecture/EXCHANGE-PROTOCOL.md",
+      "research/decisions/DF-FIDES-2026-0002--github-only-extensible-provider-model.md",
+      "research/decisions/DF-FIDES-2026-0006--interim-distribution-attested-github-releases.md"
+    ],
+    "review_cycle": "on-trigger",
+    "status": "accepted",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "client",
+      "arca",
+      "dependencies",
+      "distribution"
+    ],
+    "title": "The Fides client mirrors Arca's published token-provider port; a packaged bridge waits for Conditor's release-asset installation",
+    "updated": "2026-10-08",
+    "version": "1.0.0"
   }
 ]

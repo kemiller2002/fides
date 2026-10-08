@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-10-08T09:32:33.000Z",
+  "updatedAt": "2026-10-08T09:49:07.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -389,6 +389,47 @@
         }
       },
       "completedAt": "2026-10-08T09:32:33.000Z"
+    },
+    {
+      "id": "WI-0009",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "src/Fides.Client/FidesClient.fs"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Fides.Tests/Acceptance/ClientAcceptanceTests.fs"
+        }
+      ],
+      "updatedAt": "2026-10-08T09:49:07.000Z",
+      "telemetryExecutionIds": [
+        "EXE-20261008T093828040Z-3faec4b1"
+      ],
+      "latestCheckpoint": {
+        "id": "fe11a1b4738f5c01aac9eb28",
+        "recordedAt": "2026-10-08T09:49:06.000Z",
+        "executionId": "EXE-20261008T093828040Z-3faec4b1",
+        "repository": "fides",
+        "branch": "wi-0009/wasm-client",
+        "commit": "749211ff738caef283203007e3e6e0b3039f6028",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides.git"
+        },
+        "remoteBranch": "wi-0009/wasm-client",
+        "remoteCommit": "749211ff738caef283203007e3e6e0b3039f6028",
+        "summary": "WebAssembly client with Arca-shaped token provider; callback and session scenarios, end-to-end and browser-wasm verification pass",
+        "nextAction": "WI-0010 adapter conformance suite",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-10-08T09:49:07.000Z"
     }
   ]
 }

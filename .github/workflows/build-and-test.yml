@@ -51,6 +51,23 @@ jobs:
           test -x dist/lambda/bootstrap
           file dist/lambda/bootstrap | grep -q 'ARM aarch64'
 
+  wasm:
+    # The client must run where applications run it: inside the .NET
+    # WebAssembly runtime, trimmed, in a JavaScript host.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install the wasm-tools workload
+        run: dotnet workload install wasm-tools
+      - name: Run the client end to end in browser-wasm
+        run: scripts/verify-wasm.sh
+
   infrastructure:
     runs-on: ubuntu-latest
     steps:
