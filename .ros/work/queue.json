@@ -12,10 +12,10 @@
         "setup"
       ],
       "priority": "high",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-10-08T08:21:43.000Z",
-      "updatedAt": "2026-10-08T08:21:44.000Z",
+      "updatedAt": "2026-10-08T08:22:28.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
