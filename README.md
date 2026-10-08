@@ -1,37 +1,47 @@
 # Fides
 
-This repository is a greenfield pilot running Praxis 3.7.2, Echelon Foundry's
-repository operating system. An older installation may also have `./ros`, a
-compatibility alias of `./praxis`.
+Fides is the common Echelon authentication and single sign-on (SSO) identity boundary.
+
+Echelon applications sign their users in through Fides. It starts with
+GitHub, using a GitHub App and its expiring user-to-server tokens, behind a
+provider model that can take other providers later. The purpose, users and
+scope are in [`PROJECT-CHARTER.md`](PROJECT-CHARTER.md); the requirements are in
+[`docs/requirements/FIDES-REQUIREMENTS.md`](docs/requirements/FIDES-REQUIREMENTS.md).
+
+| Part | What it does |
+|---|---|
+| Exchange | Stateless server-side code-for-token exchange, refresh and revocation. The only holder of the client secret. Pure F# core, thin hosting adapter, AWS Lambda first. |
+| Client | F# library for Limen/Forma WebAssembly applications: sign-in, callback, session, and the token provider that Arca consumes. |
+
+Nothing is deployed from this repository. What the operator must supply to
+deploy is listed in the hosting documentation once the AWS adapter lands
+(WI-0008).
 
 ## Start here
 
 1. Read [`AGENTS.md`](AGENTS.md) and [`BOOTSTRAP.md`](BOOTSTRAP.md).
-2. Complete [`PROJECT-CHARTER.md`](PROJECT-CHARTER.md).
-3. Establish the baseline in [`context/CURRENT-STATE.md`](context/CURRENT-STATE.md).
-4. Select the first bounded mission and its observable acceptance criteria.
-5. Record durable evidence, decisions, and handoffs as the work proceeds.
+2. Read [`PROJECT-CHARTER.md`](PROJECT-CHARTER.md) and
+   [`context/CURRENT-STATE.md`](context/CURRENT-STATE.md).
+3. Pick up the next work item with `./praxis work ready`.
+
+## Build and test
+
+```bash
+dotnet build Fides.slnx -c Release
+dotnet test Fides.slnx -c Release
+```
 
 ## Local operating commands
 
 ```bash
-./praxis work begin --id TASK-001 --occurred-at TIMESTAMP --type task
-./praxis work context TASK-001
+./praxis work start --id WI-NNNN --occurred-at TIMESTAMP --type task
+./praxis work context WI-NNNN
 ./praxis status
-./praxis registry check
 ./praxis registry build
 ./praxis validate
 ```
 
-`work context` reports legal actions and completion evidence. Validation errors include repair instructions; use `./praxis validate --json` for machine-readable output. Complete work with explicit evidence paths as described in `docs/work-protocol.md`.
-
-The installed snapshot is self-contained. It does not read from the source Praxis
-repository. `.ros/installation.json` records the package version and checksums
-of installed files.
-
-## Pilot rule
-
-The operating system is itself under evaluation. Do not infer that
-Fides is a validated discipline, method, or product merely because
-the repository follows a rigorous process. Measure whether the process improves
-decisions, traceability, handoffs, and rework relative to the declared baseline.
+`work context` reports legal actions and completion evidence. Validation
+errors include repair instructions; use `./praxis validate --json` for
+machine-readable output. Complete work with explicit evidence paths as
+described in `docs/work-protocol.md`.

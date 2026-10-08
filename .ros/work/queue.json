@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "fides",
-  "nextSeq": 14,
+  "nextSeq": 15,
   "items": [
     {
       "id": "WI-0001",
@@ -63,10 +63,10 @@
         "FIDES-P0"
       ],
       "priority": "high",
-      "status": "captured",
+      "status": "ready",
       "attachments": [],
       "createdAt": "2026-10-08T08:22:46.692Z",
-      "updatedAt": "2026-10-08T08:22:46.692Z",
+      "updatedAt": "2026-10-08T08:43:01.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
@@ -329,6 +329,31 @@
       "attachments": [],
       "createdAt": "2026-10-08T08:27:10.000Z",
       "updatedAt": "2026-10-08T08:28:03.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0014",
+      "title": "Bind Fides failure classification to Aegis once EchelonFoundry.Aegis.Core is published as a pinned release (FID-EXC-005 Aegis clause)",
+      "description": "Aegis is not on nuget.org or GitHub releases as of 2026-10-08, so the exchange and client keep a typed failure model with a classification seam. When Aegis publishes, map Fides refusals and provider failures to Aegis classifications and pin the version.",
+      "tags": [
+        "fides",
+        "aegis",
+        "blocked-external"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-10-08T08:46:30.000Z",
+      "updatedAt": "2026-10-08T08:46:30.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

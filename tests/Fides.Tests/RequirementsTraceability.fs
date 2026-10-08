@@ -1,20 +1,15 @@
-/// Every Fides requirement is planned: an open work item in the Praxis queue
-/// (captured, ready, active or blocked) names it, either directly
-/// (`FID-EXC-003`) or inside a range of the same family (`FID-TB-001..006`).
-/// A requirement that no open work item names would silently fall out of the
-/// backlog.
+/// Every Fides requirement is accounted for: either an open work item in the
+/// Praxis queue (captured, ready, active or blocked) still plans it, naming it
+/// directly (`FID-EXC-003`) or inside a range of the same family
+/// (`FID-TB-001..006`), or a test verifies it, by carrying
+/// `[<Trait("Verifies", "FID-...")>]`. A requirement that neither plans nor
+/// verifies would silently fall out of the product.
 module Fides.Tests.RequirementsTraceability
 
-open System.IO
+open System
+open System.Reflection
 open System.Text.Json
 open System.Text.RegularExpressions
-
-/// The repository root: the nearest directory above `start` that holds Fides.slnx.
-let rec repositoryRoot (start: DirectoryInfo | null) =
-    match start with
-    | Null -> None
-    | NonNull directory when File.Exists(Path.Combine(directory.FullName, "Fides.slnx")) -> Some directory.FullName
-    | NonNull directory -> repositoryRoot directory.Parent
 
 /// Requirement IDs declared in the requirements document (`**FID-XXX-NNN**`).
 let declaredRequirements (document: string) =
@@ -54,6 +49,25 @@ let namedRequirements (work: string) =
 
     Seq.append direct ranges |> Set.ofSeq
 
-/// Declared requirements that no open work item names.
-let unplanned (document: string) (queueJson: string) =
-    Set.difference (declaredRequirements document) (namedRequirements (openWorkText queueJson))
+/// The trait name a test uses to declare the requirement it verifies.
+[<Literal>]
+let VerifiesTrait = "Verifies"
+
+/// Requirement IDs that test methods in `assembly` declare they verify.
+let verifiedRequirements (assembly: Assembly) =
+    assembly.GetTypes()
+    |> Seq.collect (fun t -> t.GetMethods(BindingFlags.Public ||| BindingFlags.Static ||| BindingFlags.Instance))
+    |> Seq.collect (fun m -> m.CustomAttributes)
+    |> Seq.filter (fun a -> a.AttributeType.FullName = "Xunit.TraitAttribute")
+    |> Seq.choose (fun a ->
+        match [ for arg in a.ConstructorArguments -> string arg.Value ] with
+        | [ VerifiesTrait; requirement ] -> Some requirement
+        | _ -> None)
+    |> Set.ofSeq
+
+/// Declared requirements that no open work item plans and no test verifies.
+let unaccounted (declared: Set<string>) (planned: Set<string>) (verified: Set<string>) =
+    Set.difference declared (Set.union planned verified)
+
+/// Verification claims for requirements the document does not declare.
+let unknownVerifications (declared: Set<string>) (verified: Set<string>) = Set.difference verified declared
