@@ -1,0 +1,358 @@
+{
+  "Contract": "dokimos.snapshot",
+  "SchemaVersion": "2.0.0",
+  "SnapshotId": "kemiller2002/fides@fa01f37786197049497de72414fa9b861fa251f1:a8f7b9a11e2053a3",
+  "Repository": "kemiller2002/fides",
+  "Revision": "fa01f37786197049497de72414fa9b861fa251f1",
+  "Ref": "main",
+  "CollectedAt": "2026-10-08T08:49:30.2679583+00:00",
+  "Collector": "dokimos/0.2.0+e641048c52edd8755c2964b6bafa4ae860e34062",
+  "Producer": {
+    "DokimosVersion": "0.2.0+e641048c52edd8755c2964b6bafa4ae860e34062",
+    "ConfigurationId": "dokimos-collection/1;duplicate-block-size=6",
+    "AnalyzedScope": [
+      "src"
+    ],
+    "Analyzers": [
+      {
+        "AnalyzerId": "dokimos.fsharp-structural",
+        "Version": "1",
+        "State": "ran",
+        "Reason": null,
+        "DurationMilliseconds": 6
+      },
+      {
+        "AnalyzerId": "dokimos.fsharp-complexity-proxy",
+        "Version": "1",
+        "State": "ran",
+        "Reason": null,
+        "DurationMilliseconds": null
+      },
+      {
+        "AnalyzerId": "dokimos.fsharp-agent-quality",
+        "Version": "1",
+        "State": "ran",
+        "Reason": null,
+        "DurationMilliseconds": null
+      },
+      {
+        "AnalyzerId": "dokimos.text-duplication",
+        "Version": "1",
+        "State": "ran",
+        "Reason": null,
+        "DurationMilliseconds": null
+      },
+      {
+        "AnalyzerId": "dokimos.hotspot-correlation",
+        "Version": "1",
+        "State": "ran",
+        "Reason": null,
+        "DurationMilliseconds": null
+      },
+      {
+        "AnalyzerId": "dokimos.git-temporal",
+        "Version": "1",
+        "State": "ran",
+        "Reason": null,
+        "DurationMilliseconds": 19
+      },
+      {
+        "AnalyzerId": "dokimos.dotnet-build-diagnostics",
+        "Version": "1",
+        "State": "ran",
+        "Reason": null,
+        "DurationMilliseconds": 8
+      },
+      {
+        "AnalyzerId": "dokimos.dotnet-test-results",
+        "Version": "1",
+        "State": "ran",
+        "Reason": null,
+        "DurationMilliseconds": 531
+      },
+      {
+        "AnalyzerId": "dokimos.cobertura-coverage",
+        "Version": "1",
+        "State": "not-run",
+        "Reason": "input not supplied",
+        "DurationMilliseconds": null
+      }
+    ]
+  },
+  "Performance": {
+    "TotalMilliseconds": 576,
+    "FileCount": 1,
+    "ObservationCount": 24,
+    "UnavailableCollectors": [
+      "dokimos.cobertura-coverage"
+    ],
+    "FailedCollectors": []
+  },
+  "Metrics": [
+    {
+      "MetricId": "build.compiler-errors",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.dotnet-build-diagnostics"
+    },
+    {
+      "MetricId": "build.compiler-warnings",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.dotnet-build-diagnostics"
+    },
+    {
+      "MetricId": "tests.total",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "available",
+      "Value": 11,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.dotnet-test-results"
+    },
+    {
+      "MetricId": "tests.passed",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "available",
+      "Value": 11,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.dotnet-test-results"
+    },
+    {
+      "MetricId": "tests.failed",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.dotnet-test-results"
+    },
+    {
+      "MetricId": "tests.skipped",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.dotnet-test-results"
+    },
+    {
+      "MetricId": "coverage.line-rate",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "unavailable",
+      "Value": null,
+      "Unit": "ratio",
+      "Reason": "not-configured",
+      "Detail": null,
+      "Source": "dokimos.cobertura-coverage"
+    },
+    {
+      "MetricId": "duplication.block-occurrences",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.text-duplication"
+    },
+    {
+      "MetricId": "change.region-commits",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "unavailable",
+      "Value": null,
+      "Unit": "count",
+      "Reason": "unsupported",
+      "Detail": null,
+      "Source": "dokimos"
+    },
+    {
+      "MetricId": "debt.age-days",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "unavailable",
+      "Value": null,
+      "Unit": "days",
+      "Reason": "unsupported",
+      "Detail": null,
+      "Source": "dokimos"
+    },
+    {
+      "MetricId": "debt.staleness-days",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "unavailable",
+      "Value": null,
+      "Unit": "days",
+      "Reason": "unsupported",
+      "Detail": null,
+      "Source": "dokimos"
+    },
+    {
+      "MetricId": "api.added",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "unavailable",
+      "Value": null,
+      "Unit": "symbols",
+      "Reason": "unsupported",
+      "Detail": null,
+      "Source": "dokimos"
+    },
+    {
+      "MetricId": "api.removed",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "unavailable",
+      "Value": null,
+      "Unit": "symbols",
+      "Reason": "unsupported",
+      "Detail": null,
+      "Source": "dokimos"
+    },
+    {
+      "MetricId": "api.signature-changed",
+      "MetricVersion": 1,
+      "Scope": "repository",
+      "State": "unavailable",
+      "Value": null,
+      "Unit": "symbols",
+      "Reason": "unsupported",
+      "Detail": null,
+      "Source": "dokimos"
+    },
+    {
+      "MetricId": "source.lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Library.fs",
+      "State": "available",
+      "Value": 8,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.nonblank-lines",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Library.fs",
+      "State": "available",
+      "Value": 6,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.public-declarations",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Library.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "complexity.proxy-cyclomatic",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Library.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "points",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-complexity-proxy"
+    },
+    {
+      "MetricId": "source.mutable-bindings",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Library.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "source.broad-catch-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Library.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-structural"
+    },
+    {
+      "MetricId": "quality.type-weakening-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Library.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "quality.scaffolding-indicators",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Library.fs",
+      "State": "available",
+      "Value": 0,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.fsharp-agent-quality"
+    },
+    {
+      "MetricId": "change.file-commits",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Library.fs",
+      "State": "available",
+      "Value": 1,
+      "Unit": "count",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    },
+    {
+      "MetricId": "change.file-churn",
+      "MetricVersion": 1,
+      "Scope": "src/Fides/Library.fs",
+      "State": "available",
+      "Value": 7,
+      "Unit": "lines",
+      "Reason": null,
+      "Detail": null,
+      "Source": "dokimos.git-temporal"
+    }
+  ],
+  "Findings": []
+}
