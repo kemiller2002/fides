@@ -2,7 +2,7 @@
 id: FIDES-CLIENT-GUIDE
 title: Using the Fides client in an F# WebAssembly application
 status: accepted
-version: 1.0.0
+version: 1.1.0
 created: 2026-10-08
 updated: 2026-10-08
 owners:
@@ -24,6 +24,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Client guide and Arca bridge (WI-0009)"
+    EXE-20261008T100753159Z-f178e0ab:
+      operations: [modified]
+      at: 2026-10-08T10:13:34.923Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Released assets: download, verify and install (WI-0012)"
 ---
 
 # Using the Fides client
@@ -35,6 +45,21 @@ navigation, address replacement, a `BroadcastChannel`, the clock and
 `crypto.getRandomValues`). The same code runs in tests and in browser-wasm;
 CI runs the full flow inside the trimmed WebAssembly runtime
 (`scripts/verify-wasm.sh`).
+
+## Installing
+
+Until the packages are on nuget.org, each release ships them as
+Sigstore-attested GitHub release assets (DF-FIDES-2026-0006). Install them
+through Conditor's release-asset feed (it checks each package's sha256
+against the echelon-registry record and maps `EchelonFoundry.Fides.*` to the
+pinned local feed only), then reference them by exact version:
+
+```xml
+<PackageReference Include="EchelonFoundry.Fides.Client" Version="0.1.0" />
+```
+
+Anyone can check provenance with
+`gh attestation verify <file> --repo kemiller2002/fides`.
 
 ## Setting up
 

@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-10-08T10:05:35.000Z",
+  "updatedAt": "2026-10-08T10:14:54.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -512,6 +512,47 @@
         }
       },
       "completedAt": "2026-10-08T10:05:35.000Z"
+    },
+    {
+      "id": "WI-0012",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": ".github/workflows/release.yml"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Fides.Tests/ReleaseTests.fs"
+        }
+      ],
+      "updatedAt": "2026-10-08T10:14:54.000Z",
+      "telemetryExecutionIds": [
+        "EXE-20261008T100753159Z-f178e0ab"
+      ],
+      "latestCheckpoint": {
+        "id": "df50a047a99eece9651e81b6",
+        "recordedAt": "2026-10-08T10:14:53.000Z",
+        "executionId": "EXE-20261008T100753159Z-f178e0ab",
+        "repository": "fides",
+        "branch": "wi-0012/interim-release",
+        "commit": "97047d19c6d4967a69e38aadb63962725b2890ab",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides.git"
+        },
+        "remoteBranch": "wi-0012/interim-release",
+        "remoteCommit": "97047d19c6d4967a69e38aadb63962725b2890ab",
+        "summary": "Release workflow for 0.1.0: three packages and the Lambda zip as attested GitHub release assets, verified after upload; nuget.org dormant",
+        "nextAction": "Merge, confirm the v0.1.0 release, then WI-0018 registry record",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-10-08T10:14:54.000Z"
     }
   ]
 }

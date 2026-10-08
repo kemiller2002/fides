@@ -6,8 +6,8 @@
   "compatibilityAliases": [],
   "provides": [],
   "distribution": {
-    "mechanism": "nuget",
-    "package": "EchelonFoundry.Fides",
+    "mechanism": "github-release",
+    "package": null,
     "url": null
   },
   "artifacts": [
@@ -15,6 +15,24 @@
       "name": "EchelonFoundry.Fides.{version}.nupkg",
       "purpose": "package",
       "platform": null,
+      "mediaType": "application/zip"
+    },
+    {
+      "name": "EchelonFoundry.Fides.Client.{version}.nupkg",
+      "purpose": "package",
+      "platform": null,
+      "mediaType": "application/zip"
+    },
+    {
+      "name": "EchelonFoundry.Fides.Hosting.{version}.nupkg",
+      "purpose": "package",
+      "platform": null,
+      "mediaType": "application/zip"
+    },
+    {
+      "name": "fides-exchange-linux-arm64.zip",
+      "purpose": "application",
+      "platform": "linux-arm64",
       "mediaType": "application/zip"
     },
     {

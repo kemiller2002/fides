@@ -2,7 +2,7 @@
 id: FIDES-HOSTING-AWS
 title: Deploying the Fides exchange to AWS
 status: accepted
-version: 1.0.0
+version: 1.1.0
 created: 2026-10-08
 updated: 2026-10-08
 owners:
@@ -25,6 +25,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Operator deployment requirements for the AWS adapter (WI-0008, DF-FIDES-2026-0005)"
+    EXE-20261008T100753159Z-f178e0ab:
+      operations: [modified]
+      at: 2026-10-08T10:13:34.526Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Released assets: download, verify and install (WI-0012)"
 ---
 
 # Deploying the Fides exchange to AWS
@@ -135,6 +145,18 @@ environment:
 | `LogRetentionDays` | `30` (default) | no |
 
 ## Build and deploy (for the operator; not run here)
+
+Each Fides release carries the function package as
+`fides-exchange-linux-arm64.zip`, with a Sigstore build-provenance
+attestation. Prefer it to a local build:
+
+```bash
+gh release download "v$VERSION" --repo kemiller2002/fides --pattern 'fides-exchange-linux-arm64.zip' --pattern checksums.txt
+sha256sum -c --ignore-missing checksums.txt
+gh attestation verify fides-exchange-linux-arm64.zip --repo kemiller2002/fides
+```
+
+Or build it from source:
 
 ```bash
 # Package the function: a self-contained linux-arm64 executable named bootstrap.
