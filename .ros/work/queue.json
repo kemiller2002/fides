@@ -1,6 +1,31 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "fides",
-  "nextSeq": 1,
-  "items": []
+  "nextSeq": 2,
+  "items": [
+    {
+      "id": "WI-0001",
+      "title": "Complete Fides's Conditor setup: echelon-current 1.3.0 (Ordo 1.5.0) through conditor upgrade --current, plus the fsharp-nuget-library scaffold (buildable project, foundations, build-and-test, release workflow); supersedes fides#2",
+      "description": "Fides was adopted by Conditor (praxis, ordo, percepta, dokimos, visual-engineering, communication-engineering, tutela) but had no .NET project, so the Dokimos check failed on main and on fides#2. Move the Registry authority to echelon-current 1.3.0 (linux-x64, sha256 f917318c...) with conditor upgrade --current (Ordo 1.4.2 -> 1.5.0), then add the fsharp-nuget-library scaffold (EchelonFoundry.Fides, the future WASM client package): a buildable solution for Dokimos, .echelon/foundations.json with Ordo 1.5.0, echelon-foundations.yml, build-and-test.yml, and the nuget-library release workflow.",
+      "tags": [
+        "conditor",
+        "setup"
+      ],
+      "priority": "high",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-10-08T08:21:43.000Z",
+      "updatedAt": "2026-10-08T08:21:44.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    }
+  ]
 }

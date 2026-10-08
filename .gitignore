@@ -39,3 +39,11 @@ logs/*
 # Refresh it with: npx @echelon-foundry/visual-engineering upgrade
 !.visual-engineering/
 # END echelon:visual-engineering
+
+# conditor:build-outputs:start
+# .NET build and pack outputs (Conditor fsharp-nuget-library scaffold)
+bin/
+obj/
+dist/
+*.nupkg
+# conditor:build-outputs:end

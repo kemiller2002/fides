@@ -4,17 +4,51 @@
   "registryAuthority": {
     "kind": "resolved-release-set",
     "path": ".conditor/authority/resolved-release-set.json",
-    "sha256": "cd8d8d0482c5c4750f4bb31d28bc79e9597d3be4f6264955691e3aebd86cb6d2"
+    "sha256": "f917318c6113caad2290b855e9b93a72077fd8183c90debd20fb7d7549100d48"
   },
   "components": [
-    {"id": "praxis", "version": "3.7.2", "required": true},
-    {"id": "ordo", "version": "1.4.2", "required": true},
-    {"id": "percepta", "version": "0.1.0", "required": true},
-    {"id": "dokimos", "version": "0.2.0", "required": true},
-    {"id": "visual-engineering", "version": "1.0.1", "required": true},
-    {"id": "communication-engineering", "version": "1.0.0", "required": true},
-    {"id": "tutela", "version": "0.1.0", "required": true}
+    {
+      "id": "praxis",
+      "version": "3.7.2",
+      "required": true
+    },
+    {
+      "id": "ordo",
+      "version": "1.5.0",
+      "required": true
+    },
+    {
+      "id": "percepta",
+      "version": "0.1.0",
+      "required": true
+    },
+    {
+      "id": "dokimos",
+      "version": "0.2.0",
+      "required": true
+    },
+    {
+      "id": "visual-engineering",
+      "version": "1.0.1",
+      "required": true
+    },
+    {
+      "id": "communication-engineering",
+      "version": "1.0.0",
+      "required": true
+    },
+    {
+      "id": "tutela",
+      "version": "0.1.0",
+      "required": true
+    }
   ],
   "requirements": [],
-  "execution": {"enabled": false}
+  "execution": {
+    "enabled": false
+  },
+  "scaffold": {
+    "kind": "fsharp-nuget-library",
+    "name": "Fides"
+  }
 }

@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-10-07T01:09:47.536Z",
+  "updatedAt": "2026-10-08T08:21:44.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -20,6 +20,17 @@
       ],
       "updatedAt": "2026-10-07T01:09:47.536Z",
       "completedAt": "2026-10-07T01:09:47.536Z"
+    },
+    {
+      "id": "WI-0001",
+      "type": "task",
+      "state": "active",
+      "semanticState": "active",
+      "evidence": [],
+      "updatedAt": "2026-10-08T08:21:44.000Z",
+      "telemetryExecutionIds": [
+        "EXE-20261008T082144616Z-228d727d"
+      ]
     }
   ]
 }

@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Fides/Fides.fsproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Fides.Tests/Fides.Tests.fsproj" />
+  </Folder>
+</Solution>
