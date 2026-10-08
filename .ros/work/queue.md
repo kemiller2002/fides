@@ -12,7 +12,7 @@
 | WI-0007 | Fides slice 5: pure F# code-for-token exchange core - authorization code with PKCE, single-use state, replay refusal (FID-EXC-001..005) | complete | fides, slice:5, minimal, exchange, pure-core | high |
 | WI-0008 | Fides slice 6: AWS hosting adapter - Lambda behind API Gateway, client secret from Secrets Manager/SSM, infrastructure as code per environment (FID-HOST-001..003, FID-HOST-005) | complete | fides, slice:6, minimal, hosting, aws | high |
 | WI-0009 | Fides slice 7: WASM client library and Arca token provider - sign-in, callback, session states, retention modes (FID-CLI-001..004) | complete | fides, slice:7, minimal, client, wasm | high |
-| WI-0010 | Fides: shared hosting-adapter conformance suite (FID-TEST-002, FID-HOST-004) | ready | fides, conformance, hosting | medium |
+| WI-0010 | Fides: shared hosting-adapter conformance suite (FID-TEST-002, FID-HOST-004) | complete | fides, conformance, hosting | medium |
 | WI-0011 | (Deferred) Fides Azure hosting adapter - Azure Functions plus Key Vault (FID-HOST-004) | captured | fides, deferred, hosting, azure | low |
 | WI-0012 | Fides: release workflow and echelon-registry entry for the client package and exchange artifact | captured | fides, release, registry | medium |
 | WI-0013 | Make the Dokimos quality check pass: regenerate the test project as a dotnet test (xUnit) project so the gate gets TRX test evidence | complete | dokimos, ci | high |
