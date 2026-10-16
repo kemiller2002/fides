@@ -7,6 +7,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>EchelonFoundry.Fides.Client</PackageId>
+    <PackageLicenseExpression>PolyForm-Noncommercial-1.0.0</PackageLicenseExpression>
     <AssemblyName>Fides.Client</AssemblyName>
     <RootNamespace>Fides.Client</RootNamespace>
     <Description>Fides (Echelon Foundry): the single sign-on client for F# WebAssembly applications. Sign-in with PKCE and single-use state, typed session states, retention modes, and a token provider matching Arca's token-provider port.</Description>

@@ -49,3 +49,9 @@ dotnet test Fides.slnx -c Release
 errors include repair instructions; use `./praxis validate --json` for
 machine-readable output. Complete work with explicit evidence paths as
 described in `docs/work-protocol.md`.
+
+## License
+
+Source available under PolyForm Noncommercial 1.0.0 for permitted noncommercial uses. Commercial use requires a separate license from Echelon Foundry. Previously distributed versions remain subject to the licenses under which they were released.
+
+Commercial licensing information is forthcoming.

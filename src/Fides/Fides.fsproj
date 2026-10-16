@@ -2,6 +2,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>EchelonFoundry.Fides</PackageId>
+    <PackageLicenseExpression>PolyForm-Noncommercial-1.0.0</PackageLicenseExpression>
     <AssemblyName>Fides</AssemblyName>
     <RootNamespace>Fides</RootNamespace>
     <Description>Fides (Echelon Foundry): the pure core of the Echelon single sign-on boundary. Provider model, GitHub App provider and the code-for-token exchange; every effect is explicit data.</Description>

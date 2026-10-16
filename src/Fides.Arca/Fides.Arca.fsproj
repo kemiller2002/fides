@@ -7,6 +7,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>EchelonFoundry.Fides.Arca</PackageId>
+    <PackageLicenseExpression>PolyForm-Noncommercial-1.0.0</PackageLicenseExpression>
     <AssemblyName>Fides.Arca</AssemblyName>
     <RootNamespace>Fides.Arca</RootNamespace>
     <Description>Fides (Echelon Foundry): hands Arca a token provider backed by the Fides client, and tells Fides when Arca's provider rejects the token.</Description>

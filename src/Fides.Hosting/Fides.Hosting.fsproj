@@ -2,6 +2,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>EchelonFoundry.Fides.Hosting</PackageId>
+    <PackageLicenseExpression>PolyForm-Noncommercial-1.0.0</PackageLicenseExpression>
     <AssemblyName>Fides.Hosting</AssemblyName>
     <RootNamespace>Fides.Hosting</RootNamespace>
     <Description>Fides (Echelon Foundry): the cloud-neutral hosting runtime for the Fides exchange. Runs the pure core's effects with HttpClient, a secret-store port and the clock. Every cloud adapter builds on it.</Description>
