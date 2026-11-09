@@ -17,9 +17,9 @@ table is a navigation view, not a replacement for those records.
 | 2026-10-08 | GitHub proves account control, the App authorization, token reach and identity; Fides owns client registration, redirect policy, state and PKCE, session states, revocation propagation and secret custody. | accepted | DF-FIDES-2026-0007 |
 | 2026-10-08 | The client mirrors Arca 0.1.0's token-provider port in its own types; a packaged bridge waits for Conditor to install Arca's release assets. | accepted | DF-FIDES-2026-0008 |
 | 2026-10-08 | Unexpected failures at the exchange host are classified through Aegis 1.0.0 with stable FIDES.* codes; exception messages never reach a sink; the client is not bound to Aegis yet. | accepted | DF-FIDES-2026-0009 |
-| 2026-11-09 | Fides stays authentication-only; the enforcement point owns authorization; no central authorization service. | proposed (review) | DF-FIDES-2026-0010 |
-| 2026-11-09 | Organization membership is not held by Fides; tenants map to GitHub App installations and Arca repositories. | proposed (review) | DF-FIDES-2026-0011 |
-| 2026-11-09 | Keep the stateless exchange; its replay and revocation limits and the conditions for superseding DF-FIDES-2026-0004 are stated. | proposed (review) | DF-FIDES-2026-0012 |
-| 2026-11-09 | With browser-held user tokens, GitHub repository permission is the only enforced data boundary; one GitHub App per isolation domain. | proposed (review) | DF-FIDES-2026-0013 |
-| 2026-11-09 | Non-human identities use installation tokens minted in their own runtime. | proposed (review) | DF-FIDES-2026-0014 |
-| 2026-11-09 | Restrict persistent refresh-token retention; design a sealed HttpOnly refresh cookie; require a strict CSP. | proposed (review) | DF-FIDES-2026-0015 |
+| 2026-11-09 | Fides stays authentication-only; the enforcement point owns authorization; no central authorization service. | accepted | DF-FIDES-2026-0010 |
+| 2026-11-09 | Organization membership is not held by Fides; tenants map to GitHub App installations and Arca repositories. | accepted | DF-FIDES-2026-0011 |
+| 2026-11-09 | Keep the stateless exchange; its replay and revocation limits and the conditions for superseding DF-FIDES-2026-0004 are stated. | accepted | DF-FIDES-2026-0012 |
+| 2026-11-09 | With browser-held user tokens, GitHub repository permission is the only enforced data boundary; one GitHub App per isolation domain. | accepted | DF-FIDES-2026-0013 |
+| 2026-11-09 | Non-human identities use installation tokens minted in their own runtime. | accepted | DF-FIDES-2026-0014 |
+| 2026-11-09 | Restrict persistent refresh-token retention; design a sealed HttpOnly refresh cookie; require a strict CSP. | accepted | DF-FIDES-2026-0015 |

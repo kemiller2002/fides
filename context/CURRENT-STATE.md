@@ -61,13 +61,14 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
 
 - Requirements baseline 0.3.0 (WI-0022, 2026-11-09): 130 requirements with
   acceptance criteria, positive and negative tests and verification levels;
-  44 verified, 16 implemented but unverified, 33 missing, 32 blocked,
-  5 deferred. `RequirementsCatalogueTests` enforces the record structure,
+  44 verified, 16 implemented but unverified, 51 missing, 12 blocked,
+  7 deferred (after the owner accepted DF-FIDES-2026-0010..0015 on
+  2026-11-09, WI-0023). `RequirementsCatalogueTests` enforces the record structure,
   status honesty (no live property claimed from simulation) and the
   generated traceability matrix. Eight violations of the new requirements
   were found in the current code (READINESS-AND-GAP-REPORT.md section 3),
-  and six decisions await the owner (DF-FIDES-2026-0010..0015, status
-  `review`).
+  and the owner accepted the six decisions it proposed
+  (DF-FIDES-2026-0010..0015) on 2026-11-09.
 - Pins are stale against echelon-current 1.37.2 (Praxis 3.25.0, Ordo
   1.20.0, Dokimos 0.11.1, Arca 0.7.0); Fides still pins Praxis 3.7.2,
   Dokimos 0.2.0 and Arca 0.1.0 (WI-0034).
@@ -84,8 +85,7 @@ adapter (WI-0011).
 
 ## Largest decision-relevant unknown
 
-The owner's answers to DF-FIDES-2026-0010..0015 (authorization ownership,
-tenancy, token retention), and a test GitHub App: without one, no property
+A test GitHub App: without one, no property
 of real GitHub can be verified (FID-TEST-010..013). The operator's AWS
 account, region and domain still block deployment.
 

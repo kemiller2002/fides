@@ -23,6 +23,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Fides requirements expansion and security architecture review (WI-0022)"
+    EXE-20261109T154841724Z-a435eb94:
+      operations: [modified]
+      at: 2026-11-09T15:50:41.713Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
 ---
 
 # Fides requirement traceability matrix
@@ -59,15 +69,15 @@ satisfied by the GitHub simulator.
 | Client library | 4 | 0 | 0 | 0 | 0 | 4 |
 | Verification obligations | 5 | 1 | 2 | 6 | 0 | 14 |
 | A. Identity and authentication | 3 | 2 | 3 | 0 | 2 | 10 |
-| A. Sessions | 1 | 2 | 4 | 3 | 0 | 10 |
-| A. Non-human identities | 0 | 0 | 0 | 4 | 0 | 4 |
-| B. Authorization | 0 | 2 | 3 | 6 | 0 | 11 |
-| C. Data-layer security | 1 | 2 | 2 | 2 | 1 | 8 |
-| D. Multi-organization | 0 | 0 | 0 | 6 | 1 | 7 |
+| A. Sessions | 1 | 2 | 6 | 1 | 0 | 10 |
+| A. Non-human identities | 0 | 0 | 4 | 0 | 0 | 4 |
+| B. Authorization | 0 | 2 | 9 | 0 | 0 | 11 |
+| C. Data-layer security | 1 | 2 | 4 | 0 | 1 | 8 |
+| D. Multi-organization | 0 | 0 | 4 | 0 | 3 | 7 |
 | E. Application integration and UX | 0 | 1 | 12 | 1 | 1 | 15 |
 | F. Operational security | 3 | 3 | 6 | 2 | 0 | 14 |
 | G. Reliability and performance | 4 | 3 | 1 | 2 | 0 | 10 |
-| **Total** | 44 | 16 | 33 | 32 | 5 | 130 |
+| **Total** | 44 | 16 | 51 | 12 | 7 | 130 |
 
 ## Summary by family and priority
 
@@ -175,39 +185,39 @@ satisfied by the GitHub simulator.
 | FID-SES-005 | P0 | Fides.Client | missing | added | none | none | unit, simulated-provider |
 | FID-SES-006 | P0 | Fides.Client | implemented-unverified | added | src/Fides.Client/FidesClient.fs; tests/Fides.Tests/ClientTests.fs | unit | unit, live-provider |
 | FID-SES-007 | P1 | Fides.Client | implemented-verified | added | src/Fides.Client/FidesClient.fs; tests/Fides.Tests/ClientTests.fs | unit | unit |
-| FID-SES-008 | P0 | Owner decision | blocked | added | none | none | unit, browser-wasm |
+| FID-SES-008 | P0 | Fides.Client | missing | added | none | none | unit, browser-wasm |
 | FID-SES-009 | P1 | Fides.Client | implemented-unverified | added | src/Fides.Client/FidesClient.fs (restore) | none | unit |
-| FID-SES-010 | P2 | Fides.Core | blocked | added | none | none | simulated-provider, live-provider |
-| FID-SVC-001 | P1 | Owner decision | blocked | added | none | none | unit |
-| FID-SVC-002 | P1 | Owner decision | blocked | added | none | none | unit, live-provider |
-| FID-SVC-003 | P1 | Owner decision | blocked | added | none | none | unit |
-| FID-SVC-004 | P2 | Owner decision | blocked | added | none | none | unit |
+| FID-SES-010 | P2 | Fides.Core | missing | added | none | none | simulated-provider, live-provider |
+| FID-SVC-001 | P1 | Fides.Core | missing | added | none | none | unit |
+| FID-SVC-002 | P1 | Fides.Core | missing | added | none | none | unit, live-provider |
+| FID-SVC-003 | P1 | Fides.Core | missing | added | none | none | unit |
+| FID-SVC-004 | P2 | Fides.Core | missing | added | none | none | unit |
 | FID-AUZ-001 | P0 | Fides.Governance | implemented-unverified | added | docs/architecture/AUTHORIZATION-OWNERSHIP.md | document | document, unit |
 | FID-AUZ-002 | P0 | Application | missing | added | none | none | simulated-provider, live-provider |
-| FID-AUZ-003 | P0 | Owner decision | blocked | added | none | none | unit |
-| FID-AUZ-004 | P0 | Owner decision | blocked | added | none | none | live-provider |
-| FID-AUZ-005 | P1 | Application | blocked | added | none | none | unit |
-| FID-AUZ-006 | P1 | Owner decision | blocked | added | none | none | live-provider |
-| FID-AUZ-007 | P0 | Owner decision | blocked | added | none | none | unit, live-provider |
+| FID-AUZ-003 | P0 | Application | missing | added | none | none | unit |
+| FID-AUZ-004 | P0 | Application | missing | added | none | none | live-provider |
+| FID-AUZ-005 | P1 | Application | missing | added | none | none | unit |
+| FID-AUZ-006 | P1 | Application | missing | added | none | none | live-provider |
+| FID-AUZ-007 | P0 | Application | missing | added | none | none | unit, live-provider |
 | FID-AUZ-008 | P1 | Fides.Core | missing | added | none | none | unit, simulated-provider |
 | FID-AUZ-009 | P0 | Fides.Core | missing | added | none | none | unit, simulated-provider, live-provider |
 | FID-AUZ-010 | P1 | Operator | implemented-unverified | added | docs/hosting/AWS.md | document | unit, live-provider |
-| FID-AUZ-011 | P1 | Owner decision | blocked | added | none | none | live-provider |
+| FID-AUZ-011 | P1 | Application | missing | added | none | none | live-provider |
 | FID-DATA-001 | P0 | Fides.Arca | implemented-verified | added | src/Fides.Arca/TokenBridge.fs; tests/Fides.Tests/ArcaBridgeTests.fs | unit | unit |
 | FID-DATA-002 | P0 | Arca | implemented-unverified | added | docs/architecture/SECURITY-ARCHITECTURE.md | document | document, live-provider |
-| FID-DATA-003 | P0 | Owner decision | blocked | added | none | none | unit, simulated-provider |
-| FID-DATA-004 | P0 | Arca | blocked | added | none | none | live-provider |
+| FID-DATA-003 | P0 | Application | missing | added | none | none | unit, simulated-provider |
+| FID-DATA-004 | P0 | Arca | missing | added | none | none | live-provider |
 | FID-DATA-005 | P2 | Strata | deferred | added | none | none | integration |
 | FID-DATA-006 | P0 | Fides.Core | missing | added | none | none | unit, simulated-provider |
 | FID-DATA-007 | P2 | Arca | missing | added | none | none | unit |
 | FID-DATA-008 | P0 | Fides.Core | implemented-unverified | added | src/Fides/Exchange.fs; src/Fides/GitHub.fs (repositoryAccessRequest) | none | unit |
-| FID-ORG-001 | P1 | Owner decision | blocked | added | none | none | unit |
-| FID-ORG-002 | P1 | Owner decision | blocked | added | none | none | unit |
-| FID-ORG-003 | P1 | Application | blocked | added | none | none | unit, browser-wasm |
-| FID-ORG-004 | P2 | Owner decision | blocked | added | none | none | unit, live-provider |
-| FID-ORG-005 | P3 | Owner decision | deferred | added | none | none | unit |
-| FID-ORG-006 | P2 | Owner decision | blocked | added | none | none | unit, live-provider |
-| FID-ORG-007 | P0 | Owner decision | blocked | added | none | none | unit, simulated-provider |
+| FID-ORG-001 | P1 | Application | missing | added | none | none | unit |
+| FID-ORG-002 | P1 | Application | missing | added | none | none | unit |
+| FID-ORG-003 | P1 | Application | missing | added | none | none | unit, browser-wasm |
+| FID-ORG-004 | P2 | Application | deferred | added | none | none | unit, live-provider |
+| FID-ORG-005 | P3 | Application | deferred | added | none | none | unit |
+| FID-ORG-006 | P2 | Application | deferred | added | none | none | unit, live-provider |
+| FID-ORG-007 | P0 | Application | missing | added | none | none | unit, simulated-provider |
 | FID-UX-001 | P1 | Fides.Client | implemented-unverified | added | src/Fides.Client/FidesClient.fs (ClientPorts); scripts/verify-wasm.sh | browser-wasm | unit, browser-wasm |
 | FID-UX-002 | P1 | Fides.Client | missing | added | none | none | browser-wasm |
 | FID-UX-003 | P1 | Fides.UI | missing | added | none | none | browser-wasm |

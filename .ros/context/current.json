@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-11-09T14:45:25.000Z",
+  "updatedAt": "2026-11-09T15:51:17.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -804,6 +804,47 @@
         }
       },
       "completedAt": "2026-11-09T14:45:25.000Z"
+    },
+    {
+      "id": "WI-0023",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "research/decisions/DF-FIDES-2026-0010--authorization-ownership.md"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Fides.Tests/RequirementsCatalogueTests.fs"
+        }
+      ],
+      "updatedAt": "2026-11-09T15:51:17.000Z",
+      "telemetryExecutionIds": [
+        "EXE-20261109T154841724Z-a435eb94"
+      ],
+      "latestCheckpoint": {
+        "id": "3d45e12aafe70bdeaf4895bc",
+        "recordedAt": "2026-11-09T15:51:15.000Z",
+        "executionId": "EXE-20261109T154841724Z-a435eb94",
+        "repository": "fides",
+        "branch": "claude/fides-requirements-security-38f9h5",
+        "commit": "bd570d3a3d8dcdb72228065ca7fd58a76157ce73",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides"
+        },
+        "remoteBranch": "claude/fides-requirements-security-38f9h5",
+        "remoteCommit": "bd570d3a3d8dcdb72228065ca7fd58a76157ce73",
+        "summary": "Owner accepted DF-FIDES-2026-0010..0015; records accepted, requirements unblocked, follow-up WI-0036..0040 captured",
+        "nextAction": "WI-0024, WI-0025, WI-0040",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-09T15:51:17.000Z"
     }
   ]
 }

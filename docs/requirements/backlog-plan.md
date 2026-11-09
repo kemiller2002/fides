@@ -25,7 +25,7 @@ client contract is corrected. Nothing below has started.
 
 | Order | Work item | Scope | Requirements | Depends on | Kind |
 |---:|---|---|---|---|---|
-| 1 | WI-0023 | Owner decisions DF-FIDES-2026-0010..0015 | FID-AUZ-003..007, FID-AUZ-011, FID-ORG-*, FID-SVC-*, FID-SES-008, FID-SES-010, FID-DATA-003..004, FID-REL-001..002, FID-UX-011 | — | owner, blocking |
+| 1 | WI-0023 (**complete 2026-11-09**: all six accepted) | Owner decisions DF-FIDES-2026-0010..0015 | FID-AUZ-003..007, FID-AUZ-011, FID-ORG-*, FID-SVC-*, FID-SES-008, FID-SES-010, FID-DATA-003..004, FID-REL-001..002, FID-UX-011 | — | owner, blocking |
 | 2 | WI-0024 | Client correctness: one clock for expiry, 401 → refresh before revoked, outage keeps state, boundary and restore tests | FID-REL-006..007, FID-REL-010, FID-SES-005, FID-SES-009, FID-IDN-004, FID-IDN-009 | — | P0 defect |
 | 3 | WI-0025 | Application-bound exchange: client per application, bound refresh and revoke, user-token-only checks, required-repository re-check | FID-DATA-006, FID-AUZ-009, FID-DATA-008, FID-AUZ-008 | WI-0023 (DF-0013) for the App-per-domain policy; the code can start | P0 defect, versioned protocol change |
 | 4 | WI-0026 | Live-provider contract suite; then sign-out grant fix | FID-TEST-010..013, FID-SES-004, FID-SES-006 | Operator registers a test GitHub App | blocked-external |
@@ -43,3 +43,18 @@ client contract is corrected. Nothing below has started.
 The queue (`.ros/work/queue.json`) is authoritative; this table is a
 snapshot. `RequirementsCatalogueTests` fails if any requirement that is
 not verified stops being named by an open work item.
+
+### Follow-up from the accepted decisions (WI-0023, 2026-11-09)
+
+| Work item | Scope | Requirements | Kind |
+|---|---|---|---|
+| WI-0040 | Token retention: risk statement and no persistence by default now; sealed HttpOnly refresh cookie design for the next protocol version | FID-SES-008 | P0, high |
+| WI-0036 | Applications adopt the default-deny decision vocabulary, classify permissions, store roles in administrators-only repositories, prevent self-elevation, bound revocation | FID-AUZ-003..007, FID-AUZ-011 | P0/P1, high |
+| WI-0037 | Tenant model: organization key, derived membership, switching, trusted tenant context, repository set per tenant | FID-ORG-001..003, FID-ORG-007, FID-DATA-003..004 | P0/P1 |
+| WI-0039 | Service identity contract | FID-SVC-001..004 | P1 |
+| WI-0038 | (Deferred) organization administration, delegation, invitations | FID-ORG-004..006 | deferred |
+
+Still waiting on the owner: the latency and availability targets
+(FID-REL-001..002, WI-0033). Still waiting on the operator: a test GitHub
+App (WI-0026) and a test AWS environment (FID-OPS-013).
+

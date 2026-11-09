@@ -1,8 +1,8 @@
 ---
 id: DF-FIDES-2026-0015
 title: Memory-only stays the default; persistent retention of the refresh token is restricted pending a sealed-cookie design; applications must ship a strict CSP
-status: review
-version: 0.1.0
+status: accepted
+version: 1.0.0
 created: 2026-11-09
 updated: 2026-11-09
 owners:
@@ -27,12 +27,22 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Fides requirements expansion and security architecture review (WI-0022)"
+    EXE-20261109T154841724Z-a435eb94:
+      operations: [modified]
+      at: 2026-11-09T15:50:40.846Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
 ---
 
 # DF-FIDES-2026-0015 — Browser token retention
 
 - **Date:** 2026-11-09
-- **Status:** proposed (`review`); **needs owner approval**. Does not change
+- **Status:** accepted (owner decision of 2026-11-09, recommendation adopted). Does not change
   the released 0.2.0 API.
 - **Answers:** WI-0022 phase 3 question 6. Requirements: FID-CLI-002,
   FID-SES-008, FID-UX-014.

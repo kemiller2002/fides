@@ -1,8 +1,8 @@
 ---
 id: DF-FIDES-2026-0014
 title: Non-human identities use GitHub App installation tokens minted in their own runtime, never a person's token and never the browser-facing exchange
-status: review
-version: 0.1.0
+status: accepted
+version: 1.0.0
 created: 2026-11-09
 updated: 2026-11-09
 owners:
@@ -27,12 +27,22 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Fides requirements expansion and security architecture review (WI-0022)"
+    EXE-20261109T154841724Z-a435eb94:
+      operations: [modified]
+      at: 2026-11-09T15:50:40.460Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
 ---
 
 # DF-FIDES-2026-0014 — Service identities
 
 - **Date:** 2026-11-09
-- **Status:** proposed (`review`); **needs owner approval**.
+- **Status:** accepted (owner decision of 2026-11-09, recommendation adopted).
 - **Answers:** WI-0022 phase 3 question 5. Requirements: FID-SVC-001..004.
 
 ## Context

@@ -24,13 +24,23 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Fides requirements expansion and security architecture review (WI-0022)"
+    EXE-20261109T154841724Z-a435eb94:
+      operations: [modified]
+      at: 2026-11-09T15:50:43.398Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
 ---
 
 # Authorization ownership proposal
 
-**Proposal for owner approval** (DF-FIDES-2026-0010, status `review`).
-No authorization service or policy engine is implemented or planned by
-this proposal.
+**Accepted by the owner on 2026-11-09** (DF-FIDES-2026-0010). No
+authorization service or policy engine is implemented or planned under
+this decision.
 
 ## 1. The rule
 
