@@ -415,5 +415,266 @@
     "title": "Unexpected failures at the exchange host are classified through Aegis 1.0.0; exception messages never reach a sink; the client is not bound to Aegis yet",
     "updated": "2026-10-08",
     "version": "1.0.0"
+  },
+  {
+    "created": "2026-11-09",
+    "id": "DF-FIDES-2026-0010",
+    "owners": [
+      "fides"
+    ],
+    "path": "research/decisions/DF-FIDES-2026-0010--authorization-ownership.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261109T142541284Z-a3f0d18d": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-09T14:44:46.981Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "Fides requirements expansion and security architecture review (WI-0022)"
+        }
+      }
+    },
+    "related_documents": [
+      "docs/requirements/FIDES-REQUIREMENTS.md",
+      "docs/architecture/SECURITY-ARCHITECTURE.md",
+      "docs/security/THREAT-MODEL.md"
+    ],
+    "review_cycle": "on-trigger",
+    "status": "review",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "authorization",
+      "security",
+      "architecture"
+    ],
+    "title": "Fides stays authentication-only; authorization is owned by the enforcement point; no central authorization service",
+    "updated": "2026-11-09",
+    "version": "0.1.0"
+  },
+  {
+    "created": "2026-11-09",
+    "id": "DF-FIDES-2026-0011",
+    "owners": [
+      "fides"
+    ],
+    "path": "research/decisions/DF-FIDES-2026-0011--organization-membership-ownership.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261109T142541284Z-a3f0d18d": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-09T14:44:47.416Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "Fides requirements expansion and security architecture review (WI-0022)"
+        }
+      }
+    },
+    "related_documents": [
+      "docs/requirements/FIDES-REQUIREMENTS.md",
+      "docs/architecture/SECURITY-ARCHITECTURE.md",
+      "docs/security/THREAT-MODEL.md"
+    ],
+    "review_cycle": "on-trigger",
+    "status": "review",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "organizations",
+      "tenancy",
+      "architecture"
+    ],
+    "title": "Organization membership is not held by Fides; tenants map to GitHub App installations and Arca repositories",
+    "updated": "2026-11-09",
+    "version": "0.1.0"
+  },
+  {
+    "created": "2026-11-09",
+    "id": "DF-FIDES-2026-0012",
+    "owners": [
+      "fides"
+    ],
+    "path": "research/decisions/DF-FIDES-2026-0012--stateless-exchange-replay-and-revocation-limits.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261109T142541284Z-a3f0d18d": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-09T14:44:47.788Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "Fides requirements expansion and security architecture review (WI-0022)"
+        }
+      }
+    },
+    "related_documents": [
+      "docs/requirements/FIDES-REQUIREMENTS.md",
+      "docs/architecture/SECURITY-ARCHITECTURE.md",
+      "docs/security/THREAT-MODEL.md"
+    ],
+    "review_cycle": "on-trigger",
+    "status": "review",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "stateless",
+      "replay",
+      "revocation",
+      "security"
+    ],
+    "title": "The stateless exchange is kept; its replay and revocation limits are stated, with the conditions that would supersede DF-FIDES-2026-0004",
+    "updated": "2026-11-09",
+    "version": "0.1.0"
+  },
+  {
+    "created": "2026-11-09",
+    "id": "DF-FIDES-2026-0013",
+    "owners": [
+      "fides"
+    ],
+    "path": "research/decisions/DF-FIDES-2026-0013--github-backed-storage-permission-and-tenancy.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261109T142541284Z-a3f0d18d": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-09T14:44:48.204Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "Fides requirements expansion and security architecture review (WI-0022)"
+        }
+      }
+    },
+    "related_documents": [
+      "docs/requirements/FIDES-REQUIREMENTS.md",
+      "docs/architecture/SECURITY-ARCHITECTURE.md",
+      "docs/security/THREAT-MODEL.md"
+    ],
+    "review_cycle": "on-trigger",
+    "status": "review",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "github",
+      "tenancy",
+      "permissions",
+      "security"
+    ],
+    "title": "With browser-held user tokens, GitHub repository permission is the only enforced data boundary; one GitHub App per data-isolation domain",
+    "updated": "2026-11-09",
+    "version": "0.1.0"
+  },
+  {
+    "created": "2026-11-09",
+    "id": "DF-FIDES-2026-0014",
+    "owners": [
+      "fides"
+    ],
+    "path": "research/decisions/DF-FIDES-2026-0014--service-identities.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261109T142541284Z-a3f0d18d": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-09T14:44:48.659Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "Fides requirements expansion and security architecture review (WI-0022)"
+        }
+      }
+    },
+    "related_documents": [
+      "docs/requirements/FIDES-REQUIREMENTS.md",
+      "docs/architecture/SECURITY-ARCHITECTURE.md",
+      "docs/security/THREAT-MODEL.md"
+    ],
+    "review_cycle": "on-trigger",
+    "status": "review",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "service-identity",
+      "github",
+      "security"
+    ],
+    "title": "Non-human identities use GitHub App installation tokens minted in their own runtime, never a person's token and never the browser-facing exchange",
+    "updated": "2026-11-09",
+    "version": "0.1.0"
+  },
+  {
+    "created": "2026-11-09",
+    "id": "DF-FIDES-2026-0015",
+    "owners": [
+      "fides"
+    ],
+    "path": "research/decisions/DF-FIDES-2026-0015--browser-token-retention.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261109T142541284Z-a3f0d18d": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-09T14:44:49.039Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "Fides requirements expansion and security architecture review (WI-0022)"
+        }
+      }
+    },
+    "related_documents": [
+      "docs/requirements/FIDES-REQUIREMENTS.md",
+      "docs/architecture/SECURITY-ARCHITECTURE.md",
+      "docs/security/THREAT-MODEL.md"
+    ],
+    "review_cycle": "on-trigger",
+    "status": "review",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "client",
+      "tokens",
+      "browser",
+      "security"
+    ],
+    "title": "Memory-only stays the default; persistent retention of the refresh token is restricted pending a sealed-cookie design; applications must ship a strict CSP",
+    "updated": "2026-11-09",
+    "version": "0.1.0"
   }
 ]

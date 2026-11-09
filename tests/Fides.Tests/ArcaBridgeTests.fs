@@ -16,6 +16,7 @@ open Fides.Tests.FakeBrowser
 [<InlineData("revoked")>]
 [<InlineData("provider_unavailable")>]
 [<Trait("Verifies", "FID-CLI-001")>]
+[<Trait("Verifies", "FID-DATA-001")>]
 let ``every Fides failure is the same Arca failure`` (code: string) =
     let fides, arca =
         match code with
@@ -30,6 +31,7 @@ let ``every Fides failure is the same Arca failure`` (code: string) =
 
 [<Fact>]
 [<Trait("Verifies", "FID-CLI-001")>]
+[<Trait("Verifies", "FID-DATA-001")>]
 let ``Arca sends the Fides token as its bearer credential`` () =
     let provider = TokenBridge.toArca (fun () -> async { return Ok(Secret.create "ghu_bridge_check") })
 

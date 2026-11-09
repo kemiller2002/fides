@@ -59,18 +59,35 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
   binding; it is published, attested and recorded in echelon-registry
   (echelon-current 1.7.0, kemiller2002/echelon-registry#48, WI-0021).
 
+- Requirements baseline 0.3.0 (WI-0022, 2026-11-09): 130 requirements with
+  acceptance criteria, positive and negative tests and verification levels;
+  44 verified, 16 implemented but unverified, 33 missing, 32 blocked,
+  5 deferred. `RequirementsCatalogueTests` enforces the record structure,
+  status honesty (no live property claimed from simulation) and the
+  generated traceability matrix. Eight violations of the new requirements
+  were found in the current code (READINESS-AND-GAP-REPORT.md section 3),
+  and six decisions await the owner (DF-FIDES-2026-0010..0015, status
+  `review`).
+- Pins are stale against echelon-current 1.37.2 (Praxis 3.25.0, Ordo
+  1.20.0, Dokimos 0.11.1, Arca 0.7.0); Fides still pins Praxis 3.7.2,
+  Dokimos 0.2.0 and Arca 0.1.0 (WI-0034).
+
 ## Active work
 
 The minimal slices (WI-0003 to WI-0010) are done, as are the release
 (WI-0012), the registry record (WI-0018), the Aegis binding (WI-0014) and
-the Arca bridge (WI-0016). Open: two Conditor scaffold defects for
-Conditor's owner (WI-0015, WI-0019) and the deferred Azure adapter
-(WI-0011).
+the Arca bridge (WI-0016). WI-0022 established the requirements and
+security baseline and captured the backlog WI-0023..WI-0035
+(`docs/requirements/backlog-plan.md`). Open as well: two Conditor scaffold
+defects for Conditor's owner (WI-0015, WI-0019) and the deferred Azure
+adapter (WI-0011).
 
 ## Largest decision-relevant unknown
 
-The operator's GitHub App registration, AWS account, region and domain.
-None blocks building and testing; all block deployment.
+The owner's answers to DF-FIDES-2026-0010..0015 (authorization ownership,
+tenancy, token retention), and a test GitHub App: without one, no property
+of real GitHub can be verified (FID-TEST-010..013). The operator's AWS
+account, region and domain still block deployment.
 
 ## Baseline
 
