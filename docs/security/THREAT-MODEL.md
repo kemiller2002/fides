@@ -25,6 +25,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Fides requirements expansion and security architecture review (WI-0022)"
+    EXE-20261109T154841724Z-a435eb94:
+      operations: [modified]
+      at: 2026-11-09T15:50:43.907Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
 ---
 
 # Fides threat model
@@ -106,7 +116,7 @@ B1 browser, B2 exchange, B3 provider, B4 data repository, B5 secret store
 | SEC-INV-102 | No token, code, verifier or secret appears in a log, error body, Aegis event, URL after the callback, or cross-tab message | Fides.Core, Fides.Hosting, Fides.Client | Leak scans in exchange, adapter and client tests |
 | SEC-INV-103 | The exchange returns a whole token response or a typed refusal, never a partial session | Fides.Core | ExchangeAcceptanceTests |
 | SEC-INV-104 | Every protected operation is decided by the component that holds the enforcement point, and fails closed (deny) when the decision cannot be made | Application, Arca, GitHub (proposed, FID-AUZ-001..003) | None yet |
-| SEC-INV-105 | Tenant identity comes from a trusted context, never from a request parameter (proposed, FID-DATA-003) | Not yet assigned to a component | None yet |
+| SEC-INV-105 | Tenant identity comes from a trusted context, never from a request parameter (DF-FIDES-2026-0011, accepted; FID-DATA-003) | Not yet assigned to a component | None yet |
 | SEC-INV-106 | A requirement is never reported verified at a level it was not tested at | Fides.Governance | RequirementsCatalogueTests |
 
 ## 5. Incident response obligations

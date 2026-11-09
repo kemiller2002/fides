@@ -24,19 +24,31 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Fides requirements expansion and security architecture review (WI-0022)"
+    EXE-20261109T154841724Z-a435eb94:
+      operations: [modified]
+      at: 2026-11-09T15:50:42.173Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
 ---
 
 # Organization and tenant isolation
 
 The normative requirements are in the catalogue: FID-ORG-001..007,
 FID-DATA-003..006, FID-AUZ-006..009 and FID-TEST-006..007. This document
-explains the model they assume. **Everything here depends on
-DF-FIDES-2026-0011 and DF-FIDES-2026-0013, which are proposed, not
-accepted**, so every FID-ORG requirement is `blocked`.
+explains the model they assume. The model follows
+DF-FIDES-2026-0011 and DF-FIDES-2026-0013, **accepted by the owner on
+2026-11-09**. Administration and invitations (FID-ORG-004, FID-ORG-006)
+and delegation (FID-ORG-005) are deferred until a consumer needs more than
+one organization.
 
 ## 1. Terms
 
-| Term | Meaning in the proposed model |
+| Term | Meaning in the accepted model |
 |---|---|
 | Identity | A provider account: `github:<numeric id>` (FID-IDN-001, FID-IDN-003) |
 | Organization | A customer of an application, with an immutable id (FID-ORG-001) |
@@ -83,11 +95,11 @@ accepted**, so every FID-ORG requirement is `blocked`.
 | Administrator of A grants in B | unit, live-provider | FID-AUZ-007, FID-ORG-004 |
 | Application A's refresh token refreshed through B's registration | unit, simulated-provider, live-provider | FID-AUZ-009 |
 
-## 5. Open questions for the owner
+## 5. Owner answers (2026-11-09) and remaining questions
 
-1. Is the tenant the GitHub App installation (recommended), the GitHub
-   organization, or an Arca namespace inside shared repositories? The last
-   is not an enforced boundary.
-2. Should each production application get its own GitHub App, or may some
-   applications share an isolation domain?
-3. Which application needs more than one organization first, and when?
+1. The tenant is the GitHub App installation plus its configured Arca
+   repositories (DF-FIDES-2026-0011, accepted).
+2. One GitHub App per data-isolation domain, at least per application in
+   production (DF-FIDES-2026-0013, accepted).
+3. Still open: which application needs more than one organization first,
+   and when. That answer un-defers FID-ORG-004..006.

@@ -1,8 +1,8 @@
 ---
 id: DF-FIDES-2026-0012
 title: The stateless exchange is kept; its replay and revocation limits are stated, with the conditions that would supersede DF-FIDES-2026-0004
-status: review
-version: 0.1.0
+status: accepted
+version: 1.0.0
 created: 2026-11-09
 updated: 2026-11-09
 owners:
@@ -27,12 +27,22 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Fides requirements expansion and security architecture review (WI-0022)"
+    EXE-20261109T154841724Z-a435eb94:
+      operations: [modified]
+      at: 2026-11-09T15:50:39.670Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
 ---
 
 # DF-FIDES-2026-0012 — What a stateless exchange can and cannot guarantee
 
 - **Date:** 2026-11-09
-- **Status:** proposed (`review`); **needs owner approval**. Preserves
+- **Status:** accepted (owner decision of 2026-11-09, recommendation adopted). Preserves
   DF-FIDES-2026-0004 (accepted).
 - **Answers:** WI-0022 phase 3 question 3. Requirements: FID-SES-004,
   FID-SES-006, FID-SES-010, FID-TEST-010..013.

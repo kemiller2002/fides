@@ -37,9 +37,9 @@ work, record `./praxis work checkpoint --id ID --occurred-at NOW --summary ...
 
 ## Next action
 
-Read `docs/requirements/READINESS-AND-GAP-REPORT.md`. Ask the owner to
-decide DF-FIDES-2026-0010..0015 (WI-0023), and meanwhile take WI-0024
-(client correctness) and WI-0025 (application-bound exchange) in the
-order of `docs/requirements/backlog-plan.md`. Do not mark a requirement
+Read `docs/requirements/READINESS-AND-GAP-REPORT.md`. The owner accepted
+DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023). Take WI-0024 (client
+correctness), WI-0025 (application-bound exchange) and WI-0040 (token
+retention) next, in the order of `docs/requirements/backlog-plan.md`. Do not mark a requirement
 verified without a `Verifies` test at every required level;
 `RequirementsCatalogueTests` will refuse it.

@@ -2,7 +2,7 @@
 id: FIDES-REQ
 title: Fides single sign-on requirements
 status: draft
-version: 0.3.0
+version: 0.3.1
 created: 2026-10-08
 updated: 2026-11-09
 owners:
@@ -66,6 +66,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Requirements baseline 0.3.0: record format, revised FID-TB-004/EXC-003/HOST-003/CLI-002, 101 added requirements (WI-0022)"
+    EXE-20261109T154841724Z-a435eb94:
+      operations: [modified]
+      at: 2026-11-09T15:50:41.306Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
 ---
 
 # Fides single sign-on requirements
@@ -120,15 +130,14 @@ work item (`./praxis work ready`; `docs/requirements/backlog-plan.md`).
 | FID-D-007 | The exchange is **stateless**: no session service, no server-held refresh tokens. | DF-FIDES-2026-0004 (accepted) |
 | FID-D-008 | The AWS account, region and domain are **operator configuration**; nothing is deployed from this work. | DF-FIDES-2026-0005 (accepted) |
 | FID-D-009 | Interim distribution: **attested GitHub release assets plus an echelon-registry entry**. | DF-FIDES-2026-0006 (accepted) |
-| FID-D-010 | Fides stays **authentication-only**; authorization is application-owned against a shared vocabulary; no central authorization service. | DF-FIDES-2026-0010 (**proposed, needs owner approval**) |
-| FID-D-011 | Organization membership is **not held by Fides**; tenant boundaries map to GitHub App installations and Arca repositories. | DF-FIDES-2026-0011 (**proposed**) |
-| FID-D-012 | The stateless exchange is kept; its replay and revocation limits are stated and accepted, with the conditions that would supersede DF-FIDES-2026-0004. | DF-FIDES-2026-0012 (**proposed**) |
-| FID-D-013 | With browser-held user tokens, **GitHub repository permission is the only enforced data boundary**; one GitHub App per application data-isolation domain. | DF-FIDES-2026-0013 (**proposed**) |
-| FID-D-014 | Non-human identities use **GitHub App installation tokens minted in their own runtime**, never a person's token and never the browser-facing exchange. | DF-FIDES-2026-0014 (**proposed**) |
-| FID-D-015 | Memory-only retention stays the default; persistent retention of the refresh token is **restricted pending a sealed-cookie design**; applications must ship a strict CSP. | DF-FIDES-2026-0015 (**proposed**) |
+| FID-D-010 | Fides stays **authentication-only**; authorization is application-owned against a shared vocabulary; no central authorization service. | DF-FIDES-2026-0010 (accepted 2026-11-09) |
+| FID-D-011 | Organization membership is **not held by Fides**; tenant boundaries map to GitHub App installations and Arca repositories. | DF-FIDES-2026-0011 (accepted 2026-11-09) |
+| FID-D-012 | The stateless exchange is kept; its replay and revocation limits are stated and accepted, with the conditions that would supersede DF-FIDES-2026-0004. | DF-FIDES-2026-0012 (accepted 2026-11-09) |
+| FID-D-013 | With browser-held user tokens, **GitHub repository permission is the only enforced data boundary**; one GitHub App per application data-isolation domain. | DF-FIDES-2026-0013 (accepted 2026-11-09) |
+| FID-D-014 | Non-human identities use **GitHub App installation tokens minted in their own runtime**, never a person's token and never the browser-facing exchange. | DF-FIDES-2026-0014 (accepted 2026-11-09) |
+| FID-D-015 | Memory-only retention stays the default; persistent retention of the refresh token is **restricted pending a sealed-cookie design**; applications must ship a strict CSP. | DF-FIDES-2026-0015 (accepted 2026-11-09) |
 
-Proposed decisions do not supersede accepted ones. Requirements that depend
-on a proposed decision are `blocked` until the owner decides.
+The owner accepted DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023). Requirements that waited only on those decisions are now `missing` or `deferred`; requirements still waiting on an external party (a test GitHub App, an AWS environment, an Aegis browser sink) or on owner-approved targets remain `blocked`.
 
 ## 2. Context and identity of the repository (FID-CTX)
 
@@ -1076,16 +1085,16 @@ on a proposed decision are `blocked` until the owner decides.
 - Levels achieved: unit
 - Levels required: unit
 
-**FID-SES-008** Persistent retention MUST NOT keep the refresh token in script-readable storage unless the owner accepts DF-FIDES-2026-0015's risk; until decided, the client's persistent mode stays as released (0.2.0) and applications MUST NOT enable it by default.
+**FID-SES-008** Applications MUST NOT enable persistent retention by default, the client guide MUST state that persistent mode keeps a six-month refresh token readable by page script, and the next major protocol version MUST keep the refresh token out of script-readable storage (sealed HttpOnly cookie), per DF-FIDES-2026-0015. The released 0.2.0 API stays unchanged until that versioned release.
 
 - Priority: P0
-- Owner: Owner decision
-- Status: blocked
+- Owner: Fides.Client
+- Status: missing
 - Change: added
 - Source: DF-FIDES-2026-0015; SEC-THR-106
 - Rationale: A six-month refresh token in local storage turns one script injection into six months of repository access.
 - Depends on: FID-CLI-002
-- Acceptance: DF-FIDES-2026-0015 accepted or rejected, and the client changed accordingly through a versioned release.
+- Acceptance: Per DF-FIDES-2026-0015 (accepted): the client guide states the risk and applications do not enable persistence by default (now); the sealed HttpOnly refresh cookie is designed as a versioned protocol change (next).
 - Positive test: Memory-only and session-scoped modes unchanged.
 - Negative test: Persistent mode does not expose a refresh token to page script (sealed-cookie option) or is refused without the accepted decision.
 - Evidence: none
@@ -1112,12 +1121,12 @@ on a proposed decision are `blocked` until the owner decides.
 
 - Priority: P2
 - Owner: Fides.Core
-- Status: blocked
+- Status: missing
 - Change: added
 - Source: DF-FIDES-2026-0004 consequence; DF-FIDES-2026-0012
 - Rationale: The stateless exchange has no central session list; the grant is the only global handle.
 - Depends on: FID-SES-004, FID-DATA-006
-- Acceptance: Decision accepted; endpoint added in a versioned protocol change.
+- Acceptance: DF-FIDES-2026-0012 accepted 2026-11-09; endpoint added in a versioned protocol change after FID-DATA-006.
 - Positive test: After sign-out everywhere, every tab's next refresh is refused.
 - Negative test: Another person's grant is untouched.
 - Evidence: none
@@ -1129,13 +1138,13 @@ on a proposed decision are `blocked` until the owner decides.
 **FID-SVC-001** Non-human principals (bots, installations, automation) MUST be distinct principal kinds, mirroring Arca's `IdentityKind` (User, Bot, Installation), and MUST NOT use a person's user-to-server token.
 
 - Priority: P1
-- Owner: Owner decision
-- Status: blocked
+- Owner: Fides.Core
+- Status: missing
 - Change: added
 - Source: WI-0022 phase 2A (human and non-human identities); Arca 0.7.0 src/Arca.Core/Credentials.fs
 - Rationale: A person's token acting for automation hides who acted and outlives the person's intent (SEC-THR-120).
 - Depends on: FID-IDN-003
-- Acceptance: DF-FIDES-2026-0014 accepted; the principal type has a kind.
+- Acceptance: DF-FIDES-2026-0014 accepted 2026-11-09; the principal type has a kind.
 - Positive test: An installation principal is reported with kind Installation.
 - Negative test: Automation presenting a user token is refused by the service contract.
 - Evidence: none
@@ -1145,13 +1154,13 @@ on a proposed decision are `blocked` until the owner decides.
 **FID-SVC-002** Services MUST authenticate with GitHub App installation tokens minted in the service's own runtime from the App private key held in that runtime's secret store; the browser-facing exchange MUST NOT mint installation tokens.
 
 - Priority: P1
-- Owner: Owner decision
-- Status: blocked
+- Owner: Fides.Core
+- Status: missing
 - Change: added
 - Source: DF-FIDES-2026-0014
 - Rationale: The exchange is public; a private key there makes every application a potential installation-token oracle.
 - Depends on: FID-SVC-001
-- Acceptance: Decision accepted; a separate package or module defines the service contract.
+- Acceptance: DF-FIDES-2026-0014 accepted 2026-11-09; a separate package or module defines the service contract; no installation token is minted by the public exchange.
 - Positive test: A service mints a token for its installation.
 - Negative test: A request to the public exchange for an installation token is `not_found`.
 - Evidence: none
@@ -1161,8 +1170,8 @@ on a proposed decision are `blocked` until the owner decides.
 **FID-SVC-003** A service's installation token MUST be requested for the narrowest repository set and permissions the operation needs and MUST NOT be cached beyond its expiry.
 
 - Priority: P1
-- Owner: Owner decision
-- Status: blocked
+- Owner: Fides.Core
+- Status: missing
 - Change: added
 - Source: WI-0022 phase 2C (service identity permissions)
 - Rationale: Least privilege for automation.
@@ -1177,8 +1186,8 @@ on a proposed decision are `blocked` until the owner decides.
 **FID-SVC-004** Every action a service performs MUST be attributable to the service principal in audit records.
 
 - Priority: P2
-- Owner: Owner decision
-- Status: blocked
+- Owner: Fides.Core
+- Status: missing
 - Change: added
 - Source: WI-0022 phase 2F (audit)
 - Rationale: Incident response.
@@ -1227,13 +1236,13 @@ on a proposed decision are `blocked` until the owner decides.
 **FID-AUZ-003** Authorization decisions MUST default to deny: an unknown principal, action, resource, tenant, missing permission data or an unavailable policy input MUST yield deny.
 
 - Priority: P0
-- Owner: Owner decision
-- Status: blocked
+- Owner: Application
+- Status: missing
 - Change: added
 - Source: WI-0022 phase 2B (default deny, fail closed)
 - Rationale: Fail-open authorization grants access during outages.
 - Depends on: FID-AUZ-001
-- Acceptance: DF-FIDES-2026-0010 decides who supplies the decision vocabulary; tests show deny for each unknown.
+- Acceptance: Each consuming application adopts the decision vocabulary in AUTHORIZATION-OWNERSHIP.md section 4 (DF-FIDES-2026-0010, accepted); tests show deny for each unknown.
 - Positive test: A complete, matching input permits.
 - Negative test: Each missing or unknown input denies.
 - Evidence: none
@@ -1243,13 +1252,13 @@ on a proposed decision are `blocked` until the owner decides.
 **FID-AUZ-004** An application permission narrower than the user's GitHub repository permission MUST either be enforced by a server-side enforcement point holding its own identity, or be documented to users and operators as advisory. Data needing a narrower boundary MUST live in a separate repository (ARCA-LOC-004).
 
 - Priority: P0
-- Owner: Owner decision
-- Status: blocked
+- Owner: Application
+- Status: missing
 - Change: added
 - Source: DF-FIDES-2026-0013; SEC-THR-109
 - Rationale: The user holds the token and can call GitHub directly.
 - Depends on: FID-AUZ-001
-- Acceptance: DF-FIDES-2026-0013 accepted; each application's permission model classifies every permission as repository-enforced, server-enforced or advisory.
+- Acceptance: DF-FIDES-2026-0013 accepted 2026-11-09; each application's permission model classifies every permission as repository-enforced, server-enforced or advisory.
 - Positive test: A repository-enforced permission is refused by GitHub for a user without access.
 - Negative test: A user with repository write but without the application role edits data directly through the GitHub API; the classification must have predicted it.
 - Evidence: none
@@ -1260,12 +1269,12 @@ on a proposed decision are `blocked` until the owner decides.
 
 - Priority: P1
 - Owner: Application
-- Status: blocked
+- Status: missing
 - Change: added
 - Source: WI-0022 phase 2B (resource-level decisions)
 - Rationale: Roles alone cannot express per-record ownership.
 - Depends on: FID-AUZ-003
-- Acceptance: The decision vocabulary chosen under DF-FIDES-2026-0010 has all four inputs.
+- Acceptance: The decision vocabulary of DF-FIDES-2026-0010 (accepted) has all four inputs, and each application uses it.
 - Positive test: Owner of a record may edit it.
 - Negative test: Same role, different record owner: deny.
 - Evidence: none
@@ -1275,13 +1284,13 @@ on a proposed decision are `blocked` until the owner decides.
 **FID-AUZ-006** Role and permission assignment, where an application approves it, MUST be stored where only administrators of that tenant can write (a separate repository per ARCA-LOC-004, or a server-side store) and MUST record who assigned what, when.
 
 - Priority: P1
-- Owner: Owner decision
-- Status: blocked
+- Owner: Application
+- Status: missing
 - Change: added
 - Source: WI-0022 phase 2B (role and permission assignment)
 - Rationale: A role record writable by members is self-assignable.
 - Depends on: FID-AUZ-004, FID-ORG-002
-- Acceptance: Decision accepted; storage location per application documented.
+- Acceptance: Per DF-FIDES-2026-0011 (accepted), role and membership records live in an administrators-only repository per tenant; storage location per application documented.
 - Positive test: An administrator's assignment is recorded.
 - Negative test: A member's write to the role record is refused by GitHub.
 - Evidence: none
@@ -1291,8 +1300,8 @@ on a proposed decision are `blocked` until the owner decides.
 **FID-AUZ-007** No principal MAY grant a role, capability or membership it does not hold, or grant within a tenant it does not administer.
 
 - Priority: P0
-- Owner: Owner decision
-- Status: blocked
+- Owner: Application
+- Status: missing
 - Change: added
 - Source: WI-0022 phase 2B (privilege escalation prevention)
 - Rationale: SEC-THR-110.
@@ -1355,8 +1364,8 @@ on a proposed decision are `blocked` until the owner decides.
 **FID-AUZ-011** Removing a person's access MUST take effect at each enforcement point within a stated bound: GitHub repository removal at the next GitHub call; application role removal at the next authorization decision; Fides session at the next refresh (FID-AUZ-008).
 
 - Priority: P1
-- Owner: Owner decision
-- Status: blocked
+- Owner: Application
+- Status: missing
 - Change: added
 - Source: WI-0022 phase 2B (authorization revocation)
 - Rationale: Revocation without a bound is not revocation.
@@ -1405,13 +1414,13 @@ on a proposed decision are `blocked` until the owner decides.
 **FID-DATA-003** The tenant of any data operation MUST be derived from trusted context (the configured repository location and the installation the token reaches), never from a user-supplied parameter such as a URL segment, query or body field.
 
 - Priority: P0
-- Owner: Owner decision
-- Status: blocked
+- Owner: Application
+- Status: missing
 - Change: added
 - Source: WI-0022 phase 2C; SAF-URL-4
 - Rationale: A user-chosen tenant parameter is a cross-tenant request waiting to happen (SEC-THR-108).
 - Depends on: FID-ORG-001
-- Acceptance: DF-FIDES-2026-0011 accepted; the tenant context type cannot be built from request text without validation against memberships.
+- Acceptance: Per DF-FIDES-2026-0011 (accepted) the tenant is the App installation plus its configured Arca repositories; the tenant context type cannot be built from request text without validation against memberships.
 - Positive test: The tenant comes from configuration and membership.
 - Negative test: A URL naming another tenant yields "not permitted", with no request to that tenant's repository.
 - Evidence: none
@@ -1422,12 +1431,12 @@ on a proposed decision are `blocked` until the owner decides.
 
 - Priority: P0
 - Owner: Arca
-- Status: blocked
+- Status: missing
 - Change: added
 - Source: ARCA-LOC-004, ARCA-LOC-005, ARCA-D-007
 - Rationale: GitHub enforces permissions per repository, not per folder.
 - Depends on: FID-DATA-003
-- Acceptance: Organization and tenant document accepted; live cross-tenant test FID-TEST-006 passes.
+- Acceptance: The tenant model of DF-FIDES-2026-0011 (accepted) is implemented; live cross-tenant test FID-TEST-006 passes.
 - Positive test: Tenant A reads its repository.
 - Negative test: Tenant A's token reading tenant B's repository is refused live.
 - Evidence: none
@@ -1500,19 +1509,19 @@ on a proposed decision are `blocked` until the owner decides.
 
 ## 14. Multiple organizations (FID-ORG)
 
-These requirements are blocked on DF-FIDES-2026-0011. See
+These requirements follow DF-FIDES-2026-0011 (accepted 2026-11-09). See
 [`ORGANIZATION-AND-TENANT-ISOLATION.md`](ORGANIZATION-AND-TENANT-ISOLATION.md).
 
 **FID-ORG-001** An organization MUST have a stable, immutable identifier (the GitHub organization's numeric id, or an Arca organization namespace id per ARCA-LOC-005), never its name.
 
 - Priority: P1
-- Owner: Owner decision
-- Status: blocked
+- Owner: Application
+- Status: missing
 - Change: added
 - Source: WI-0022 phase 2D; ARCA-LOC-005
 - Rationale: Organization names change and can be re-registered.
 - Depends on: FID-IDN-001
-- Acceptance: DF-FIDES-2026-0011 accepted.
+- Acceptance: Per DF-FIDES-2026-0011 (accepted): the installation's account id, or the Arca organization namespace id, is the organization key.
 - Positive test: A renamed organization keeps its id.
 - Negative test: A new organization reusing an old name gets a new id.
 - Evidence: none
@@ -1522,13 +1531,13 @@ These requirements are blocked on DF-FIDES-2026-0011. See
 **FID-ORG-002** A principal MAY belong to several organizations; membership MUST be held by the owner DF-FIDES-2026-0011 names, separately from the identity-provider account.
 
 - Priority: P1
-- Owner: Owner decision
-- Status: blocked
+- Owner: Application
+- Status: missing
 - Change: added
 - Source: WI-0022 phase 2D (memberships, separation of accounts and membership)
 - Rationale: Identity is not membership.
 - Depends on: FID-ORG-001
-- Acceptance: Decision accepted; membership type defined.
+- Acceptance: Per DF-FIDES-2026-0011 (accepted): membership is derived from installation reach plus the tenant's administrators-only repository; the membership type is defined.
 - Positive test: A principal lists two memberships.
 - Negative test: A provider account without membership has no organization access.
 - Evidence: none
@@ -1539,7 +1548,7 @@ These requirements are blocked on DF-FIDES-2026-0011. See
 
 - Priority: P1
 - Owner: Application
-- Status: blocked
+- Status: missing
 - Change: added
 - Source: WI-0022 phase 2D (organization switching)
 - Rationale: Stale views after switching leak data across tenants.
@@ -1554,13 +1563,13 @@ These requirements are blocked on DF-FIDES-2026-0011. See
 **FID-ORG-004** Organization administration (members, roles, settings) MUST be scoped to one organization; an administrator of one organization MUST have no administrative effect on another.
 
 - Priority: P2
-- Owner: Owner decision
-- Status: blocked
+- Owner: Application
+- Status: deferred
 - Change: added
 - Source: WI-0022 phase 2D
 - Rationale: Organization-scoped administration.
 - Depends on: FID-ORG-002, FID-AUZ-007
-- Acceptance: Covered by FID-TEST-007.
+- Acceptance: Deferred by DF-FIDES-2026-0011 (accepted) until a consumer needs more than one organization; then covered by FID-TEST-007.
 - Positive test: An administrator manages their organization.
 - Negative test: The same administrator acting on another organization is refused.
 - Evidence: none
@@ -1570,7 +1579,7 @@ These requirements are blocked on DF-FIDES-2026-0011. See
 **FID-ORG-005** Delegated access, if approved, MUST be explicit, time-bound, scoped, revocable and limited to capabilities the delegator holds.
 
 - Priority: P3
-- Owner: Owner decision
+- Owner: Application
 - Status: deferred
 - Change: added
 - Source: WI-0022 phase 2D (delegated access)
@@ -1586,13 +1595,13 @@ These requirements are blocked on DF-FIDES-2026-0011. See
 **FID-ORG-006** Invitations MUST be single use, expire, and bind to the accepting principal's provider subject; removing a member MUST remove their repository access and application roles in that organization.
 
 - Priority: P2
-- Owner: Owner decision
-- Status: blocked
+- Owner: Application
+- Status: deferred
 - Change: added
 - Source: WI-0022 phase 2D (invitation and removal)
 - Rationale: Reusable invitations are open doors.
 - Depends on: FID-ORG-002
-- Acceptance: Decision accepted; workflow specified.
+- Acceptance: Deferred by DF-FIDES-2026-0011 (accepted) until a consumer needs more than one organization.
 - Positive test: An invitation accepted once grants membership.
 - Negative test: A second acceptance, an expired invitation, or acceptance by another principal: refused.
 - Evidence: none
@@ -1602,8 +1611,8 @@ These requirements are blocked on DF-FIDES-2026-0011. See
 **FID-ORG-007** The organization context of a request MUST NOT be taken from a user-supplied parameter without validating it against the principal's memberships, and validation failure MUST deny.
 
 - Priority: P0
-- Owner: Owner decision
-- Status: blocked
+- Owner: Application
+- Status: missing
 - Change: added
 - Source: WI-0022 phase 2C and 2D
 - Rationale: SEC-THR-108.

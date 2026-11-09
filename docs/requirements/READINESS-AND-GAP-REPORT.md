@@ -24,6 +24,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Fides requirements expansion and security architecture review (WI-0022)"
+    EXE-20261109T154841724Z-a435eb94:
+      operations: [modified]
+      at: 2026-11-09T15:50:42.573Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
 ---
 
 # Fides readiness and gap report (WI-0022, 2026-11-09)
@@ -53,9 +63,9 @@ GitHub has been verified.
 | Added | 101 |
 | Implemented and verified | 44 |
 | Implemented, unverified | 16 |
-| Missing | 33 |
-| Blocked (owner decision or external) | 32 |
-| Deferred | 5 |
+| Missing | 51 (33 before the owner's decisions of 2026-11-09) |
+| Blocked (external party or unapproved targets) | 12 (32 before) |
+| Deferred | 7 (5 before) |
 | P0 / P1 / P2 / P3 | 54 / 55 / 16 / 5 |
 | P0 not yet verified | 27 |
 | Requirements that need live-provider evidence (none has it) | 26 |
@@ -134,7 +144,7 @@ these violations.
 - **Trust-boundary model §6.** The model implies that sign-out revocation
   is complete. That is unverified (FID-TEST-012).
 
-## 6. Decisions requiring owner approval
+## 6. Decisions (accepted by the owner on 2026-11-09, WI-0023)
 
 | Record | Question | Recommendation |
 |---|---|---|
@@ -145,7 +155,8 @@ these violations.
 | DF-FIDES-2026-0014 | Do services need separate authentication? | Yes; installation tokens minted in the service's runtime |
 | DF-FIDES-2026-0015 | Are the retention modes secure enough? | Restrict persistent mode now; design a sealed HttpOnly refresh cookie next; require a strict CSP |
 
-The owner also needs to approve the proposed latency and availability
+All six recommendations were accepted as written. The owner still needs
+to approve the proposed latency and availability
 targets (FID-REL-001..002) and provide a test GitHub App plus a test AWS
 environment (FID-TEST-010, FID-OPS-013).
 

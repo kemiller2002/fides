@@ -26,6 +26,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Fides requirements expansion and security architecture review (WI-0022)"
+    EXE-20261109T154841724Z-a435eb94:
+      operations: [modified]
+      at: 2026-11-09T15:50:42.961Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
 ---
 
 # Fides security architecture
@@ -33,8 +43,8 @@ provenance:
 Draft for owner review (WI-0022). It extends the accepted trust-boundary
 model ([`TRUST-BOUNDARIES.md`](TRUST-BOUNDARIES.md), FID-TB-001..006)
 without changing it, and states, for every security property, which
-component is authoritative. Where a decision is still proposed, the text
-says so.
+component is authoritative. DF-FIDES-2026-0010..0015 were accepted by the
+owner on 2026-11-09.
 
 ## 1. Components and what each enforces
 
@@ -61,7 +71,7 @@ B1-B5 are defined in TRUST-BOUNDARIES.md. This architecture adds:
   Arca feed, echelon-registry (FID-OPS-009, FID-OPS-010).
 - **B8 operator.** Holder of the client secret and App configuration
   (FID-OPS-012, FID-OPS-014).
-- **B9 service ↔ GitHub** (proposed, DF-FIDES-2026-0014). A non-human
+- **B9 service ↔ GitHub** (DF-FIDES-2026-0014, accepted). A non-human
   principal with its own installation token, outside the browser exchange.
 
 ## 3. Authority for each permission check
@@ -72,7 +82,7 @@ B1-B5 are defined in TRUST-BOUNDARIES.md. This architecture adds:
 | May this application use Fides, from this origin, with this callback? | Fides exchange | Enforces | FID-TB-003, FID-HOST-005 |
 | Is this callback the one this tab started? | Fides client | Enforces | FID-EXC-001, FID-IDN-004 |
 | Can this token read or write repository R? | GitHub | Never re-implements; checks a required repository at sign-in and (planned) at refresh | FID-TB-004, FID-AUZ-008 |
-| May this person do action X in application Y? | Application at its enforcement point | None (DF-FIDES-2026-0010, proposed) | FID-AUZ-001..005 |
+| May this person do action X in application Y? | Application at its enforcement point | None (DF-FIDES-2026-0010, accepted) | FID-AUZ-001..005 |
 | Which tenant is this request for? | Trusted configuration plus installation reach | None; tenant context must not come from the request | FID-DATA-003, FID-ORG-007 |
 | May this refresh token be refreshed by application Y? | Fides exchange (planned) or provider (with per-application Apps) | Missing today | FID-AUZ-009 |
 | May this service act on repository R? | GitHub, via the service's installation token | Defines the contract only | FID-SVC-001..004 |

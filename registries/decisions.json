@@ -438,6 +438,20 @@
             "created"
           ],
           "reason": "Fides requirements expansion and security architecture review (WI-0022)"
+        },
+        "EXE-20261109T154841724Z-a435eb94": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-09T15:50:38.866Z",
+          "operations": [
+            "modified"
+          ],
+          "reason": "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
         }
       }
     },
@@ -447,7 +461,7 @@
       "docs/security/THREAT-MODEL.md"
     ],
     "review_cycle": "on-trigger",
-    "status": "review",
+    "status": "accepted",
     "superseded_by": [],
     "supersedes": [],
     "tags": [
@@ -457,7 +471,7 @@
     ],
     "title": "Fides stays authentication-only; authorization is owned by the enforcement point; no central authorization service",
     "updated": "2026-11-09",
-    "version": "0.1.0"
+    "version": "1.0.0"
   },
   {
     "created": "2026-11-09",
@@ -481,6 +495,20 @@
             "created"
           ],
           "reason": "Fides requirements expansion and security architecture review (WI-0022)"
+        },
+        "EXE-20261109T154841724Z-a435eb94": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-09T15:50:39.286Z",
+          "operations": [
+            "modified"
+          ],
+          "reason": "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
         }
       }
     },
@@ -490,7 +518,7 @@
       "docs/security/THREAT-MODEL.md"
     ],
     "review_cycle": "on-trigger",
-    "status": "review",
+    "status": "accepted",
     "superseded_by": [],
     "supersedes": [],
     "tags": [
@@ -500,7 +528,7 @@
     ],
     "title": "Organization membership is not held by Fides; tenants map to GitHub App installations and Arca repositories",
     "updated": "2026-11-09",
-    "version": "0.1.0"
+    "version": "1.0.0"
   },
   {
     "created": "2026-11-09",
@@ -524,6 +552,20 @@
             "created"
           ],
           "reason": "Fides requirements expansion and security architecture review (WI-0022)"
+        },
+        "EXE-20261109T154841724Z-a435eb94": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-09T15:50:39.670Z",
+          "operations": [
+            "modified"
+          ],
+          "reason": "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
         }
       }
     },
@@ -533,7 +575,7 @@
       "docs/security/THREAT-MODEL.md"
     ],
     "review_cycle": "on-trigger",
-    "status": "review",
+    "status": "accepted",
     "superseded_by": [],
     "supersedes": [],
     "tags": [
@@ -544,7 +586,7 @@
     ],
     "title": "The stateless exchange is kept; its replay and revocation limits are stated, with the conditions that would supersede DF-FIDES-2026-0004",
     "updated": "2026-11-09",
-    "version": "0.1.0"
+    "version": "1.0.0"
   },
   {
     "created": "2026-11-09",
@@ -568,6 +610,20 @@
             "created"
           ],
           "reason": "Fides requirements expansion and security architecture review (WI-0022)"
+        },
+        "EXE-20261109T154841724Z-a435eb94": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-09T15:50:40.066Z",
+          "operations": [
+            "modified"
+          ],
+          "reason": "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
         }
       }
     },
@@ -577,7 +633,7 @@
       "docs/security/THREAT-MODEL.md"
     ],
     "review_cycle": "on-trigger",
-    "status": "review",
+    "status": "accepted",
     "superseded_by": [],
     "supersedes": [],
     "tags": [
@@ -588,7 +644,7 @@
     ],
     "title": "With browser-held user tokens, GitHub repository permission is the only enforced data boundary; one GitHub App per data-isolation domain",
     "updated": "2026-11-09",
-    "version": "0.1.0"
+    "version": "1.0.0"
   },
   {
     "created": "2026-11-09",
@@ -612,6 +668,20 @@
             "created"
           ],
           "reason": "Fides requirements expansion and security architecture review (WI-0022)"
+        },
+        "EXE-20261109T154841724Z-a435eb94": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-09T15:50:40.460Z",
+          "operations": [
+            "modified"
+          ],
+          "reason": "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
         }
       }
     },
@@ -621,7 +691,7 @@
       "docs/security/THREAT-MODEL.md"
     ],
     "review_cycle": "on-trigger",
-    "status": "review",
+    "status": "accepted",
     "superseded_by": [],
     "supersedes": [],
     "tags": [
@@ -631,7 +701,7 @@
     ],
     "title": "Non-human identities use GitHub App installation tokens minted in their own runtime, never a person's token and never the browser-facing exchange",
     "updated": "2026-11-09",
-    "version": "0.1.0"
+    "version": "1.0.0"
   },
   {
     "created": "2026-11-09",
@@ -655,6 +725,20 @@
             "created"
           ],
           "reason": "Fides requirements expansion and security architecture review (WI-0022)"
+        },
+        "EXE-20261109T154841724Z-a435eb94": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-09T15:50:40.846Z",
+          "operations": [
+            "modified"
+          ],
+          "reason": "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
         }
       }
     },
@@ -664,7 +748,7 @@
       "docs/security/THREAT-MODEL.md"
     ],
     "review_cycle": "on-trigger",
-    "status": "review",
+    "status": "accepted",
     "superseded_by": [],
     "supersedes": [],
     "tags": [
@@ -675,6 +759,6 @@
     ],
     "title": "Memory-only stays the default; persistent retention of the refresh token is restricted pending a sealed-cookie design; applications must ship a strict CSP",
     "updated": "2026-11-09",
-    "version": "0.1.0"
+    "version": "1.0.0"
   }
 ]

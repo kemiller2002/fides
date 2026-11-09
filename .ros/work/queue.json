@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "fides",
-  "nextSeq": 36,
+  "nextSeq": 41,
   "items": [
     {
       "id": "WI-0001",
@@ -568,10 +568,10 @@
         "fides,decision,owner,blocked-external"
       ],
       "priority": "high",
-      "status": "captured",
+      "status": "ready",
       "attachments": [],
       "createdAt": "2026-11-09T14:39:16.899Z",
-      "updatedAt": "2026-11-09T14:39:16.899Z",
+      "updatedAt": "2026-11-09T15:48:40.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
@@ -848,6 +848,121 @@
       "attachments": [],
       "createdAt": "2026-11-09T14:39:20.855Z",
       "updatedAt": "2026-11-09T14:39:20.855Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0036",
+      "title": "Authorization per accepted DF-FIDES-2026-0010 and 0013: applications adopt the default-deny decision vocabulary, classify permissions as repository-enforced, server-enforced or advisory, store roles in administrators-only repositories, prevent self-elevation, bound revocation (FID-AUZ-003..007, FID-AUZ-011)",
+      "description": null,
+      "tags": [
+        "fides,authorization,applications"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-09T15:49:36.759Z",
+      "updatedAt": "2026-11-09T15:49:36.759Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0037",
+      "title": "Tenant model per accepted DF-FIDES-2026-0011: organization key, derived membership, organization switching, tenant context from trusted configuration only, one repository set per tenant (FID-ORG-001..003, FID-ORG-007, FID-DATA-003..004)",
+      "description": null,
+      "tags": [
+        "fides,tenancy,organizations"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-09T15:49:37.151Z",
+      "updatedAt": "2026-11-09T15:49:37.151Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0038",
+      "title": "(Deferred by DF-FIDES-2026-0011) organization administration, delegation and invitations until a consumer needs more than one organization (FID-ORG-004..006)",
+      "description": null,
+      "tags": [
+        "fides,deferred,organizations"
+      ],
+      "priority": "low",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-09T15:49:37.534Z",
+      "updatedAt": "2026-11-09T15:49:37.534Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0039",
+      "title": "Service identity contract per accepted DF-FIDES-2026-0014: principal kinds, installation tokens minted in the service runtime, least-privilege token requests, service audit (FID-SVC-001..004)",
+      "description": null,
+      "tags": [
+        "fides,service-identity"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-09T15:49:37.948Z",
+      "updatedAt": "2026-11-09T15:49:37.948Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0040",
+      "title": "Token retention per accepted DF-FIDES-2026-0015: client guide risk statement and no persistence by default now; design the sealed HttpOnly refresh cookie as a versioned protocol change (FID-SES-008)",
+      "description": null,
+      "tags": [
+        "fides,client,security"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-09T15:49:38.380Z",
+      "updatedAt": "2026-11-09T15:49:38.380Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
