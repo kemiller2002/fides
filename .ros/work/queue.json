@@ -568,10 +568,10 @@
         "fides,decision,owner,blocked-external"
       ],
       "priority": "high",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-11-09T14:39:16.899Z",
-      "updatedAt": "2026-11-09T15:48:40.000Z",
+      "updatedAt": "2026-11-09T15:51:17.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
