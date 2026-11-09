@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-11-09T14:25:40.000Z",
+  "updatedAt": "2026-11-09T14:45:25.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -763,13 +763,47 @@
     {
       "id": "WI-0022",
       "type": "task",
-      "state": "active",
-      "semanticState": "active",
-      "evidence": [],
-      "updatedAt": "2026-11-09T14:25:40.000Z",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "research-record",
+          "path": "docs/requirements/READINESS-AND-GAP-REPORT.md"
+        },
+        {
+          "type": "implementation",
+          "path": "docs/requirements/FIDES-REQUIREMENTS.md"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Fides.Tests/RequirementsCatalogueTests.fs"
+        }
+      ],
+      "updatedAt": "2026-11-09T14:45:25.000Z",
       "telemetryExecutionIds": [
         "EXE-20261109T142541284Z-a3f0d18d"
-      ]
+      ],
+      "latestCheckpoint": {
+        "id": "a3ab3394db7cb50c5cef7a20",
+        "recordedAt": "2026-11-09T14:45:23.000Z",
+        "executionId": "EXE-20261109T142541284Z-a3f0d18d",
+        "repository": "fides",
+        "branch": "claude/fides-requirements-security-38f9h5",
+        "commit": "758219671205dc750e62d2f3e3dadfecc2e1f5d5",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides"
+        },
+        "remoteBranch": "claude/fides-requirements-security-38f9h5",
+        "remoteCommit": "758219671205dc750e62d2f3e3dadfecc2e1f5d5",
+        "summary": "Requirements baseline 0.3.0 (130 requirements), catalogue gates, security architecture, threat model, six proposed decisions, verification plan, matrix, backlog WI-0023..0035 and gap report committed and pushed",
+        "nextAction": "Owner reviews DF-FIDES-2026-0010..0015 (WI-0023); implement WI-0024 and WI-0025",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-09T14:45:25.000Z"
     }
   ]
 }

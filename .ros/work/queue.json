@@ -545,10 +545,10 @@
         "fides,requirements,security,planning"
       ],
       "priority": "high",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-11-09T14:25:40.401Z",
-      "updatedAt": "2026-11-09T14:25:40.000Z",
+      "updatedAt": "2026-11-09T14:45:25.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
