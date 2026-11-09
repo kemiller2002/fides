@@ -114,6 +114,7 @@ let ``the HTTP API routes exactly the protocol's paths and leaves CORS to the fu
     Assert.Equal<Set<string>>(expected, routes)
 
 [<Fact>]
+[<Trait("Verifies", "FID-OPS-005")>]
 let ``the API uses payload format 2.0, TLS 1.2, throttling and bounded log retention`` () =
     Assert.Equal("2.0", (single "AWS::ApiGatewayV2::Integration").GetProperty("PayloadFormatVersion").GetString() |> string)
     let domain = ((single "AWS::ApiGatewayV2::DomainName").GetProperty "DomainNameConfigurations").[0]

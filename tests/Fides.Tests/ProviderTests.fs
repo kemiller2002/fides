@@ -74,6 +74,7 @@ let ``a refresh rotates the pair through the provider`` () =
 
 [<Fact>]
 [<Trait("Verifies", "FID-PRV-003")>]
+[<Trait("Verifies", "FID-IDN-001")>]
 let ``the identity comes from GitHub's user endpoint for the token`` () =
     let world, result = grant ()
     let _, identity = SimulatedHost.run true world (Provider.identify github (ok result).AccessToken)
@@ -122,6 +123,7 @@ let ``token responses are interpreted into typed refusals`` (body: string, expec
 [<InlineData(502)>]
 [<InlineData(503)>]
 [<InlineData(429)>]
+[<Trait("Verifies", "FID-REL-003")>]
 let ``provider failures are outages`` (status: int) =
     Assert.Equal(Error Unavailable, GitHub.readTokenGrant at (respond status "<html>unicorn</html>"))
     Assert.Equal(Error Unavailable, GitHub.readIdentity (respond status ""))
@@ -129,12 +131,14 @@ let ``provider failures are outages`` (status: int) =
     Assert.Equal(Error Unavailable, GitHub.readRepositoryAccess (respond status ""))
 
 [<Fact>]
+[<Trait("Verifies", "FID-REL-003")>]
 let ``transport failures are outages`` () =
     for failure in [ HttpOutcome.Failed TimedOut; HttpOutcome.Failed TransportFailure.Unreachable ] do
         Assert.Equal(Error Unavailable, GitHub.readTokenGrant at failure)
         Assert.Equal(Error Unavailable, GitHub.readIdentity failure)
 
 [<Fact>]
+[<Trait("Verifies", "FID-IDN-002")>]
 let ``a user response without id or login is a contract violation`` () =
     match GitHub.readIdentity (respond 200 """{"login":"octocat"}""") with
     | Error(ContractViolation _) -> ()

@@ -109,6 +109,7 @@ let ``sign-out clears locally even when revocation fails, and says so`` () =
 
 [<Fact>]
 [<Trait("Verifies", "FID-CLI-003")>]
+[<Trait("Verifies", "FID-REL-005")>]
 let ``cross-tab messages name what happened and never carry a token`` () =
     let browser, client = signedIn SessionScoped
     browser.Exchange <- fun _ _ -> respond 204 ""
@@ -121,6 +122,7 @@ let ``cross-tab messages name what happened and never carry a token`` () =
 
 [<Fact>]
 [<Trait("Verifies", "FID-CLI-003")>]
+[<Trait("Verifies", "FID-SES-007")>]
 let ``another tab signing out signs this tab out`` () =
     let browser, client = signedIn SessionScoped
     run (client.Receive "fides:chrona-test:signed_out")
@@ -134,6 +136,7 @@ let ``a message for another application is ignored`` () =
     Assert.Equal("signed_in", SessionState.code (client.State()))
 
 [<Fact>]
+[<Trait("Verifies", "FID-IDN-005")>]
 let ``a callback removes the code and state from the address bar even when refused`` () =
     let browser = Browser(epoch, noExchange)
     let client = FidesClient.create configuration catalog browser.Ports
@@ -141,6 +144,7 @@ let ``a callback removes the code and state from the address bar even when refus
     Assert.Equal<string list>([ configuration.RedirectUri ], List.ofSeq browser.Addresses)
 
 [<Fact>]
+[<Trait("Verifies", "FID-REL-008")>]
 let ``a pending sign-in from the future is refused as expired`` () =
     let browser = Browser(epoch, noExchange)
     let client = FidesClient.create configuration catalog browser.Ports
@@ -151,6 +155,7 @@ let ``a pending sign-in from the future is refused as expired`` () =
 
 [<Fact>]
 [<Trait("Verifies", "FID-CLI-001")>]
+[<Trait("Verifies", "FID-REL-004")>]
 let ``concurrent token requests share one refresh, because refresh tokens are single use`` () =
     let browser, client = signedIn MemoryOnly
     browser.Now <- epoch.AddMinutes 479.
@@ -167,6 +172,7 @@ let ``concurrent token requests share one refresh, because refresh tokens are si
     Assert.Equal(1, browser.Posted |> Seq.filter (fun (p, _) -> p = Protocol.RefreshPath) |> Seq.length)
 
 [<Fact>]
+[<Trait("Verifies", "FID-REL-004")>]
 let ``a refused refresh adopts a session another tab already rotated instead of revoking`` () =
     let consent = PersistenceConsent.givenAfter "Keep me signed in." |> Result.defaultWith (fun () -> failwith "consent")
     let browser, client = signedIn (Persistent consent)

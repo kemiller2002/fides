@@ -16,6 +16,8 @@
     <Compile Include="TrustBoundaryModelTests.fs" />
     <Compile Include="RequirementsTraceability.fs" />
     <Compile Include="RequirementsTraceabilityTests.fs" />
+    <Compile Include="RequirementsCatalogue.fs" />
+    <Compile Include="RequirementsCatalogueTests.fs" />
     <Compile Include="Acceptance/GitHubSimulatorTests.fs" />
     <Compile Include="Acceptance/AcceptanceCatalogueTests.fs" />
     <Compile Include="SecretsTests.fs" />

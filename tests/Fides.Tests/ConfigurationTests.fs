@@ -39,6 +39,7 @@ let ``unsafe registrations are refused with a reason`` (application: string, rea
     Assert.Contains(problems (withApplication application), fun p -> p.Contains reason)
 
 [<Fact>]
+[<Trait("Verifies", "FID-OPS-008")>]
 let ``loopback redirects and origins are allowed only when the configuration opts in`` () =
     let app = """{"id":"app","provider":"github","origins":["http://localhost:5000"],"redirectUris":["http://localhost:5000/cb"]}"""
     Assert.NotEmpty(problems (withApplication app))
@@ -61,6 +62,7 @@ let ``an application registered twice is refused`` () =
     Assert.Contains(problems document, fun p -> p.Contains "registered twice")
 
 [<Fact>]
+[<Trait("Verifies", "FID-OPS-001")>]
 let ``the configuration holds a secret reference, never a secret`` () =
     let client = ExchangeFixture.configuration.Clients[ProviderId "github"]
     Assert.Equal(SecretReference ExchangeFixture.secretReference, client.ClientSecret)
