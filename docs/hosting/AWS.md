@@ -35,6 +35,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Released assets: download, verify and install (WI-0012)"
+    EXE-20261110T194345450Z-8d542457:
+      operations: [modified]
+      at: 2026-11-10T19:47:41.298Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Operator deployment script and production-only smoke-test requirement (WI-0041)"
 ---
 
 # Deploying the Fides exchange to AWS
@@ -43,6 +53,30 @@ Nothing in this repository deploys anything (DF-FIDES-2026-0005). This page
 lists what the operator must provide and the commands that would deploy one
 environment. Deploy each environment (`test`, `staging`, `production`) as its
 own stack with its own GitHub App (FID-HOST-003).
+
+## Quick path: `scripts/deploy-aws.sh`
+
+The script does every step below for one environment in the operator's own
+account, prompting for each value (defaults are set for
+`echelonfoundry.com`, with the exchange at `auth.echelonfoundry.com`):
+
+```bash
+git clone https://github.com/kemiller2002/fides && cd fides
+scripts/deploy-aws.sh init            # once: certificate, secret, package, stack, DNS, check
+scripts/deploy-aws.sh update 0.3.0    # later: verify, upload, preview the change set, apply
+scripts/deploy-aws.sh check           # any time
+```
+
+- It needs the AWS CLI v2 and the GitHub CLI, both logged in.
+- The GitHub App is still registered by hand. The script prints the exact
+  settings and waits for the Client ID.
+- It reads the client secret without echoing it and writes it to a
+  private temporary file for the AWS CLI. The secret is never placed on a
+  command line or in its settings file (`~/.fides-deploy/<environment>.env`).
+- When the domain is a public Route 53 hosted zone in the same account, the
+  script creates the certificate-validation and exchange DNS records
+  itself. Otherwise it prints each record and waits for you.
+- `FIDES_ENVIRONMENT` selects the environment; the default is `production`.
 
 ## What the operator must provide
 

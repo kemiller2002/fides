@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "fides",
-  "nextSeq": 41,
+  "nextSeq": 42,
   "items": [
     {
       "id": "WI-0001",
@@ -963,6 +963,29 @@
       "attachments": [],
       "createdAt": "2026-11-09T15:49:38.380Z",
       "updatedAt": "2026-11-09T15:49:38.380Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0041",
+      "title": "Operator deployment script for the AWS exchange: one command to set up an environment (certificate, Route 53 records, secret, package, stack, checks) and to update it to a release, prefilled for echelonfoundry.com (FID-HOST-003, FID-OPS-013)",
+      "description": null,
+      "tags": [
+        "fides,hosting,aws,operator"
+      ],
+      "priority": "high",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-11-10T19:43:39.681Z",
+      "updatedAt": "2026-11-10T19:43:44.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

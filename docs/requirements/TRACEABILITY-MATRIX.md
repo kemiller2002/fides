@@ -33,6 +33,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
+    EXE-20261110T194345450Z-8d542457:
+      operations: [modified]
+      at: 2026-11-10T19:47:42.000Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Operator deployment script and production-only smoke-test requirement (WI-0041)"
 ---
 
 # Fides requirement traceability matrix
@@ -245,7 +255,7 @@ satisfied by the GitHub simulator.
 | FID-OPS-010 | P1 | Fides.Release | implemented-unverified | added | .conditor/lock.json; docs/client/README.md | document | integration |
 | FID-OPS-011 | P1 | Fides.Governance | implemented-unverified | added | docs/security/THREAT-MODEL.md | document | document, unit |
 | FID-OPS-012 | P1 | Operator | missing | added | none | none | document, live-provider |
-| FID-OPS-013 | P1 | Operator | blocked | added | none | none | live-provider |
+| FID-OPS-013 | P1 | Operator | blocked | added | scripts/deploy-aws.sh (check) | none | live-provider |
 | FID-OPS-014 | P1 | Operator | blocked | added | docs/hosting/AWS.md | none | live-provider |
 | FID-REL-001 | P2 | Owner decision | blocked | added | none | none | live-provider |
 | FID-REL-002 | P2 | Owner decision | blocked | added | none | none | unit, live-provider |

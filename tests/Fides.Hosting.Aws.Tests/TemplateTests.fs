@@ -138,3 +138,46 @@ let ``the hosting guide documents every template parameter and the GitHub App's 
 
     for setting in [ "Expire user authorization tokens"; "Contents: Read and write"; "Webhook"; "Callback URL"; "Client ID" ] do
         Assert.Contains(setting, guide)
+
+/// The `name=value` parameter names one `--parameter-overrides` block passes.
+let overriddenParameters (block: string) =
+    Regex.Matches(block, @"\b([A-Z][A-Za-z]+)=") |> Seq.map _.Groups[1].Value |> Set.ofSeq
+
+let private script () =
+    File.ReadAllText(Path.Combine(root (DirectoryInfo AppContext.BaseDirectory), "scripts", "deploy-aws.sh"))
+
+/// The `--parameter-overrides` block of the script's first-deployment step.
+let private initOverrides (source: string) =
+    let start = source.IndexOf "deploy_stack() {"
+    let block = source.Substring(start, source.IndexOf("\n}", start) - start)
+    overriddenParameters (block.Substring(block.IndexOf "--parameter-overrides"))
+
+[<Fact>]
+[<Trait("Verifies", "FID-HOST-003")>]
+let ``the deployment script passes every template parameter that has no default, and only template parameters`` () =
+    let parameters = (template.GetProperty "Parameters").EnumerateObject() |> List.ofSeq
+    let declared = parameters |> List.map _.Name |> Set.ofList
+
+    let required =
+        parameters
+        |> List.filter (fun p -> not (p.Value.TryGetProperty "Default" |> fst))
+        |> List.map _.Name
+        |> Set.ofList
+
+    let passed = initOverrides (script ())
+    Assert.Empty(Set.difference required passed)
+    Assert.Empty(Set.difference passed declared)
+
+[<Fact>]
+let ``a script that forgets a required parameter is detected`` () =
+    let passed = overriddenParameters "--parameter-overrides EnvironmentName=x DomainName=y"
+    Assert.Equal<Set<string>>(set [ "EnvironmentName"; "DomainName" ], passed)
+    Assert.DoesNotContain("CertificateArn", passed)
+
+[<Fact>]
+let ``the deployment script never takes the client secret as an argument or prints it`` () =
+    let source = script ()
+    Assert.Contains("--secret-string \"file://$file\"", source)
+    Assert.DoesNotContain("--secret-string \"$secret\"", source)
+    Assert.DoesNotContain("echo \"$secret\"", source)
+    Assert.Contains("read -rsp", source)
