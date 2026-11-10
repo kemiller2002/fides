@@ -982,10 +982,10 @@
         "fides,hosting,aws,operator"
       ],
       "priority": "high",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-11-10T19:43:39.681Z",
-      "updatedAt": "2026-11-10T19:43:44.000Z",
+      "updatedAt": "2026-11-10T19:47:47.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
