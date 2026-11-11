@@ -181,3 +181,21 @@ let ``the deployment script never takes the client secret as an argument or prin
     Assert.DoesNotContain("--secret-string \"$secret\"", source)
     Assert.DoesNotContain("echo \"$secret\"", source)
     Assert.Contains("read -rsp", source)
+
+[<Fact>]
+[<Trait("Verifies", "FID-AUZ-010")>]
+let ``the GitHub App the script creates asks only for contents and metadata, with no webhook, installable only on the owner's account`` () =
+    let source = script ()
+    let start = source.IndexOf "manifest_json() {"
+    let manifest = source.Substring(start, source.IndexOf("\n}", start) - start)
+    Assert.Contains("\"default_permissions\":{\"contents\":\"write\",\"metadata\":\"read\"}", manifest)
+    Assert.Contains("\"hook_attributes\":{\"url\":\"%s\",\"active\":false}", manifest)
+    Assert.Contains("\"public\":false", manifest)
+    Assert.Contains("\"default_events\":[]", manifest)
+
+[<Fact>]
+let ``the script refuses a manifest code from another run and never keeps the App's private key`` () =
+    let source = script ()
+    Assert.Contains("state mismatch", source)
+    Assert.Contains("--jq '.client_id, .slug, .client_secret'", source)
+    Assert.DoesNotContain(".pem", source)

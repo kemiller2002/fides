@@ -45,6 +45,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Operator deployment script and production-only smoke-test requirement (WI-0041)"
+    EXE-20261111T150817979Z-d906ff87:
+      operations: [modified]
+      at: 2026-11-11T15:13:12.059Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Shared Echelon GitHub App and command-line App creation (WI-0042, owner decision of 2026-11-11)"
 ---
 
 # Deploying the Fides exchange to AWS
@@ -62,17 +72,33 @@ account, prompting for each value (defaults are set for
 
 ```bash
 git clone https://github.com/kemiller2002/fides && cd fides
-scripts/deploy-aws.sh init            # once: certificate, secret, package, stack, DNS, check
-scripts/deploy-aws.sh update 0.3.0    # later: verify, upload, preview the change set, apply
+scripts/deploy-aws.sh init            # once (safe to re-run): applications, GitHub App, certificate, package, stack, DNS, check
+scripts/deploy-aws.sh add-app         # register another Echelon application
+scripts/deploy-aws.sh apps            # list the registered applications
+scripts/deploy-aws.sh update 0.3.0    # verify, upload, preview the change set, apply
 scripts/deploy-aws.sh check           # any time
 ```
 
-- It needs the AWS CLI v2 and the GitHub CLI, both logged in.
-- The GitHub App is still registered by hand. The script prints the exact
-  settings and waits for the Client ID.
-- It reads the client secret without echoing it and writes it to a
-  private temporary file for the AWS CLI. The secret is never placed on a
-  command line or in its settings file (`~/.fides-deploy/<environment>.env`).
+- **One shared GitHub App per environment** (`Echelon (production)`) serves
+  every registered application, for single sign-on across them
+  (DF-FIDES-2026-0016). It holds at most ten applications (GitHub's limit on
+  callback URLs). Before anyone other than the owner signs in, each
+  application must get its own App (FID-DATA-009).
+- **The App is created from the command line** through GitHub's App
+  manifest flow. The script opens GitHub with the App already filled in;
+  you click **Create GitHub App** and paste back the address GitHub
+  redirects to. The script receives the Client ID and client secret
+  straight from GitHub and stores the secret in Secrets Manager without
+  showing it, then opens the install page so you can pick the data
+  repositories. GitHub also generates a private key, which Fides does not
+  use: delete it from the App's settings page when the script asks. Check
+  there too that user authorization tokens expire.
+- `add-app` registers another application: it asks for the origin, callback
+  and data repository, tells you which callback URL to add to the App and
+  which repository to add to its installation (GitHub has no API for
+  either), then redeploys and checks every application.
+- The client secret is never placed on a command line or in the settings
+  file (`~/.fides-deploy/<environment>.env`).
 - When the domain is a public Route 53 hosted zone in the same account, the
   script creates the certificate-validation and exchange DNS records
   itself. Otherwise it prints each record and waits for you.
