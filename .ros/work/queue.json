@@ -1005,10 +1005,10 @@
         "fides,hosting,github,decision"
       ],
       "priority": "high",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-11-11T15:08:16.987Z",
-      "updatedAt": "2026-11-11T15:08:17.000Z",
+      "updatedAt": "2026-11-11T15:13:31.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

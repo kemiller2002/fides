@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-11-11T15:08:17.000Z",
+  "updatedAt": "2026-11-11T15:13:31.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -890,13 +890,43 @@
     {
       "id": "WI-0042",
       "type": "task",
-      "state": "active",
-      "semanticState": "active",
-      "evidence": [],
-      "updatedAt": "2026-11-11T15:08:17.000Z",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "scripts/deploy-aws.sh"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Fides.Hosting.Aws.Tests/TemplateTests.fs"
+        }
+      ],
+      "updatedAt": "2026-11-11T15:13:31.000Z",
       "telemetryExecutionIds": [
         "EXE-20261111T150817979Z-d906ff87"
-      ]
+      ],
+      "latestCheckpoint": {
+        "id": "8c296941b4c7b13e60f952bf",
+        "recordedAt": "2026-11-11T15:13:29.000Z",
+        "executionId": "EXE-20261111T150817979Z-d906ff87",
+        "repository": "fides",
+        "branch": "claude/fides-requirements-security-38f9h5",
+        "commit": "8fc93e3f7cf3236e5c1beafcc12d493738d8a0c9",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides"
+        },
+        "remoteBranch": "claude/fides-requirements-security-38f9h5",
+        "remoteCommit": "8fc93e3f7cf3236e5c1beafcc12d493738d8a0c9",
+        "summary": "Shared App decision, multi-application script with manifest-flow App creation, tests and guide pushed",
+        "nextAction": "Owner re-runs scripts/deploy-aws.sh init",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-11T15:13:31.000Z"
     }
   ]
 }
