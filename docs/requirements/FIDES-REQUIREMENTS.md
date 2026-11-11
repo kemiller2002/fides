@@ -76,6 +76,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
+    EXE-20261110T194345450Z-8d542457:
+      operations: [modified]
+      at: 2026-11-10T19:47:41.674Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Operator deployment script and production-only smoke-test requirement (WI-0041)"
 ---
 
 # Fides single sign-on requirements
@@ -2063,19 +2073,19 @@ These requirements are detailed, with the screen inventory, in
 - Levels achieved: none
 - Levels required: document, live-provider
 
-**FID-OPS-013** A deployed test environment MUST pass a smoke test (preflight, a refused request, and one live sign-in with the test App) before any production deployment.
+**FID-OPS-013** Every deployment MUST pass a smoke test (preflight from a registered origin, a refused unregistered origin, and one live sign-in) before it is relied on. The owner decided on 2026-11-10 to run a production environment only, without a separate test environment.
 
 - Priority: P1
 - Owner: Operator
 - Status: blocked
 - Change: added
-- Source: DF-FIDES-2026-0005; FID-HOST-003 revision
-- Rationale: The template has never been deployed.
+- Source: DF-FIDES-2026-0005; FID-HOST-003 revision; owner decision of 2026-11-10 (production only)
+- Rationale: The template has never been deployed. Without a test environment, the smoke test is the only check before relying on production.
 - Depends on: FID-HOST-003, FID-TEST-010
-- Acceptance: Blocked on the operator's AWS account, domain and test GitHub App.
+- Acceptance: `scripts/deploy-aws.sh check` passes against the deployed exchange and a live sign-in succeeds; the result is recorded as evidence. Blocked until the operator runs the deployment.
 - Positive test: Live sign-in succeeds.
 - Negative test: Unregistered origin is refused live.
-- Evidence: none
+- Evidence: scripts/deploy-aws.sh (check)
 - Levels achieved: none
 - Levels required: live-provider
 
