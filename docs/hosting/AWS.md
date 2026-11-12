@@ -55,6 +55,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Shared Echelon GitHub App and command-line App creation (WI-0042, owner decision of 2026-11-11)"
+    EXE-20261112T164656277Z-d8ca2861:
+      operations: [modified]
+      at: 2026-11-12T16:49:53.503Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "macOS bash 3.2 support and App recovery in the deployment script (WI-0044)"
 ---
 
 # Deploying the Fides exchange to AWS
@@ -103,6 +113,11 @@ scripts/deploy-aws.sh check           # any time
   script creates the certificate-validation and exchange DNS records
   itself. Otherwise it prints each record and waits for you.
 - `FIDES_ENVIRONMENT` selects the environment; the default is `production`.
+- It runs on the bash 3.2 that macOS ships, as well as on Linux and WSL.
+- If a run stops after GitHub created the App (for example on an expired
+  code), run `init` again and answer **y** to "Did an earlier run already
+  create the App": it asks for the App's Client ID and a newly generated
+  client secret instead of creating a second App.
 
 ## What the operator must provide
 

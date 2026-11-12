@@ -10,8 +10,8 @@
 #   scripts/deploy-aws.sh update VERSION  move the environment to a release
 #   scripts/deploy-aws.sh check           check the deployed exchange
 #
-# Needs: aws (CLI v2, logged in), gh (logged in), git, curl, and sha256sum or
-# shasum. Non-secret settings are kept in ~/.fides-deploy/<environment>.env.
+# Runs on bash 3.2 (macOS) and later. Needs: aws (CLI v2, logged in), gh
+# (logged in), git, curl, and sha256sum or shasum. Non-secret settings are kept in ~/.fides-deploy/<environment>.env.
 set -euo pipefail
 
 readonly REPOSITORY="kemiller2002/fides"
@@ -65,7 +65,14 @@ require_tools() {
   gh auth status >/dev/null 2>&1 || fail "the GitHub CLI is not logged in (run: gh auth login)"
 }
 
-checksum() { if command -v sha256sum >/dev/null; then sha256sum -c --ignore-missing checksums.txt; else shasum -a 256 -c --ignore-missing checksums.txt; fi; }
+sha256_of() { if command -v sha256sum >/dev/null; then sha256sum "$1"; else shasum -a 256 "$1"; fi | cut -d' ' -f1; }
+
+checksum() { # the package's hash must equal its line in checksums.txt
+  local expected actual
+  expected="$(grep " \*\{0,1\}$PACKAGE\$" checksums.txt | cut -d' ' -f1 | head -1)"
+  actual="$(sha256_of "$PACKAGE")"
+  [[ -n "$expected" && "$expected" == "$actual" ]] && note "$PACKAGE: checksum OK"
+}
 
 save_setting() { # save_setting NAME VALUE
   mkdir -p "$STATE_DIR"; touch "$SETTINGS"
@@ -93,6 +100,7 @@ applications_json() {
     entries+=("$(printf '{"id":"%s","provider":"github","origins":["%s"],"redirectUris":["%s"],"requiredRepository":"%s"}' \
       "$(field "$entry" 1)" "$(field "$entry" 2)" "$(field "$entry" 3)" "$(field "$entry" 4)")")
   done < <(application_lines)
+  (( ${#entries[@]} > 0 )) || { printf '[]'; return 0; }
   local IFS=,
   printf '[%s]' "${entries[*]}"
 }
@@ -100,6 +108,7 @@ applications_json() {
 callback_urls_json() {
   local entry urls=()
   while IFS= read -r entry; do urls+=("\"$(field "$entry" 3)\""); done < <(application_lines)
+  (( ${#urls[@]} > 0 )) || { printf '[]'; return 0; }
   local IFS=,
   printf '[%s]' "${urls[*]}"
 }
@@ -116,6 +125,24 @@ migrate_single_application() { # settings written by the first version of this s
     APPS="$APP_ID|$APP_ORIGIN|$APP_CALLBACK|$DATA_REPO"
     save_setting APPS "$APPS"
   fi
+}
+
+repair_applications() { # every registered data repository must be owner/name
+  local entry repo owner fixed=()
+  owner="$(gh api user --jq .login 2>/dev/null || true)"
+  for entry in $(application_lines | tr '\n' ' '); do
+    repo="$(field "$entry" 4)"
+    if [[ ! "$repo" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]]; then
+      note "$(field "$entry" 1): data repository '$repo' must be owner/name"
+      ask repo "Data repository for $(field "$entry" 1) (owner/name)" "${owner:+$owner/}$repo"
+      [[ "$repo" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]] || fail "a repository is owner/name"
+    fi
+    fixed+=("$(field "$entry" 1)|$(field "$entry" 2)|$(field "$entry" 3)|$repo")
+  done
+  (( ${#fixed[@]} > 0 )) || return 0
+  local IFS=';'
+  APPS="${fixed[*]}"
+  save_setting APPS "$APPS"
 }
 
 ask_application() { # prompts for one application and appends it to APPS
@@ -168,6 +195,7 @@ collect_settings() {
   local name; for name in REGION ZONE DOMAIN BUCKET; do save_setting "$name" "${!name}"; done
 
   migrate_single_application
+  repair_applications
   if [[ -n "${APPS:-}" ]]; then
     say "Registered applications"
     show_applications
@@ -235,13 +263,15 @@ EOF
     code="$pasted"
   fi
   [[ "$code" =~ ^[A-Za-z0-9_-]+$ ]] || fail "that is not a GitHub manifest code"
-  local reply=()
-  mapfile -t reply < <(gh api -X POST "/app-manifests/$code/conversions" --jq '.client_id, .slug, .client_secret')
-  [[ ${#reply[@]} -eq 3 && "${reply[0]}" =~ ^Iv ]] || fail "GitHub did not return the App's credentials (the code is single-use and expires after an hour); run init again"
-  CLIENT_ID="${reply[0]}"; APP_SLUG="${reply[1]}"
+  local reply secret
+  reply="$(gh api -X POST "/app-manifests/$code/conversions" --jq '.client_id, .slug, .client_secret')" \
+    || fail "GitHub did not return the App's credentials (the code is single-use and expires after an hour). If the App was created anyway, run init again and answer y to 'Did an earlier run already create the App'"
+  CLIENT_ID="$(sed -n 1p <<<"$reply")"; APP_SLUG="$(sed -n 2p <<<"$reply")"; secret="$(sed -n 3p <<<"$reply")"
+  reply=""
+  [[ "$CLIENT_ID" =~ ^Iv && -n "$APP_SLUG" && -n "$secret" ]] || fail "GitHub's answer was incomplete; run init again"
   save_setting CLIENT_ID "$CLIENT_ID"; save_setting APP_SLUG "$APP_SLUG"
-  store_secret "${reply[2]}"
-  reply=()
+  store_secret "$secret"
+  secret=""
   note "created $APP_NAME (client id $CLIENT_ID)"
   cat <<EOF
 
@@ -263,12 +293,27 @@ app_settings_url() {
   else printf 'https://github.com/settings/apps/%s' "$APP_SLUG"; fi
 }
 
+adopt_github_app() { # an App that exists on GitHub but is not in the settings yet
+  say "Use the GitHub App an earlier run created"
+  note "On GitHub open Settings > Developer settings > GitHub Apps and click Edit next to"
+  note "$APP_NAME. Its address ends in /settings/apps/<slug>. On that page:"
+  note "  - copy the Client ID;"
+  note "  - under Client secrets, click Generate a new client secret (delete any older one);"
+  note "  - under Private keys, delete any key."
+  open_url "https://github.com/settings/apps"
+  ask CLIENT_ID "Client ID (starts with Iv)"
+  [[ "$CLIENT_ID" =~ ^Iv[0-9A-Za-z._-]+$ ]] || fail "that is not a GitHub App client id"
+  ask APP_SLUG "The App's slug (the last part of its settings address)" "echelon-production"
+  save_setting CLIENT_ID "$CLIENT_ID"; save_setting APP_SLUG "$APP_SLUG"
+  SECRET_ARN=""
+}
+
 use_existing_github_app() {
   say "Using the existing GitHub App ($CLIENT_ID)"
   note "Make sure its Callback URLs include every registered application's callback:"
   local entry; while IFS= read -r entry; do note "  $(field "$entry" 3)"; done < <(application_lines)
   [[ -n "${APP_SLUG:-}" ]] && open_url "$(app_settings_url)"
-  if confirm "Store a new client secret for it now?"; then
+  if [[ -z "${SECRET_ARN:-}" ]] || confirm "Store a new client secret for it now?"; then
     local secret
     read -rsp "    Paste the client secret (nothing is shown), then Enter: " secret; echo
     [[ -n "$secret" ]] || fail "no secret was pasted"
@@ -281,6 +326,9 @@ register_github_app() {
   APP_NAME="${APP_NAME:-Echelon ($ENVIRONMENT)}"
   save_setting APP_NAME "$APP_NAME"
   if [[ -n "${CLIENT_ID:-}" ]] && confirm "Keep using the GitHub App with client id $CLIENT_ID?"; then
+    use_existing_github_app
+  elif confirm "Did an earlier run already create the App '$APP_NAME' on GitHub?"; then
+    adopt_github_app
     use_existing_github_app
   else
     create_github_app

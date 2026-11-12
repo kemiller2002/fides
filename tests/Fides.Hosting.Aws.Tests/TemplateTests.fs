@@ -199,3 +199,13 @@ let ``the script refuses a manifest code from another run and never keeps the Ap
     Assert.Contains("state mismatch", source)
     Assert.Contains("--jq '.client_id, .slug, .client_secret'", source)
     Assert.DoesNotContain(".pem", source)
+
+[<Fact>]
+[<Trait("Verifies", "FID-HOST-003")>]
+let ``the deployment script uses nothing newer than bash 3.2, which macOS ships`` () =
+    let source = script ()
+
+    for construct in [ "mapfile"; "readarray"; "declare -A"; "local -n"; "coproc"; "wait -n"; "--ignore-missing"; "&>>" ] do
+        Assert.DoesNotContain(construct, source)
+
+    Assert.False(Regex.IsMatch(source, @"\$\{[A-Za-z_]+(,,|\^\^)\}"), "case-changing expansions need bash 4")
