@@ -43,6 +43,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Operator deployment script and production-only smoke-test requirement (WI-0041)"
+    EXE-20261111T150817979Z-d906ff87:
+      operations: [modified]
+      at: 2026-11-11T15:13:11.644Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Shared Echelon GitHub App and command-line App creation (WI-0042, owner decision of 2026-11-11)"
 ---
 
 # Fides requirement traceability matrix
@@ -82,12 +92,12 @@ satisfied by the GitHub simulator.
 | A. Sessions | 1 | 2 | 6 | 1 | 0 | 10 |
 | A. Non-human identities | 0 | 0 | 4 | 0 | 0 | 4 |
 | B. Authorization | 0 | 2 | 9 | 0 | 0 | 11 |
-| C. Data-layer security | 1 | 2 | 4 | 0 | 1 | 8 |
+| C. Data-layer security | 1 | 2 | 5 | 0 | 1 | 9 |
 | D. Multi-organization | 0 | 0 | 4 | 0 | 3 | 7 |
 | E. Application integration and UX | 0 | 1 | 12 | 1 | 1 | 15 |
 | F. Operational security | 3 | 3 | 6 | 2 | 0 | 14 |
 | G. Reliability and performance | 4 | 3 | 1 | 2 | 0 | 10 |
-| **Total** | 44 | 16 | 51 | 12 | 7 | 130 |
+| **Total** | 44 | 16 | 52 | 12 | 7 | 131 |
 
 ## Summary by family and priority
 
@@ -104,12 +114,12 @@ satisfied by the GitHub simulator.
 | A. Sessions | 4 | 4 | 2 | 0 | 10 |
 | A. Non-human identities | 0 | 3 | 1 | 0 | 4 |
 | B. Authorization | 6 | 5 | 0 | 0 | 11 |
-| C. Data-layer security | 6 | 0 | 2 | 0 | 8 |
+| C. Data-layer security | 7 | 0 | 2 | 0 | 9 |
 | D. Multi-organization | 1 | 3 | 2 | 1 | 7 |
 | E. Application integration and UX | 1 | 10 | 3 | 1 | 15 |
 | F. Operational security | 3 | 10 | 1 | 0 | 14 |
 | G. Reliability and performance | 4 | 4 | 2 | 0 | 10 |
-| **Total** | 54 | 55 | 16 | 5 | 130 |
+| **Total** | 55 | 55 | 16 | 5 | 131 |
 
 ## Summary by change
 
@@ -126,12 +136,12 @@ satisfied by the GitHub simulator.
 | A. Sessions | 0 | 0 | 10 | 10 |
 | A. Non-human identities | 0 | 0 | 4 | 4 |
 | B. Authorization | 0 | 0 | 11 | 11 |
-| C. Data-layer security | 0 | 0 | 8 | 8 |
+| C. Data-layer security | 0 | 0 | 9 | 9 |
 | D. Multi-organization | 0 | 0 | 7 | 7 |
 | E. Application integration and UX | 0 | 0 | 15 | 15 |
 | F. Operational security | 0 | 0 | 14 | 14 |
 | G. Reliability and performance | 0 | 0 | 10 | 10 |
-| **Total** | 25 | 4 | 101 | 130 |
+| **Total** | 25 | 4 | 102 | 131 |
 
 ## Requirement to implementation to test
 
@@ -211,7 +221,7 @@ satisfied by the GitHub simulator.
 | FID-AUZ-007 | P0 | Application | missing | added | none | none | unit, live-provider |
 | FID-AUZ-008 | P1 | Fides.Core | missing | added | none | none | unit, simulated-provider |
 | FID-AUZ-009 | P0 | Fides.Core | missing | added | none | none | unit, simulated-provider, live-provider |
-| FID-AUZ-010 | P1 | Operator | implemented-unverified | added | docs/hosting/AWS.md | document | unit, live-provider |
+| FID-AUZ-010 | P1 | Operator | implemented-unverified | added | docs/hosting/AWS.md; scripts/deploy-aws.sh (manifest_json); tests/Fides.Hosting.Aws.Tests/TemplateTests.fs | document, unit | unit, live-provider |
 | FID-AUZ-011 | P1 | Application | missing | added | none | none | live-provider |
 | FID-DATA-001 | P0 | Fides.Arca | implemented-verified | added | src/Fides.Arca/TokenBridge.fs; tests/Fides.Tests/ArcaBridgeTests.fs | unit | unit |
 | FID-DATA-002 | P0 | Arca | implemented-unverified | added | docs/architecture/SECURITY-ARCHITECTURE.md | document | document, live-provider |
@@ -221,6 +231,7 @@ satisfied by the GitHub simulator.
 | FID-DATA-006 | P0 | Fides.Core | missing | added | none | none | unit, simulated-provider |
 | FID-DATA-007 | P2 | Arca | missing | added | none | none | unit |
 | FID-DATA-008 | P0 | Fides.Core | implemented-unverified | added | src/Fides/Exchange.fs; src/Fides/GitHub.fs (repositoryAccessRequest) | none | unit |
+| FID-DATA-009 | P0 | Operator | missing | added | none | none | unit, live-provider |
 | FID-ORG-001 | P1 | Application | missing | added | none | none | unit |
 | FID-ORG-002 | P1 | Application | missing | added | none | none | unit |
 | FID-ORG-003 | P1 | Application | missing | added | none | none | unit, browser-wasm |

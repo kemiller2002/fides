@@ -20,6 +20,7 @@ table is a navigation view, not a replacement for those records.
 | 2026-11-09 | Fides stays authentication-only; the enforcement point owns authorization; no central authorization service. | accepted | DF-FIDES-2026-0010 |
 | 2026-11-09 | Organization membership is not held by Fides; tenants map to GitHub App installations and Arca repositories. | accepted | DF-FIDES-2026-0011 |
 | 2026-11-09 | Keep the stateless exchange; its replay and revocation limits and the conditions for superseding DF-FIDES-2026-0004 are stated. | accepted | DF-FIDES-2026-0012 |
-| 2026-11-09 | With browser-held user tokens, GitHub repository permission is the only enforced data boundary; one GitHub App per isolation domain. | accepted | DF-FIDES-2026-0013 |
+| 2026-11-09 | With browser-held user tokens, GitHub repository permission is the only enforced data boundary; one GitHub App per isolation domain. | superseded by DF-FIDES-2026-0016 | DF-FIDES-2026-0013 |
 | 2026-11-09 | Non-human identities use installation tokens minted in their own runtime. | accepted | DF-FIDES-2026-0014 |
 | 2026-11-09 | Restrict persistent refresh-token retention; design a sealed HttpOnly refresh cookie; require a strict CSP. | accepted | DF-FIDES-2026-0015 |
+| 2026-11-11 | One shared Echelon GitHub App per environment while the owner is the only user, for single sign-on across applications; split per application before anyone else signs in; repository permission stays the only enforced data boundary. | accepted | DF-FIDES-2026-0016 |

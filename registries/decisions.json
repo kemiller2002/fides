@@ -624,6 +624,20 @@
             "modified"
           ],
           "reason": "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
+        },
+        "EXE-20261111T150817979Z-d906ff87": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-11T15:13:10.895Z",
+          "operations": [
+            "modified"
+          ],
+          "reason": "Shared Echelon GitHub App and command-line App creation (WI-0042, owner decision of 2026-11-11)"
         }
       }
     },
@@ -633,8 +647,10 @@
       "docs/security/THREAT-MODEL.md"
     ],
     "review_cycle": "on-trigger",
-    "status": "accepted",
-    "superseded_by": [],
+    "status": "superseded",
+    "superseded_by": [
+      "DF-FIDES-2026-0016"
+    ],
     "supersedes": [],
     "tags": [
       "github",
@@ -759,6 +775,53 @@
     ],
     "title": "Memory-only stays the default; persistent retention of the refresh token is restricted pending a sealed-cookie design; applications must ship a strict CSP",
     "updated": "2026-11-09",
+    "version": "1.0.0"
+  },
+  {
+    "created": "2026-11-11",
+    "id": "DF-FIDES-2026-0016",
+    "owners": [
+      "fides"
+    ],
+    "path": "research/decisions/DF-FIDES-2026-0016--shared-echelon-github-app-until-external-users.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261111T150817979Z-d906ff87": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-11T15:13:10.511Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "Shared Echelon GitHub App and command-line App creation (WI-0042, owner decision of 2026-11-11)"
+        }
+      }
+    },
+    "related_documents": [
+      "research/decisions/DF-FIDES-2026-0013--github-backed-storage-permission-and-tenancy.md",
+      "docs/requirements/FIDES-REQUIREMENTS.md",
+      "docs/hosting/AWS.md"
+    ],
+    "review_cycle": "on-trigger",
+    "status": "accepted",
+    "superseded_by": [],
+    "supersedes": [
+      "DF-FIDES-2026-0013"
+    ],
+    "tags": [
+      "github",
+      "tenancy",
+      "permissions",
+      "security",
+      "sso"
+    ],
+    "title": "One shared Echelon GitHub App per environment while the owner is the only user; split into one App per application before anyone else signs in; repository permission stays the only enforced data boundary",
+    "updated": "2026-11-11",
     "version": "1.0.0"
   }
 ]

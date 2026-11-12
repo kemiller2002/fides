@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "fides",
-  "nextSeq": 42,
+  "nextSeq": 44,
   "items": [
     {
       "id": "WI-0001",
@@ -986,6 +986,52 @@
       "attachments": [],
       "createdAt": "2026-11-10T19:43:39.681Z",
       "updatedAt": "2026-11-10T19:47:47.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0042",
+      "title": "Shared Echelon GitHub App (DF-FIDES-2026-0016, supersedes 0013): several applications per deployment and GitHub App creation from the command line through the manifest flow in scripts/deploy-aws.sh; split per application before external users (FID-DATA-009, FID-HOST-003)",
+      "description": null,
+      "tags": [
+        "fides,hosting,github,decision"
+      ],
+      "priority": "high",
+      "status": "complete",
+      "attachments": [],
+      "createdAt": "2026-11-11T15:08:16.987Z",
+      "updatedAt": "2026-11-11T15:13:31.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0043",
+      "title": "Split the shared Echelon GitHub App into one App per application before any person other than the owner signs in (FID-DATA-009, DF-FIDES-2026-0016); depends on WI-0025",
+      "description": null,
+      "tags": [
+        "fides,github,security,pre-commercial"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-11T15:08:48.019Z",
+      "updatedAt": "2026-11-11T15:08:48.019Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

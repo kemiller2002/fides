@@ -2,7 +2,7 @@
 id: FIDES-REQ
 title: Fides single sign-on requirements
 status: draft
-version: 0.3.1
+version: 0.3.2
 created: 2026-10-08
 updated: 2026-11-09
 owners:
@@ -86,6 +86,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Operator deployment script and production-only smoke-test requirement (WI-0041)"
+    EXE-20261111T150817979Z-d906ff87:
+      operations: [modified]
+      at: 2026-11-11T15:13:11.260Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Shared Echelon GitHub App and command-line App creation (WI-0042, owner decision of 2026-11-11)"
 ---
 
 # Fides single sign-on requirements
@@ -143,7 +153,8 @@ work item (`./praxis work ready`; `docs/requirements/backlog-plan.md`).
 | FID-D-010 | Fides stays **authentication-only**; authorization is application-owned against a shared vocabulary; no central authorization service. | DF-FIDES-2026-0010 (accepted 2026-11-09) |
 | FID-D-011 | Organization membership is **not held by Fides**; tenant boundaries map to GitHub App installations and Arca repositories. | DF-FIDES-2026-0011 (accepted 2026-11-09) |
 | FID-D-012 | The stateless exchange is kept; its replay and revocation limits are stated and accepted, with the conditions that would supersede DF-FIDES-2026-0004. | DF-FIDES-2026-0012 (accepted 2026-11-09) |
-| FID-D-013 | With browser-held user tokens, **GitHub repository permission is the only enforced data boundary**; one GitHub App per application data-isolation domain. | DF-FIDES-2026-0013 (accepted 2026-11-09) |
+| FID-D-013 | With browser-held user tokens, **GitHub repository permission is the only enforced data boundary**; one GitHub App per application data-isolation domain. | DF-FIDES-2026-0013 (accepted 2026-11-09; superseded by DF-FIDES-2026-0016) |
+| FID-D-016 | **One shared Echelon GitHub App per environment** while the owner is the only user; split into one App per application before anyone else signs in. Repository permission stays the only enforced data boundary. | DF-FIDES-2026-0016 (accepted 2026-11-11) |
 | FID-D-014 | Non-human identities use **GitHub App installation tokens minted in their own runtime**, never a person's token and never the browser-facing exchange. | DF-FIDES-2026-0014 (accepted 2026-11-09) |
 | FID-D-015 | Memory-only retention stays the default; persistent retention of the refresh token is **restricted pending a sealed-cookie design**; applications must ship a strict CSP. | DF-FIDES-2026-0015 (accepted 2026-11-09) |
 
@@ -1362,13 +1373,13 @@ The owner accepted DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023). Requirement
 - Status: implemented-unverified
 - Change: added
 - Source: WI-0022 phase 2B (least privilege); DF-FIDES-2026-0003
-- Rationale: The App's permissions bound every token.
+- Rationale: The App's permissions bound every token. The deployment script's App manifest requests exactly this set (unit-tested); a registered App has not been checked live.
 - Depends on: FID-PRV-002
 - Acceptance: The guide lists exactly these permissions; a registered App's manifest matches.
 - Positive test: The guide documents the permission set.
 - Negative test: A guide listing an extra permission fails the check.
-- Evidence: docs/hosting/AWS.md
-- Levels achieved: document
+- Evidence: docs/hosting/AWS.md; scripts/deploy-aws.sh (manifest_json); tests/Fides.Hosting.Aws.Tests/TemplateTests.fs
+- Levels achieved: document, unit
 - Levels required: unit, live-provider
 
 **FID-AUZ-011** Removing a person's access MUST take effect at each enforcement point within a stated bound: GitHub repository removal at the next GitHub call; application role removal at the next authorization decision; Fides session at the next refresh (FID-AUZ-008).
@@ -1476,7 +1487,7 @@ The owner accepted DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023). Requirement
 - Status: missing
 - Change: added
 - Source: DF-FIDES-2026-0013; SEC-THR-107; docs/hosting/AWS.md (one App per environment)
-- Rationale: Violation: configuration keys clients by provider, so every application in an environment shares one App and one token reach.
+- Rationale: Configuration keys clients by provider, so every application in an environment shares one App and one token reach. DF-FIDES-2026-0016 accepts that while the owner is the only user; this requirement must be met before FID-DATA-009 can be.
 - Depends on: FID-PRV-002
 - Acceptance: Configuration names the provider client per application; the conformance suite covers two clients.
 - Positive test: Application A's sign-in uses A's client id.
@@ -1484,6 +1495,22 @@ The owner accepted DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023). Requirement
 - Evidence: none
 - Levels achieved: none
 - Levels required: unit, simulated-provider
+
+**FID-DATA-009** Before any person other than the owner signs in to any Echelon application, each application MUST have its own GitHub App, registered and installed only on that application's repositories, and the shared App MUST no longer be registered for more than one application.
+
+- Priority: P0
+- Owner: Operator
+- Status: missing
+- Change: added
+- Source: DF-FIDES-2026-0016 (owner decision of 2026-11-11)
+- Rationale: The shared App lets any application's token reach every data repository the person can access; acceptable only while the owner is the only user.
+- Depends on: FID-DATA-006
+- Acceptance: The exchange configuration maps each application to its own client; the deployment records one App per application; a live check shows one application's token refused on another application's repository.
+- Positive test: Each application signs in through its own App and reaches its own repository.
+- Negative test: A token from application A is refused on application B's repository, and A's refresh token is refused through B's registration.
+- Evidence: none
+- Levels achieved: none
+- Levels required: unit, live-provider
 
 **FID-DATA-007** Arca writes SHOULD carry the acting principal (FID-IDN-003) in commit metadata so sensitive data operations are auditable.
 

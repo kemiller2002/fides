@@ -1,7 +1,7 @@
 ---
 id: DF-FIDES-2026-0013
 title: With browser-held user tokens, GitHub repository permission is the only enforced data boundary; one GitHub App per data-isolation domain
-status: accepted
+status: superseded
 version: 1.0.0
 created: 2026-11-09
 updated: 2026-11-09
@@ -9,7 +9,7 @@ owners:
   - fides
 review_cycle: on-trigger
 supersedes: []
-superseded_by: []
+superseded_by: [DF-FIDES-2026-0016]
 related_documents:
   - docs/requirements/FIDES-REQUIREMENTS.md
   - docs/architecture/SECURITY-ARCHITECTURE.md
@@ -37,12 +37,23 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "Record the owner's acceptance of DF-FIDES-2026-0010..0015 on 2026-11-09 (WI-0023)"
+    EXE-20261111T150817979Z-d906ff87:
+      operations: [modified]
+      at: 2026-11-11T15:13:10.895Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "Shared Echelon GitHub App and command-line App creation (WI-0042, owner decision of 2026-11-11)"
 ---
 
 # DF-FIDES-2026-0013 — GitHub-backed storage: permission and tenancy conflicts
 
 - **Date:** 2026-11-09
-- **Status:** accepted (owner decision of 2026-11-09, recommendation adopted).
+- **Status:** superseded by DF-FIDES-2026-0016 on 2026-11-11 (owner decision);
+  accepted 2026-11-09.
 - **Answers:** WI-0022 phase 3 question 4. Requirements: FID-AUZ-004,
   FID-AUZ-009, FID-DATA-002, FID-DATA-004, FID-DATA-006.
 
