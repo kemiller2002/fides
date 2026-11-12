@@ -1074,10 +1074,10 @@
         "fides,hosting,operator"
       ],
       "priority": "high",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-11-12T22:20:36.116Z",
-      "updatedAt": "2026-11-12T22:20:36.000Z",
+      "updatedAt": "2026-11-12T22:22:04.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

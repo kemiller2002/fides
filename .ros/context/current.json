@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-11-12T22:20:36.000Z",
+  "updatedAt": "2026-11-12T22:22:04.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -972,13 +972,43 @@
     {
       "id": "WI-0045",
       "type": "task",
-      "state": "active",
-      "semanticState": "active",
-      "evidence": [],
-      "updatedAt": "2026-11-12T22:20:36.000Z",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "scripts/deploy-aws.sh"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Fides.Hosting.Aws.Tests/TemplateTests.fs"
+        }
+      ],
+      "updatedAt": "2026-11-12T22:22:04.000Z",
       "telemetryExecutionIds": [
         "EXE-20261112T222036997Z-52825629"
-      ]
+      ],
+      "latestCheckpoint": {
+        "id": "47fbbe23ebf070453cda0872",
+        "recordedAt": "2026-11-12T22:22:02.000Z",
+        "executionId": "EXE-20261112T222036997Z-52825629",
+        "repository": "fides",
+        "branch": "claude/fides-requirements-security-38f9h5",
+        "commit": "dce8e097fa2c6a45fc00046b6fbfbc3e906997a1",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides"
+        },
+        "remoteBranch": "claude/fides-requirements-security-38f9h5",
+        "remoteCommit": "dce8e097fa2c6a45fc00046b6fbfbc3e906997a1",
+        "summary": "edit-app and DNS-aware check pushed",
+        "nextAction": "Owner runs edit-app for Signal",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-12T22:22:04.000Z"
     }
   ]
 }
