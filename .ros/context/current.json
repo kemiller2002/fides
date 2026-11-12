@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-11-12T16:46:55.000Z",
+  "updatedAt": "2026-11-12T16:49:59.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -931,13 +931,43 @@
     {
       "id": "WI-0044",
       "type": "task",
-      "state": "active",
-      "semanticState": "active",
-      "evidence": [],
-      "updatedAt": "2026-11-12T16:46:55.000Z",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "scripts/deploy-aws.sh"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Fides.Hosting.Aws.Tests/TemplateTests.fs"
+        }
+      ],
+      "updatedAt": "2026-11-12T16:49:59.000Z",
       "telemetryExecutionIds": [
         "EXE-20261112T164656277Z-d8ca2861"
-      ]
+      ],
+      "latestCheckpoint": {
+        "id": "70b8beae49f8ecb9dd8bd15e",
+        "recordedAt": "2026-11-12T16:49:58.000Z",
+        "executionId": "EXE-20261112T164656277Z-d8ca2861",
+        "repository": "fides",
+        "branch": "claude/fides-requirements-security-38f9h5",
+        "commit": "416b47adfb71c08facd0c0c840168f2a7984e93c",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides"
+        },
+        "remoteBranch": "claude/fides-requirements-security-38f9h5",
+        "remoteCommit": "416b47adfb71c08facd0c0c840168f2a7984e93c",
+        "summary": "macOS fixes, App recovery and repository repair pushed",
+        "nextAction": "Owner re-runs init and adopts the App",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-12T16:49:59.000Z"
     }
   ]
 }
