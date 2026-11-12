@@ -65,6 +65,16 @@ provenance:
         model: unknown
         runtime: claude-code
       reason: "macOS bash 3.2 support and App recovery in the deployment script (WI-0044)"
+    EXE-20261112T222036997Z-52825629:
+      operations: [modified]
+      at: 2026-11-12T22:21:58.913Z
+      actor:
+        kind: agent
+        id: anthropic/claude-code
+        provider: anthropic
+        model: unknown
+        runtime: claude-code
+      reason: "edit-app and DNS-aware check (WI-0045)"
 ---
 
 # Deploying the Fides exchange to AWS
@@ -85,6 +95,7 @@ git clone https://github.com/kemiller2002/fides && cd fides
 scripts/deploy-aws.sh init            # once (safe to re-run): applications, GitHub App, certificate, package, stack, DNS, check
 scripts/deploy-aws.sh add-app         # register another Echelon application
 scripts/deploy-aws.sh apps            # list the registered applications
+scripts/deploy-aws.sh edit-app        # change an application's origin, callback or data repository
 scripts/deploy-aws.sh update 0.3.0    # verify, upload, preview the change set, apply
 scripts/deploy-aws.sh check           # any time
 ```
@@ -107,6 +118,9 @@ scripts/deploy-aws.sh check           # any time
   and data repository, tells you which callback URL to add to the App and
   which repository to add to its installation (GitHub has no API for
   either), then redeploys and checks every application.
+- `check` waits up to ten minutes for the exchange's DNS name to resolve,
+  then explains an unreachable exchange (`000`): usually a missing or
+  misnamed CNAME (at most providers the record's name is only `auth`).
 - The client secret is never placed on a command line or in the settings
   file (`~/.fides-deploy/<environment>.env`).
 - When the domain is a public Route 53 hosted zone in the same account, the
