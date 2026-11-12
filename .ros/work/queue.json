@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "fides",
-  "nextSeq": 45,
+  "nextSeq": 46,
   "items": [
     {
       "id": "WI-0001",
@@ -1055,6 +1055,29 @@
       "attachments": [],
       "createdAt": "2026-11-12T16:46:55.101Z",
       "updatedAt": "2026-11-12T16:49:59.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0045",
+      "title": "deploy-aws.sh: edit-app to change an application's origin, callback or data repository; check waits for DNS and explains an unreachable exchange (FID-HOST-003, FID-OPS-013)",
+      "description": null,
+      "tags": [
+        "fides,hosting,operator"
+      ],
+      "priority": "high",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-11-12T22:20:36.116Z",
+      "updatedAt": "2026-11-12T22:20:36.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

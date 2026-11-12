@@ -7,6 +7,7 @@
 #   scripts/deploy-aws.sh init            set up an environment (run once; safe to re-run)
 #   scripts/deploy-aws.sh add-app         register another Echelon application
 #   scripts/deploy-aws.sh apps            list the registered applications
+#   scripts/deploy-aws.sh edit-app        change an application's origin, callback or data repository
 #   scripts/deploy-aws.sh update VERSION  move the environment to a release
 #   scripts/deploy-aws.sh check           check the deployed exchange
 #
@@ -418,9 +419,27 @@ preflight() { # preflight ORIGIN: the exchange's CORS answer for that origin
 
 check() {
   say "Checking https://$DOMAIN"
-  local entry origin first answer bad failed=0
+  local entry origin first answer bad failed=0 waited=0
   first="$(field "$(application_lines | head -1)" 2)"
-  for _ in $(seq 1 30); do [[ "$(preflight "$first")" == "204" ]] && break; sleep 10; done
+  answer="$(preflight "$first")"
+  while [[ "$answer" == "000" ]] && (( waited < 600 )); do
+    (( waited % 60 == 0 )) && note "waiting for $DOMAIN to resolve to the exchange (DNS can take a few minutes)..."
+    sleep 10; waited=$(( waited + 10 )); answer="$(preflight "$first")"
+  done
+  if [[ "$answer" == "000" ]]; then
+    cat <<EOF
+    https://$DOMAIN could not be reached ("000" means no answer at all, not a refusal).
+    Usually the DNS record is missing, misnamed or not live yet:
+      - the record is a CNAME; at most DNS providers its name is just the part before
+        your domain (for auth.echelonfoundry.com: "auth"), not the whole host name;
+      - "dig +short $DOMAIN" should print the API's d-....execute-api... name;
+      - on a Mac, a cached "not found" answer lingers: sudo dscacheutil -flushcache;
+        sudo killall -HUP mDNSResponder
+    The deployment itself is done; re-run only: $0 check
+EOF
+    fail "https://$DOMAIN is not reachable yet"
+  fi
+  for _ in $(seq 1 12); do [[ "$answer" == "204" ]] && break; sleep 10; answer="$(preflight "$first")"; done
   while IFS= read -r entry; do
     origin="$(field "$entry" 2)"; answer="$(preflight "$origin")"
     note "$origin -> $answer (expect 204)"
@@ -471,6 +490,40 @@ add_app() {
   check
 }
 
+edit_app() { # change an application's origin, callback or data repository
+  require_tools; load_settings; migrate_single_application
+  say "Registered applications"
+  show_applications
+  local id entry origin callback repo old_callback old_repo updated=()
+  ask id "Which application id to change"
+  entry="$(application_lines | awk -F'|' -v id="$id" '$1 == id')"
+  [[ -n "$entry" ]] || fail "no application '$id' is registered"
+  old_callback="$(field "$entry" 3)"; old_repo="$(field "$entry" 4)"
+  ask origin "Its origin (https://host, no path or trailing slash)" "$(field "$entry" 2)"
+  [[ "$origin" =~ ^https://[a-z0-9.-]+(:[0-9]+)?$ ]] || fail "an origin is https://host[:port], lowercase, with nothing after it"
+  ask callback "Its sign-in callback URL" "$old_callback"
+  [[ "$callback" == "$origin/"* ]] || fail "the callback URL must start with the origin"
+  ask repo "Its data repository (owner/name)" "$old_repo"
+  [[ "$repo" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]] || fail "a repository is owner/name"
+  for entry in $(application_lines | tr '\n' ' '); do
+    if [[ "$(field "$entry" 1)" == "$id" ]]; then updated+=("$id|$origin|$callback|$repo"); else updated+=("$entry"); fi
+  done
+  local IFS=';'
+  APPS="${updated[*]}"
+  unset IFS
+  save_setting APPS "$APPS"
+  if [[ "$callback" != "$old_callback" || "$repo" != "$old_repo" ]]; then
+    say "Update the GitHub App to match"
+    [[ "$callback" != "$old_callback" ]] && note "Callback URL: replace $old_callback with $callback"
+    [[ "$repo" != "$old_repo" ]] && note "Installation: add $repo (and remove $old_repo if nothing else uses it)"
+    [[ -n "${APP_SLUG:-}" ]] && open_url "$(app_settings_url)"
+    read -rp "    Press Enter when the App is updated. "
+  fi
+  ensure_template "${VERSION:-$DEFAULT_VERSION}"
+  deploy_stack "${VERSION:-$DEFAULT_VERSION}"
+  check
+}
+
 update() { # update VERSION
   [[ -n "${1:-}" ]] || fail "usage: $0 update VERSION (for example 0.3.0)"
   require_tools; load_settings; migrate_single_application
@@ -501,8 +554,9 @@ update() { # update VERSION
 case "${1:-}" in
   init) init ;;
   add-app) add_app ;;
+  edit-app) edit_app ;;
   apps) load_settings; migrate_single_application; show_applications ;;
   update) update "${2:-}" ;;
   check) require_tools; load_settings; migrate_single_application; check ;;
-  *) sed -n '2,15p' "$0" | sed 's/^# \{0,1\}//'; exit 2 ;;
+  *) sed -n '2,16p' "$0" | sed 's/^# \{0,1\}//'; exit 2 ;;
 esac
