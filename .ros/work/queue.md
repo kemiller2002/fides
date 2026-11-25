@@ -49,4 +49,4 @@
 | WI-0044 | deploy-aws.sh on macOS: bash 3.2 compatibility (no mapfile, empty arrays), recover an App created by an interrupted run, repair application data repositories that are not owner/name (FID-HOST-003) | complete | fides,hosting,defect,macos | high |
 | WI-0045 | deploy-aws.sh: edit-app to change an application's origin, callback or data repository; check waits for DNS and explains an unreachable exchange (FID-HOST-003, FID-OPS-013) | complete | fides,hosting,operator | high |
 | WI-0046 | Upgrade Aegis 1.0.0 -> 2.0.0 (echelon-current 1.40.0) | complete |  | medium |
-| WI-0047 | Retarget Aegis 2.0.1 -> 2.0.2 (detached capture no longer blocks single-threaded WebAssembly hosts) | ready |  | medium |
+| WI-0047 | Retarget Aegis 2.0.1 -> 2.0.2 (detached capture no longer blocks single-threaded WebAssembly hosts) | complete |  | medium |

@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-11-25T15:46:13Z",
+  "updatedAt": "2026-11-25T15:47:09Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -1055,13 +1055,43 @@
     {
       "id": "WI-0047",
       "type": "task",
-      "state": "active",
-      "semanticState": "active",
-      "evidence": [],
-      "updatedAt": "2026-11-25T15:46:13Z",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "src/Fides.Hosting/Fides.Hosting.fsproj"
+        },
+        {
+          "type": "tests",
+          "path": "tests"
+        }
+      ],
+      "updatedAt": "2026-11-25T15:47:09Z",
       "telemetryExecutionIds": [
         "EXE-20261125T154613644Z-0645fe8f"
-      ]
+      ],
+      "latestCheckpoint": {
+        "id": "73a2aa9866bca36f41ea83e5",
+        "recordedAt": "2026-11-25T15:47:08Z",
+        "executionId": "EXE-20261125T154613644Z-0645fe8f",
+        "repository": "fides",
+        "branch": "claude/vigila-implementation-jdeps1",
+        "commit": "9d4f9adc0e0eec0bd513d00c44608956dca23f4e",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides"
+        },
+        "remoteBranch": "claude/vigila-implementation-jdeps1",
+        "remoteCommit": "9d4f9adc0e0eec0bd513d00c44608956dca23f4e",
+        "summary": "Aegis retargeted 2.0.1 -> 2.0.2 (pin, comment, README, CURRENT-STATE); build green on SDK 10.0.404; 331 tests pass",
+        "nextAction": "Complete WI-0047; update PR to 2.0.2 and confirm CI",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-25T15:47:09Z"
     }
   ]
 }
