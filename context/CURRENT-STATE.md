@@ -4,9 +4,10 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
 
 ## Repository status
 
-- Praxis 3.7.2 governs the repository; Conditor installed the Echelon
-  tooling (echelon-current 1.3.0, Ordo 1.5.0) and the F# NuGet library
-  scaffold (WI-0001, WI-0013).
+- Praxis governs the repository; Conditor installed the Echelon tooling and
+  the F# NuGet library scaffold (WI-0001, WI-0013). Since WI-0048
+  (2026-11-25) the pins are echelon-current 1.42.0: Praxis 3.25.0, Ordo
+  1.20.0, Dokimos 0.11.1 and Arca 0.7.0.
 - Requirements, decisions and the dependency-ordered backlog are recorded
   (WI-0002): `docs/requirements/FIDES-REQUIREMENTS.md`,
   `docs/requirements/backlog-plan.md`, `research/decisions/`.
@@ -31,7 +32,8 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
   region and domain as operator configuration and no deployment from here
   (DF-FIDES-2026-0005); interim distribution as attested GitHub release
   assets plus a registry entry (DF-FIDES-2026-0006).
-- Arca's token-provider port is released in EchelonFoundry.Arca.Core 0.1.0.
+- Arca's token-provider port was released in EchelonFoundry.Arca.Core 0.1.0
+  and is unchanged through 0.7.0, which Fides now builds against.
   The Fides client mirrors it case for case (DF-FIDES-2026-0008), and
   `EchelonFoundry.Fides.Arca` (WI-0016) bridges the two, with Arca.Core
   installed by Conditor into `vendor/nuget` from echelon-current 1.5.0.
@@ -69,9 +71,9 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
   were found in the current code (READINESS-AND-GAP-REPORT.md section 3),
   and the owner accepted the six decisions it proposed
   (DF-FIDES-2026-0010..0015) on 2026-11-09.
-- Pins are stale against echelon-current 1.37.2 (Praxis 3.25.0, Ordo
-  1.20.0, Dokimos 0.11.1, Arca 0.7.0); Fides still pins Praxis 3.7.2,
-  Dokimos 0.2.0 and Arca 0.1.0 (WI-0034).
+- Pins are current with echelon-current 1.42.0 (Praxis 3.25.0, Ordo
+  1.20.0, Dokimos 0.11.1, Arca 0.7.0; WI-0048). WI-0034's first step is
+  therefore done; its Dokimos requirement verification is still open.
 
 ## Active work
 

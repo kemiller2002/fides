@@ -83,7 +83,9 @@ UI source, and takes browser observations and Playwright results, with
 statuses PASS / FAIL / BLOCKED / NOT_RUN / NOT_APPLICABLE. Steps:
 
 1. Move the Conditor pins (`conditor.json`: Praxis 3.7.2, Dokimos 0.2.0,
-   Arca 0.1.0) to echelon-current, re-running the full suite.
+   Arca 0.1.0) to echelon-current, re-running the full suite. Done in
+   WI-0048 (echelon-current 1.42.0: Praxis 3.25.0, Dokimos 0.11.1, Arca
+   0.7.0).
 2. Express the catalogue as a `praxis.requirement-catalog/1` with
    `idPattern` `^FID-[A-Z]+-\d{3}$`, sourced from `FIDES-REQUIREMENTS.md`.
 3. Compile the verification manifest for FID-UX requirements and run
