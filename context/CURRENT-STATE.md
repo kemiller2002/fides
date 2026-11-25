@@ -39,10 +39,10 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
   scenario, and its full flow runs inside the trimmed browser-wasm runtime
   under Node in CI (`scripts/verify-wasm.sh`).
 - The exchange host classifies unexpected failures through Aegis
-  (`EchelonFoundry.Aegis.Core` 1.0.0 from nuget.org, WI-0014,
+  (`EchelonFoundry.Aegis.Core` 2.0.1 from nuget.org, WI-0014, WI-0046,
   DF-FIDES-2026-0009). Correction: an earlier entry here said Aegis was
   unpublished; that check had queried a package id that does not exist.
-  Aegis 1.0.0 needs FSharp.Core 10.1.400, so building needs .NET SDK 10.0.400
+  Aegis 2.0.1 needs FSharp.Core 10.1.400, so building needs .NET SDK 10.0.400
   or later (`global.json`).
 
 - The hosting-adapter conformance suite (WI-0010) runs every exchange
