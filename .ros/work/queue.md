@@ -50,4 +50,4 @@
 | WI-0045 | deploy-aws.sh: edit-app to change an application's origin, callback or data repository; check waits for DNS and explains an unreachable exchange (FID-HOST-003, FID-OPS-013) | complete | fides,hosting,operator | high |
 | WI-0046 | Upgrade Aegis 1.0.0 -> 2.0.0 (echelon-current 1.40.0) | complete |  | medium |
 | WI-0047 | Retarget Aegis 2.0.1 -> 2.0.2 (detached capture no longer blocks single-threaded WebAssembly hosts) | complete |  | medium |
-| WI-0048 | Upgrade to echelon-current 1.42.0 (praxis 3.25.0, ordo 1.20.0, dokimos 0.11.1, Arca 0.7.0) | ready |  | medium |
+| WI-0048 | Upgrade to echelon-current 1.42.0 (praxis 3.25.0, ordo 1.20.0, dokimos 0.11.1, Arca 0.7.0) | complete |  | medium |
