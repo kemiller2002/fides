@@ -21,6 +21,6 @@
     <ProjectReference Include="../Fides.Client/Fides.Client.fsproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="EchelonFoundry.Arca.Core" Version="0.1.0" />
+    <PackageReference Include="EchelonFoundry.Arca.Core" Version="0.7.0" />
   </ItemGroup>
 </Project>

@@ -48,3 +48,6 @@
 | WI-0043 | Split the shared Echelon GitHub App into one App per application before any person other than the owner signs in (FID-DATA-009, DF-FIDES-2026-0016); depends on WI-0025 | captured | fides,github,security,pre-commercial | high |
 | WI-0044 | deploy-aws.sh on macOS: bash 3.2 compatibility (no mapfile, empty arrays), recover an App created by an interrupted run, repair application data repositories that are not owner/name (FID-HOST-003) | complete | fides,hosting,defect,macos | high |
 | WI-0045 | deploy-aws.sh: edit-app to change an application's origin, callback or data repository; check waits for DNS and explains an unreachable exchange (FID-HOST-003, FID-OPS-013) | complete | fides,hosting,operator | high |
+| WI-0046 | Upgrade Aegis 1.0.0 -> 2.0.0 (echelon-current 1.40.0) | complete |  | medium |
+| WI-0047 | Retarget Aegis 2.0.1 -> 2.0.2 (detached capture no longer blocks single-threaded WebAssembly hosts) | complete |  | medium |
+| WI-0048 | Upgrade to echelon-current 1.42.0 (praxis 3.25.0, ordo 1.20.0, dokimos 0.11.1, Arca 0.7.0) | complete |  | medium |

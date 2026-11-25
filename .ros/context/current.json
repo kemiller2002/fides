@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-11-12T22:22:04.000Z",
+  "updatedAt": "2026-11-25T18:43:42Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -1009,6 +1009,130 @@
         }
       },
       "completedAt": "2026-11-12T22:22:04.000Z"
+    },
+    {
+      "id": "WI-0046",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "src/Fides.Hosting/Fides.Hosting.fsproj"
+        },
+        {
+          "type": "tests",
+          "path": ".github/workflows/build-and-test.yml"
+        }
+      ],
+      "updatedAt": "2026-11-25T13:10:47.406Z",
+      "telemetryExecutionIds": [
+        "EXE-20261125T121728154Z-b8ebfc72"
+      ],
+      "latestCheckpoint": {
+        "id": "e8e01ea426843d973edd88ec",
+        "recordedAt": "2026-11-25T13:10:33.550Z",
+        "executionId": "EXE-20261125T121728154Z-b8ebfc72",
+        "repository": "fides",
+        "branch": "claude/vigila-implementation-jdeps1",
+        "commit": "486f901e56681736410ebebac51648f43b67cf25",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides"
+        },
+        "remoteBranch": "claude/vigila-implementation-jdeps1",
+        "remoteCommit": "486f901e56681736410ebebac51648f43b67cf25",
+        "summary": "Aegis pins retargeted 2.0.0 -> 2.0.1; restore, build and tests green on the global.json SDK",
+        "nextAction": "Complete WI-0046; update PR to 2.0.1 and confirm CI",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "blockReason": "Aegis 2.0.0 packaging defect: nuspec requires FSharp.Core >= 11.0.101, restore fails with NU1605/NU1109 on the repository's .NET 10 SDK; waiting for Aegis 2.0.1",
+      "completedAt": "2026-11-25T13:10:47.406Z"
+    },
+    {
+      "id": "WI-0047",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "src/Fides.Hosting/Fides.Hosting.fsproj"
+        },
+        {
+          "type": "tests",
+          "path": "tests"
+        }
+      ],
+      "updatedAt": "2026-11-25T15:47:09Z",
+      "telemetryExecutionIds": [
+        "EXE-20261125T154613644Z-0645fe8f"
+      ],
+      "latestCheckpoint": {
+        "id": "73a2aa9866bca36f41ea83e5",
+        "recordedAt": "2026-11-25T15:47:08Z",
+        "executionId": "EXE-20261125T154613644Z-0645fe8f",
+        "repository": "fides",
+        "branch": "claude/vigila-implementation-jdeps1",
+        "commit": "9d4f9adc0e0eec0bd513d00c44608956dca23f4e",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides"
+        },
+        "remoteBranch": "claude/vigila-implementation-jdeps1",
+        "remoteCommit": "9d4f9adc0e0eec0bd513d00c44608956dca23f4e",
+        "summary": "Aegis retargeted 2.0.1 -> 2.0.2 (pin, comment, README, CURRENT-STATE); build green on SDK 10.0.404; 331 tests pass",
+        "nextAction": "Complete WI-0047; update PR to 2.0.2 and confirm CI",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-25T15:47:09Z"
+    },
+    {
+      "id": "WI-0048",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "conditor.json"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Fides.Tests"
+        }
+      ],
+      "updatedAt": "2026-11-25T18:43:42Z",
+      "telemetryExecutionIds": [
+        "EXE-20261125T184030372Z-3fa23667"
+      ],
+      "latestCheckpoint": {
+        "id": "b2afb894ed6e8b954008ba49",
+        "recordedAt": "2026-11-25T18:43:41Z",
+        "executionId": "EXE-20261125T184030372Z-3fa23667",
+        "repository": "fides",
+        "branch": "claude/vigila-implementation-jdeps1",
+        "commit": "f3f4c0d58c74750c186e39732db7051fd8b0e492",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/fides"
+        },
+        "remoteBranch": "claude/vigila-implementation-jdeps1",
+        "remoteCommit": "f3f4c0d58c74750c186e39732db7051fd8b0e492",
+        "summary": "echelon-current 1.42.0 applied by Conditor 0.10.29; build, 331 tests, pack, Lambda publish and browser-wasm check pass locally",
+        "nextAction": "Watch CI on fides#27",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-25T18:43:42Z"
     }
   ]
 }
