@@ -4,7 +4,7 @@
   "repository": "fides",
   "actor": "ros-bootstrap",
   "startedAt": "2026-10-07T01:09:47.536Z",
-  "updatedAt": "2026-11-25T12:52:50.226Z",
+  "updatedAt": "2026-11-25T13:10:47.406Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -1013,34 +1013,44 @@
     {
       "id": "WI-0046",
       "type": "task",
-      "state": "active",
-      "semanticState": "active",
-      "evidence": [],
-      "updatedAt": "2026-11-25T12:52:50.226Z",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "src/Fides.Hosting/Fides.Hosting.fsproj"
+        },
+        {
+          "type": "tests",
+          "path": ".github/workflows/build-and-test.yml"
+        }
+      ],
+      "updatedAt": "2026-11-25T13:10:47.406Z",
       "telemetryExecutionIds": [
         "EXE-20261125T121728154Z-b8ebfc72"
       ],
       "latestCheckpoint": {
-        "id": "fd7d4529369fef2cc93957c0",
-        "recordedAt": "2026-11-25T12:32:08.000Z",
+        "id": "e8e01ea426843d973edd88ec",
+        "recordedAt": "2026-11-25T13:10:33.550Z",
         "executionId": "EXE-20261125T121728154Z-b8ebfc72",
         "repository": "fides",
         "branch": "claude/vigila-implementation-jdeps1",
-        "commit": "e0e28ad6e7c7382eeac0f32e6fb8fc7d33ed9e0c",
+        "commit": "486f901e56681736410ebebac51648f43b67cf25",
         "remote": {
           "name": "origin",
           "url": "https://github.com/kemiller2002/fides"
         },
         "remoteBranch": "claude/vigila-implementation-jdeps1",
-        "remoteCommit": "e0e28ad6e7c7382eeac0f32e6fb8fc7d33ed9e0c",
-        "summary": "Aegis pin bumped 1.0.0 -> 2.0.0 (src/Fides.Hosting/Fides.Hosting.fsproj); restore fails on SDK 10 because Aegis 2.0.0 declares FSharp.Core >= 11.0.101",
-        "nextAction": "Retarget the pin to Aegis 2.0.1 (restored FSharp.Core 10.1.400 floor), rebuild and test, then complete",
+        "remoteCommit": "486f901e56681736410ebebac51648f43b67cf25",
+        "summary": "Aegis pins retargeted 2.0.0 -> 2.0.1; restore, build and tests green on the global.json SDK",
+        "nextAction": "Complete WI-0046; update PR to 2.0.1 and confirm CI",
         "verification": {
           "status": "verified",
           "mechanism": "git-remote-observation"
         }
       },
-      "blockReason": "Aegis 2.0.0 packaging defect: nuspec requires FSharp.Core >= 11.0.101, restore fails with NU1605/NU1109 on the repository's .NET 10 SDK; waiting for Aegis 2.0.1"
+      "blockReason": "Aegis 2.0.0 packaging defect: nuspec requires FSharp.Core >= 11.0.101, restore fails with NU1605/NU1109 on the repository's .NET 10 SDK; waiting for Aegis 2.0.1",
+      "completedAt": "2026-11-25T13:10:47.406Z"
     }
   ]
 }
