@@ -19,7 +19,7 @@
     <ProjectReference Include="../Fides/Fides.fsproj" />
   </ItemGroup>
   <ItemGroup>
-    <!-- Aegis 2.0.1 needs FSharp.Core 10.1.400 or later (SDK 10.0.4xx). -->
-    <PackageReference Include="EchelonFoundry.Aegis.Core" Version="2.0.1" />
+    <!-- Aegis 2.0.2 needs FSharp.Core 10.1.400 or later (SDK 10.0.4xx). -->
+    <PackageReference Include="EchelonFoundry.Aegis.Core" Version="2.0.2" />
   </ItemGroup>
 </Project>

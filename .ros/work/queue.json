@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "fides",
-  "nextSeq": 47,
+  "nextSeq": 48,
   "items": [
     {
       "id": "WI-0001",
@@ -1099,6 +1099,27 @@
       "attachments": [],
       "createdAt": "2026-11-25T12:17:17.625Z",
       "updatedAt": "2026-11-25T13:10:47.406Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0047",
+      "title": "Retarget Aegis 2.0.1 -> 2.0.2 (detached capture no longer blocks single-threaded WebAssembly hosts)",
+      "description": null,
+      "tags": [],
+      "priority": "medium",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-11-25T15:46:12.719Z",
+      "updatedAt": "2026-11-25T15:46:12Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
