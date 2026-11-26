@@ -180,7 +180,7 @@ token, and a tab still confirms with the provider before acting.
 `unit -> Async<Result<AccessToken, TokenUnavailable>>`, with the same four
 failures as `Arca.TokenUnavailable`. Arca never references Fides; an
 application that uses both references `EchelonFoundry.Fides.Arca`, which
-depends on `EchelonFoundry.Arca.Core` 0.7.0 (installed by Conditor from its
+depends on `EchelonFoundry.Arca.Core` 0.7.1 (installed by Conditor from its
 verified release-asset feed, like Fides itself):
 
 ```fsharp

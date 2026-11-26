@@ -1,19 +1,19 @@
 {
   "schemaVersion": 4,
   "project": "fides",
-  "manifestSha256": "a2c4ee801b146d0e6aae6ad9ccceb82c6c9cccdfe4606344a28456ceb5c6d7f9",
+  "manifestSha256": "f7c82b0d83de5faa3f15f5ac4c5a951b15918da3bd0da51513dd37ea429c9b77",
   "manifest": {
     "schemaVersion": 1,
     "name": "fides",
     "registryAuthority": {
       "kind": "resolved-release-set",
       "path": ".conditor/authority/resolved-release-set.json",
-      "sha256": "6be3bc97fbdd314abc4c712c2b1b47c1a18487995d9e1b9db445b4d141a8ee8a"
+      "sha256": "4851c24d52cf3a7ef6dd2ccec26ef7a97c769dd06076b51dfede387c5a8cf8c9"
     },
     "components": [
       {
         "id": "praxis",
-        "version": "3.25.0",
+        "version": "3.26.0",
         "required": true
       },
       {
@@ -48,7 +48,7 @@
       },
       {
         "id": "arca",
-        "version": "0.7.0",
+        "version": "0.7.1",
         "required": true
       }
     ],
@@ -64,12 +64,12 @@
   "components": [
     {
       "id": "praxis",
-      "version": "3.25.0",
+      "version": "3.26.0",
       "distribution": "host-tool",
       "package": "praxis",
-      "descriptorSha256": "a6a854d426d865133e7d1440e2ca80245dbf425aecdf1aafdb7ffddf5bd4487a",
+      "descriptorSha256": "5cb1f058f06dde4ff975e0c559b74a564abda5a78aadac1d4d3fd8f6e3eaefa7",
       "authority": "embedded-component-descriptor",
-      "sourceReference": "host:praxis@3.25.0"
+      "sourceReference": "host:praxis@3.26.0"
     },
     {
       "id": "ordo",
@@ -95,7 +95,7 @@
       "distribution": "host-tool",
       "package": "dokimos",
       "authority": "registry-resolved-set",
-      "sourceReference": "resolved-set=sha256:6be3bc97fbdd314abc4c712c2b1b47c1a18487995d9e1b9db445b4d141a8ee8a;profile=sha256:7f4b25b0a1730a4f4b7c74301aa3d71e454311ad92a4364265d9dc6c03243b84;catalog=sha256:459db46f1669dabf8374e13dd685ebdd8cd25aa620242f2d1a607d033736ad7c;systemId=dokimos;version=0.11.1;repository=kemiller2002/dokimos;tag=dokimos-v0.11.1;sourceCommit=fecbe0c51dda4d87a78e43a034c38c00e6045c7b;contract=echelon.repository-lifecycle/v1"
+      "sourceReference": "resolved-set=sha256:4851c24d52cf3a7ef6dd2ccec26ef7a97c769dd06076b51dfede387c5a8cf8c9;profile=sha256:4b4f2c6b865a5ef83c0bc30adb1f752332dc8c7fda0551d7f52fa1bd05d68c3e;catalog=sha256:1f584946d69819dfa1983260b7a13cd3c819dd3a42bf1618a5ec18cdc11c82d4;systemId=dokimos;version=0.11.1;repository=kemiller2002/dokimos;tag=dokimos-v0.11.1;sourceCommit=fecbe0c51dda4d87a78e43a034c38c00e6045c7b;contract=echelon.repository-lifecycle/v1"
     },
     {
       "id": "visual-engineering",
@@ -126,11 +126,11 @@
     },
     {
       "id": "arca",
-      "version": "0.7.0",
+      "version": "0.7.1",
       "distribution": "nuget",
       "package": "EchelonFoundry.Arca.Core,EchelonFoundry.Arca.GitHub,EchelonFoundry.Arca.Limen",
       "authority": "registry-resolved-set",
-      "sourceReference": "nuget-feed:kemiller2002/arca@v0.7.0#sha256:dca9f0ebd2ab0edc1c2a7a5e902359df45d3a8b664d25b779a6f48cd4189b600"
+      "sourceReference": "nuget-feed:kemiller2002/arca@v0.7.1#sha256:2816bf4728ccd150b48593f5b496c46d9e25be97406f696fe65c62e27e16a27a"
     }
   ],
   "requirements": [],

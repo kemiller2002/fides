@@ -5,9 +5,9 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
 ## Repository status
 
 - Praxis governs the repository; Conditor installed the Echelon tooling and
-  the F# NuGet library scaffold (WI-0001, WI-0013). Since WI-0048
-  (2026-11-25) the pins are echelon-current 1.42.0: Praxis 3.25.0, Ordo
-  1.20.0, Dokimos 0.11.1 and Arca 0.7.0.
+  the F# NuGet library scaffold (WI-0001, WI-0013). Since WI-0049
+  (2026-11-26) the pins are echelon-current 1.43.0: Praxis 3.26.0, Ordo
+  1.20.0, Dokimos 0.11.1 and Arca 0.7.1.
 - Requirements, decisions and the dependency-ordered backlog are recorded
   (WI-0002): `docs/requirements/FIDES-REQUIREMENTS.md`,
   `docs/requirements/backlog-plan.md`, `research/decisions/`.
@@ -71,8 +71,8 @@ Fides is the common Echelon authentication and single sign-on (SSO) identity bou
   were found in the current code (READINESS-AND-GAP-REPORT.md section 3),
   and the owner accepted the six decisions it proposed
   (DF-FIDES-2026-0010..0015) on 2026-11-09.
-- Pins are current with echelon-current 1.42.0 (Praxis 3.25.0, Ordo
-  1.20.0, Dokimos 0.11.1, Arca 0.7.0; WI-0048). WI-0034's first step is
+- Pins are current with echelon-current 1.43.0 (Praxis 3.26.0, Ordo
+  1.20.0, Dokimos 0.11.1, Arca 0.7.1; WI-0049). WI-0034's first step is
   therefore done; its Dokimos requirement verification is still open.
 
 ## Active work
